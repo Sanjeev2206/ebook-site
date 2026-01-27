@@ -51,44 +51,34 @@
     </p>
   </div>
 </section>
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <script>
-  const isIndia = Intl.DateTimeFormat().resolvedOptions().timeZone.includes("Asia");
-
   document.getElementById("buyNow").onclick = function () {
 
-    if (isIndia) {
-      var options = {
-        "key": "rzp_test_S8twuKVpl0Q0FK",
-        "amount": "39900",
-        "currency": "INR",
-        "name": "Read for Speed",
-        "description": "Photo Reading eBook",
-        "redirect": false,
-        "handler": function (response){
+    var options = {
+      key: "rzp_test_S8twuKVpl0Q0FK",
+      amount: "39900",
+      currency: "INR",
+      name: "Read for Speed",
+      description: "Photo Reading eBook",
+      redirect: false,
 
-  // Auto-download ebook after payment
-  const link = document.createElement("a");
-  link.href = "read-for-speed-ebook.pdf";
-  link.download = "Read-for-Speed-eBook.pdf";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+      handler: function (response) {
+        alert("Payment successful! Your eBook will download now.");
+        window.location.href = "https://sanjeev2206.github.io/ebook-site/read-for-speed-ebook.pdf";
+      },
 
-  alert("Payment successful! Your eBook is downloading now.");
-},
+      theme: {
+        color: "#e52e71"
+      }
+    };
 
-        },
-        "theme": { "color": "#e52e71" }
-      };
-      var rzp = new Razorpay(options);
-      rzp.open();
-
-    } else {
-      window.location.href = "https://www.paypal.com/paypalme/YOURPAYPALID/9";
-    }
+    var rzp = new Razorpay(options);
+    rzp.open();
   };
+</script>
+
 </script>
 
 </body>
