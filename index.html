@@ -44,12 +44,40 @@
       <li>✔ Works on Any Device</li>
     </ul>
 
-    <button class="btn-primary">Buy Now</button>
+    <button class="btn-primary" id="buyNow">Buy Now</button>
 
     <p class="note">
       Secure payment • Instant download • Worldwide access
     </p>
   </div>
 </section>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+  const isIndia = Intl.DateTimeFormat().resolvedOptions().timeZone.includes("Asia");
+
+  document.getElementById("buyNow").onclick = function () {
+
+    if (isIndia) {
+      var options = {
+        "key": "rzp_test_S8twuKVpl0Q0FK",
+        "amount": "39900",
+        "currency": "INR",
+        "name": "Read for Speed",
+        "description": "Photo Reading eBook",
+        "handler": function (response){
+          alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+        },
+        "theme": { "color": "#e52e71" }
+      };
+      var rzp = new Razorpay(options);
+      rzp.open();
+
+    } else {
+      window.location.href = "https://www.paypal.com/paypalme/YOURPAYPALID/9";
+    }
+  };
+</script>
+
 </body>
 </html>
