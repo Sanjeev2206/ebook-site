@@ -170,3 +170,18 @@ section {
   color: #ff8a00;
   flex-shrink: 0;
 }
+/* Center text everywhere */
+section {
+  text-align: center;
+}
+
+/* Center lists properly */
+section ul {
+  display: inline-block;
+  text-align: left; /* keeps icon + text alignment clean */
+}
+
+/* Center Who section icons + text block */
+.who ul {
+  margin: 0 auto;
+}
