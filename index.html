@@ -1,97 +1,126 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Read for Speed – Photo Reading eBook</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+/* BODY */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #0f2027;
+  color: #ffffff;
+  line-height: 1.6;
+}
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
+/* HERO OVERLAY */
+.hero-overlay {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  overflow: hidden;
+}
 
-<body>
+/* Background Image */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
 
-  <!-- HERO WITH IMAGE BACKGROUND -->
-  <section class="hero hero-overlay">
+/* Dark overlay */
+.hero-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(15, 32, 39, 0.92) 35%,
+    rgba(15, 32, 39, 0.55) 65%
+  );
+  z-index: 2;
+}
 
-    <img src="assets/images/hero-reading.png" alt="Reading fast" class="hero-bg">
+/* Hero Content */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 650px;
+}
 
-    <div class="hero-content">
-      <h1>
-        Read <span>10× Faster.</span><br>
-        Remember More.<br>
-        Stress Less.
-      </h1>
+.hero-content h1 {
+  font-size: clamp(2.8rem, 5vw, 3.8rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+}
 
-      <p class="subtitle">
-        A brain-based Photo Reading system for students, researchers, and professionals.
-      </p>
+.hero-content h1 span {
+  color: #ff9f1c;
+}
 
-      <a href="#buy" class="btn-primary">Get the eBook</a>
-    </div>
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  margin-bottom: 35px;
+}
 
-  </section>
+/* BUTTON */
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  color: #fff;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  border-radius: 40px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-  <!-- WHO -->
-  <section class="who">
-    <h2>Who Is This For?</h2>
-    <ul>
-      <li>Students & Researchers</li>
-      <li>Competitive Exam Aspirants</li>
-      <li>Professionals with limited time</li>
-    </ul>
-  </section>
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
 
-  <!-- AUTHOR -->
-  <section class="author">
-    <h2>About the Author</h2>
-    <p>
-      <strong>Sanjeev Singh</strong> is a PhD scholar working in missionary history.
-      He has devoted over <strong>10 years</strong> to the study and development
-      of Photo Reading and advanced learning methods.
-    </p>
-  </section>
+/* SECTIONS */
+section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 20px;
+}
 
-  <!-- PRICING -->
-  <section id="buy" class="pricing">
-    <h2>Get Instant Access</h2>
+.who, .author, .pricing {
+  text-align: center;
+}
 
-    <div class="price-box">
-      <p class="price">₹399 <span>/ $9</span></p>
+.price-box {
+  background: rgba(255,255,255,0.12);
+  padding: 40px;
+  border-radius: 25px;
+  max-width: 420px;
+  margin: auto;
+}
 
-      <ul>
-        <li>Complete Photo Reading System</li>
-        <li>Read Books, PDFs & Notes Faster</li>
-        <li>Lifetime Digital Access</li>
-        <li>Works on Any Device</li>
-      </ul>
+.price {
+  font-size: 3rem;
+  font-weight: bold;
+}
 
-      <button class="btn-primary" id="buyNow">Buy Now</button>
+/* MOBILE */
+@media (max-width: 900px) {
+  .hero-overlay {
+    padding: 0 20px;
+  }
 
-      <p class="note">🔒 Secure payment • 📥 Instant download • 🌍 Worldwide access</p>
-    </div>
-  </section>
+  .hero-content {
+    text-align: center;
+  }
 
-  <!-- Razorpay -->
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-  <script>
-    document.getElementById("buyNow").onclick = function () {
-      new Razorpay({
-        key: "rzp_test_S8twuKVpl0Q0FK",
-        amount: "39900",
-        currency: "INR",
-        name: "Read for Speed",
-        description: "Photo Reading eBook",
-        handler: function () {
-          window.location.href =
-            "https://sanjeev2206.github.io/ebook-site/read-for-speed-ebook.pdf";
-        }
-      }).open();
-    };
-  </script>
-
-</body>
-</html>
+  .hero-overlay::before {
+    background: rgba(15, 32, 39, 0.85);
+  }
+}
