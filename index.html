@@ -1,126 +1,48 @@
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Read for Speed – Photo Reading eBook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* BODY */
-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background: #0f2027;
-  color: #ffffff;
-  line-height: 1.6;
-}
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
 
-/* HERO OVERLAY */
-.hero-overlay {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 0 8%;
-  overflow: hidden;
-}
+<body>
 
-/* Background Image */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
+  <!-- HERO -->
+  <section class="hero">
 
-/* Dark overlay */
-.hero-overlay::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(15, 32, 39, 0.92) 35%,
-    rgba(15, 32, 39, 0.55) 65%
-  );
-  z-index: 2;
-}
+    <div class="hero-content">
+      <h1>
+        Read <span>10× Faster.</span><br>
+        Remember More.<br>
+        Stress Less.
+      </h1>
 
-/* Hero Content */
-.hero-content {
-  position: relative;
-  z-index: 3;
-  max-width: 650px;
-}
+      <p>
+        A brain-based Photo Reading system for students, researchers, and professionals.
+      </p>
 
-.hero-content h1 {
-  font-size: clamp(2.8rem, 5vw, 3.8rem);
-  font-weight: 800;
-  margin-bottom: 20px;
-}
+      <a href="#buy" class="btn-primary">Get the eBook</a>
+    </div>
 
-.hero-content h1 span {
-  color: #ff9f1c;
-}
+    <div class="hero-image">
+      <img src="assets/images/hero-reading.png" alt="Young professional reading">
+    </div>
 
-.subtitle {
-  font-size: 1.2rem;
-  opacity: 0.95;
-  margin-bottom: 35px;
-}
+  </section>
 
-/* BUTTON */
-.btn-primary {
-  display: inline-block;
-  background: linear-gradient(90deg, #ff8a00, #e52e71);
-  color: #fff;
-  padding: 16px 40px;
-  font-size: 1.1rem;
-  border-radius: 40px;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+  <!-- PRICING -->
+  <section id="buy" class="pricing">
+    <h2>Get Instant Access</h2>
 
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
-}
+    <div class="price-box">
+      <p class="price">₹399</p>
+      <button class="btn-primary">Buy Now</button>
+    </div>
+  </section>
 
-/* SECTIONS */
-section {
-  max-width: 1100px;
-  margin: auto;
-  padding: 80px 20px;
-}
-
-.who, .author, .pricing {
-  text-align: center;
-}
-
-.price-box {
-  background: rgba(255,255,255,0.12);
-  padding: 40px;
-  border-radius: 25px;
-  max-width: 420px;
-  margin: auto;
-}
-
-.price {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-/* MOBILE */
-@media (max-width: 900px) {
-  .hero-overlay {
-    padding: 0 20px;
-  }
-
-  .hero-content {
-    text-align: center;
-  }
-
-  .hero-overlay::before {
-    background: rgba(15, 32, 39, 0.85);
-  }
-}
+</body>
+</html>
