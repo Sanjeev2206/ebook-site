@@ -8,7 +8,7 @@
 /* Body */
 body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #0f2027); background-size: 400% 400%; animation: bgMove 18s ease infinite;
   color: #ffffff;
   line-height: 1.6;
 }
@@ -140,4 +140,9 @@ section {
   margin-top: 18px;
   font-size: 0.9rem;
   opacity: 0.8;
+}
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
