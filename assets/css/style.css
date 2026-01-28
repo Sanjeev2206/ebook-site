@@ -185,3 +185,13 @@ section ul {
 .who ul {
   margin: 0 auto;
 }
+/* Prevent first-load layout jump */
+[data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Lock hero height */
+.hero {
+  min-height: 100vh;
+}
