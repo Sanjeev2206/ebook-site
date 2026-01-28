@@ -14,21 +14,23 @@
 
 <body>
 
-  <!-- HERO -->
-  <section class="hero hero-layout">
+  <!-- HERO WITH IMAGE BACKGROUND -->
+  <section class="hero hero-overlay">
 
-    <div class="hero-text">
-      <h1>Read 10× Faster. Remember More. Stress Less.</h1>
+    <img src="assets/images/hero-reading.png" alt="Reading fast" class="hero-bg">
+
+    <div class="hero-content">
+      <h1>
+        Read <span>10× Faster.</span><br>
+        Remember More.<br>
+        Stress Less.
+      </h1>
 
       <p class="subtitle">
         A brain-based Photo Reading system for students, researchers, and professionals.
       </p>
 
       <a href="#buy" class="btn-primary">Get the eBook</a>
-    </div>
-
-    <div class="hero-image">
-      <img src="assets/images/hero-reading.png" alt="Young professional reading fast">
     </div>
 
   </section>
@@ -48,8 +50,8 @@
     <h2>About the Author</h2>
     <p>
       <strong>Sanjeev Singh</strong> is a PhD scholar working in missionary history.
-      He has devoted over <strong>10 years</strong> to the study and development of
-      Photo Reading and advanced learning methods.
+      He has devoted over <strong>10 years</strong> to the study and development
+      of Photo Reading and advanced learning methods.
     </p>
   </section>
 
@@ -77,7 +79,7 @@
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script>
     document.getElementById("buyNow").onclick = function () {
-      var options = {
+      new Razorpay({
         key: "rzp_test_S8twuKVpl0Q0FK",
         amount: "39900",
         currency: "INR",
@@ -86,17 +88,8 @@
         handler: function () {
           window.location.href =
             "https://sanjeev2206.github.io/ebook-site/read-for-speed-ebook.pdf";
-        },
-        theme: { color: "#ff8a00" }
-      };
-      new Razorpay(options).open();
-    };
-  </script>
-
-  <!-- Force page to open at top -->
-  <script>
-    window.onload = function () {
-      window.scrollTo(0, 0);
+        }
+      }).open();
     };
   </script>
 
