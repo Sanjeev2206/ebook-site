@@ -8,7 +8,8 @@
 /* Body */
 body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #0f2027); background-size: 400% 400%; animation: bgMove 18s ease infinite;
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #0f2027); background-size: 400% 400%;
+  animation: bgMove 18s ease infinite; animation-delay: 1.5s;
   color: #ffffff;
   line-height: 1.6;
 }
