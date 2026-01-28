@@ -158,3 +158,15 @@ section {
   color: #ff8a00;
   flex-shrink: 0;
 }
+.who ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.who ul li svg {
+  width: 18px;
+  height: 18px;
+  color: #ff8a00;
+  flex-shrink: 0;
+}
