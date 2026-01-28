@@ -142,10 +142,6 @@ section {
   font-size: 0.9rem;
   opacity: 0.8;
 }
-@keyframes bgMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 .price-box ul li {
   display: flex;
@@ -187,9 +183,7 @@ section ul {
   margin: 0 auto;
 }
 /* Prevent first-load layout jump */
-[data-aos] {
-  opacity: 1 !important;
-  transform: none !important;
+
 }
 
 /* Lock hero height */
