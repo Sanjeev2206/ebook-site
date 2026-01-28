@@ -1,33 +1,53 @@
-/* Global Reset */
+/* =========================
+   GLOBAL RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body */
+/* =========================
+   BODY
+========================= */
 body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #0f2027);
-  background-size: 400% 400%;
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
   color: #ffffff;
   line-height: 1.6;
 }
 
-/* Sections */
+/* =========================
+   SECTIONS
+========================= */
 section {
-  max-width: 900px;
+  max-width: 1100px;
   margin: auto;
-  padding: 70px 20px;
-  text-align: center;
+  padding: 80px 20px;
 }
 
-/* Hero */
+/* =========================
+   HERO (TEXT + IMAGE)
+========================= */
 .hero {
   min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
-.hero h1 {
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Hero Text */
+.hero-text {
+  text-align: left;
+}
+
+.hero-text h1 {
   font-size: clamp(2.6rem, 5vw, 3.6rem);
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -40,7 +60,19 @@ section {
   margin-bottom: 40px;
 }
 
-/* Buttons */
+/* Hero Image */
+.hero-image img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================
+   BUTTONS
+========================= */
 .btn-primary {
   display: inline-block;
   background: linear-gradient(90deg, #ff8a00, #e52e71);
@@ -56,10 +88,16 @@ section {
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* Who section */
+/* =========================
+   WHO SECTION
+========================= */
+.who {
+  text-align: center;
+}
+
 .who h2 {
   font-size: 2rem;
   margin-bottom: 25px;
@@ -68,55 +106,39 @@ section {
 .who ul {
   list-style: none;
   font-size: 1.1rem;
-  margin: 0 auto;
-  display: inline-block;
-  text-align: left;
 }
 
 .who li {
-  margin: 15px 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  margin: 12px 0;
 }
 
-.who li svg {
-  width: 18px;
-  height: 18px;
-  color: #ff8a00;
-  flex-shrink: 0;
-}
-
-/* Author */
+/* =========================
+   AUTHOR
+========================= */
 .author {
-  font-size: 1rem;
-  opacity: 0.85;
-}
-
-/* CTA */
-.cta {
-  background: rgba(255,255,255,0.08);
-  border-radius: 20px;
-}
-
-.cta h2 {
-  font-size: 2.2rem;
-  margin-bottom: 15px;
-}
-
-.cta p {
-  margin-bottom: 25px;
+  text-align: center;
   opacity: 0.9;
 }
 
-/* Pricing */
+.author p {
+  max-width: 700px;
+  margin: auto;
+}
+
+/* =========================
+   PRICING
+========================= */
+.pricing {
+  text-align: center;
+}
+
 .pricing h2 {
   font-size: 2.4rem;
   margin-bottom: 30px;
 }
 
 .price-box {
-  background: rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 25px;
   padding: 40px 30px;
   max-width: 420px;
@@ -142,16 +164,6 @@ section {
 .price-box li {
   margin: 12px 0;
   font-size: 1.05rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.price-box li svg {
-  width: 18px;
-  height: 18px;
-  color: #ff8a00;
-  flex-shrink: 0;
 }
 
 .note {
@@ -160,10 +172,22 @@ section {
   opacity: 0.8;
 }
 
-/* Mobile Responsive */
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2.2rem;
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 120px;
   }
 
   .subtitle {
