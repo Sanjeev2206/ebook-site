@@ -1,35 +1,54 @@
-/* RESET */
+/* =========================
+   RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* BODY */
+/* =========================
+   BODY
+========================= */
 body {
   font-family: 'Inter', system-ui, sans-serif;
   background: #0f2027;
   color: #ffffff;
+  line-height: 1.6;
 }
 
-/* HERO LAYOUT */
+/* =========================
+   HERO (IMAGE + TEXT ON TOP)
+========================= */
 .hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  padding: 0 6%;
-  gap: 40px;
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  overflow: hidden;
 }
 
-/* TEXT */
+/* Hero image */
+.hero-image img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 90%;
+  max-width: 50%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+/* Hero text */
 .hero-content {
+  position: relative;
   z-index: 2;
+  max-width: 600px;
 }
 
 .hero-content h1 {
-  font-size: clamp(2.5rem, 5vw, 3.6rem);
+  font-size: clamp(2.6rem, 5vw, 3.6rem);
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 20px;
@@ -40,56 +59,78 @@ body {
 }
 
 .hero-content p {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   opacity: 0.9;
   margin-bottom: 35px;
 }
 
-/* BUTTON */
+/* =========================
+   BUTTON
+========================= */
 .btn-primary {
-  background: linear-gradient(90deg, #ff8a00, #e52e71);
-  padding: 15px 38px;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 40px;
-  font-weight: 600;
   display: inline-block;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  color: #ffffff;
+  padding: 16px 40px;
+  font-size: 1.1rem;
+  border-radius: 40px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* IMAGE */
-.hero-image {
-  display: flex;
-  justify-content: center;
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
 }
 
-.hero-image img {
-  width: 100%;
-  max-width: 420px;   /* 👈 THIS controls image size */
-  height: auto;
-  border-radius: 18px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-}
-
-/* PRICING */
-.pricing {
-  text-align: center;
+/* =========================
+   SECTIONS
+========================= */
+section {
+  max-width: 1100px;
+  margin: auto;
   padding: 80px 20px;
 }
 
-.price {
-  font-size: 2.5rem;
+.who,
+.author,
+.pricing {
+  text-align: center;
 }
 
-/* MOBILE */
+/* =========================
+   PRICING
+========================= */
+.price-box {
+  background: rgba(255, 255, 255, 0.12);
+  padding: 40px;
+  border-radius: 25px;
+  max-width: 420px;
+  margin: auto;
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 900px) {
   .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-    padding-top: 120px;
+    padding: 120px 20px 40px;
   }
 
   .hero-image img {
-    max-width: 300px;
-    margin-top: 40px;
+    position: static;
+    max-width: 320px;
+    height: auto;
+    margin: 40px auto 0;
+    display: block;
+  }
+
+  .hero-content {
+    text-align: center;
   }
 }
