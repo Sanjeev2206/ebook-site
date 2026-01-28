@@ -1,78 +1,75 @@
-/* =========================
-   GLOBAL RESET
-========================= */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* =========================
-   BODY
-========================= */
+/* BODY */
 body {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364);
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #0f2027;
   color: #ffffff;
   line-height: 1.6;
 }
 
-/* =========================
-   SECTIONS
-========================= */
-section {
-  max-width: 1100px;
-  margin: auto;
-  padding: 80px 20px;
-}
-
-/* =========================
-   HERO (TEXT + IMAGE)
-========================= */
-.hero {
+/* HERO OVERLAY */
+.hero-overlay {
+  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
+  padding: 0 8%;
+  overflow: hidden;
 }
 
-.hero-layout {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 50px;
-  align-items: center;
+/* Background Image */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
 
-/* Hero Text */
-.hero-text {
-  text-align: left;
+/* Dark overlay */
+.hero-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(15, 32, 39, 0.92) 35%,
+    rgba(15, 32, 39, 0.55) 65%
+  );
+  z-index: 2;
 }
 
-.hero-text h1 {
-  font-size: clamp(2.6rem, 5vw, 3.6rem);
+/* Hero Content */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 650px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.8rem, 5vw, 3.8rem);
   font-weight: 800;
-  letter-spacing: -0.02em;
   margin-bottom: 20px;
 }
 
+.hero-content h1 span {
+  color: #ff9f1c;
+}
+
 .subtitle {
-  font-size: 1.3rem;
-  opacity: 0.9;
-  margin-bottom: 40px;
+  font-size: 1.2rem;
+  opacity: 0.95;
+  margin-bottom: 35px;
 }
 
-/* Hero Image */
-.hero-image img {
-  width: 100%;
-  max-width: 480px;
-  height: auto;
-  display: block;
-  border-radius: 20px;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
-}
-
-/* =========================
-   BUTTONS
-========================= */
+/* BUTTON */
 .btn-primary {
   display: inline-block;
   background: linear-gradient(90deg, #ff8a00, #e52e71);
@@ -81,66 +78,29 @@ section {
   font-size: 1.1rem;
   border-radius: 40px;
   text-decoration: none;
-  border: none;
-  cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.4);
 }
 
-/* =========================
-   WHO SECTION
-========================= */
-.who {
-  text-align: center;
-}
-
-.who h2 {
-  font-size: 2rem;
-  margin-bottom: 25px;
-}
-
-.who ul {
-  list-style: none;
-  font-size: 1.1rem;
-}
-
-.who li {
-  margin: 12px 0;
-}
-
-/* =========================
-   AUTHOR
-========================= */
-.author {
-  text-align: center;
-  opacity: 0.9;
-}
-
-.author p {
-  max-width: 700px;
+/* SECTIONS */
+section {
+  max-width: 1100px;
   margin: auto;
+  padding: 80px 20px;
 }
 
-/* =========================
-   PRICING
-========================= */
-.pricing {
+.who, .author, .pricing {
   text-align: center;
-}
-
-.pricing h2 {
-  font-size: 2.4rem;
-  margin-bottom: 30px;
 }
 
 .price-box {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255,255,255,0.12);
+  padding: 40px;
   border-radius: 25px;
-  padding: 40px 30px;
   max-width: 420px;
   margin: auto;
 }
@@ -148,49 +108,20 @@ section {
 .price {
   font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 20px;
 }
 
-.price span {
-  font-size: 1.2rem;
-  opacity: 0.8;
-}
-
-.price-box ul {
-  list-style: none;
-  margin: 25px 0;
-}
-
-.price-box li {
-  margin: 12px 0;
-  font-size: 1.05rem;
-}
-
-.note {
-  margin-top: 18px;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-/* =========================
-   MOBILE RESPONSIVE
-========================= */
+/* MOBILE */
 @media (max-width: 900px) {
-  .hero-layout {
-    grid-template-columns: 1fr;
+  .hero-overlay {
+    padding: 0 20px;
+  }
+
+  .hero-content {
     text-align: center;
   }
 
-  .hero-text {
-    text-align: center;
-  }
-
-  .hero {
-    min-height: auto;
-    padding-top: 120px;
-  }
-
-  .subtitle {
-    font-size: 1.1rem;
+  .hero-overlay::before {
+    background: rgba(15, 32, 39, 0.85);
   }
 }
+
