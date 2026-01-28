@@ -7,7 +7,7 @@
 
 /* Body */
 body {
-  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: #ffffff;
   line-height: 1.6;
