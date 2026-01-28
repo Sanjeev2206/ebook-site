@@ -1,103 +1,118 @@
 <!DOCTYPE html>
-<html lang="en" style="scroll-behavior:auto; scroll-padding-top:0; overflow-anchor:none;">
- 
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Read for Speed – Photo Reading eBook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
- 
- <link rel="stylesheet" href="assets/css/style.css">
 
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
- </head>
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
 <body>
 
+  <!-- HERO -->
   <section class="hero">
     <h1>Read 10× Faster. Remember More. Stress Less.</h1>
+
     <p class="subtitle">
       A brain-based Photo Reading system for students, researchers, and professionals.
     </p>
-    <a href="javascript:void(0)" class="btn-primary" onclick="document.getElementById('buy').scrollIntoView({behavior:'smooth'})">Get the eBook</a>
+
+    <a href="#buy" class="btn-primary">
+      Get the eBook
+    </a>
   </section>
 
- <section class="who">
-  <h2>Who Is This For?</h2>
-  <ul>
-    <li><i data-feather="users"></i> Students & Researchers</li>
-    <li><i data-feather="target"></i> Competitive Exam Aspirants</li>
-    <li><i data-feather="clock"></i> Professionals with limited time</li>
-  </ul>
-</section>
+  <!-- WHO -->
+  <section class="who">
+    <h2>Who Is This For?</h2>
+    <ul>
+      <li><i data-feather="users"></i> Students & Researchers</li>
+      <li><i data-feather="target"></i> Competitive Exam Aspirants</li>
+      <li><i data-feather="clock"></i> Professionals with limited time</li>
+    </ul>
+  </section>
 
-
+  <!-- AUTHOR -->
   <section class="author">
     <h2>About the Author</h2>
-  <p>
-    <strong>Sanjeev Singh</strong> is a PhD scholar working in <strong>missionary history</strong>.
-    He has devoted over <strong>10 years</strong> to the study and development of Photo Reading and advanced learning methods.
-  </p>
+    <p>
+      <strong>Sanjeev Singh</strong> is a PhD scholar working in
+      <strong>missionary history</strong>.
+      He has devoted over <strong>10 years</strong> to the study and development
+      of Photo Reading and advanced learning methods.
+    </p>
   </section>
 
+  <!-- PRICING -->
   <section id="buy" class="pricing">
-  <h2>Get Instant Access</h2>
+    <h2>Get Instant Access</h2>
 
-  <div class="price-box">
-    <p class="price">
-      ₹399 <span>/ $9</span>
-    </p>
+    <div class="price-box">
+      <p class="price">
+        ₹399 <span>/ $9</span>
+      </p>
 
-    <ul>
-      <li><i data-feather="zap"></i> Complete Photo Reading System</li>
-      <li><i data-feather="book-open"></i> Read Books, PDFs & Notes Faster</li>
-      <li><i data-feather="infinity"></i> Lifetime Digital Access</li>
-      <li><i data-feather="smartphone"></i> Works on Any Device</li>
+      <ul>
+        <li><i data-feather="zap"></i> Complete Photo Reading System</li>
+        <li><i data-feather="book-open"></i> Read Books, PDFs & Notes Faster</li>
+        <li><i data-feather="infinity"></i> Lifetime Digital Access</li>
+        <li><i data-feather="smartphone"></i> Works on Any Device</li>
+      </ul>
 
-    </ul>
+      <button class="btn-primary" id="buyNow">
+        Buy Now
+      </button>
 
-    <button class="btn-primary" id="buyNow">Buy Now</button>
+      <p class="note">
+        🔒 Secure payment • 📥 Instant download • 🌍 Worldwide access
+      </p>
+    </div>
+  </section>
 
-    <p class="note">
-  🔒 Secure payment • 📥 Instant download • 🌍 Worldwide access
-</p>
+  <!-- Razorpay -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    document.getElementById("buyNow").onclick = function () {
+      var options = {
+        key: "rzp_test_S8twuKVpl0Q0FK",
+        amount: "39900",
+        currency: "INR",
+        name: "Read for Speed",
+        description: "Photo Reading eBook",
 
-  </div>
-</section>
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        handler: function () {
+          alert("Payment successful! Your eBook will download now.");
+          window.location.href =
+            "https://sanjeev2206.github.io/ebook-site/read-for-speed-ebook.pdf";
+        },
 
-<script>
-  document.getElementById("buyNow").onclick = function () {
+        theme: {
+          color: "#e52e71"
+        }
+      };
 
-    var options = {
-      key: "rzp_test_S8twuKVpl0Q0FK",
-      amount: "39900",
-      currency: "INR",
-      name: "Read for Speed",
-      description: "Photo Reading eBook",
-      redirect: false,
-
-      handler: function (response) {
-        alert("Payment successful! Your eBook will download now.");
-        window.location.href = "https://sanjeev2206.github.io/ebook-site/read-for-speed-ebook.pdf";
-      },
-
-      theme: {
-        color: "#e52e71"
-      }
+      var rzp = new Razorpay(options);
+      rzp.open();
     };
+  </script>
 
-    var rzp = new Razorpay(options);
-    rzp.open();
-  };
-</script>
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script>
+    feather.replace();
+  </script>
 
-
-<script src="https://unpkg.com/feather-icons"></script>
-<script>
-  feather.replace();
-</script>
-
-
+  <!-- FORCE PAGE TO OPEN AT TOP -->
+  <script>
+    window.onload = function () {
+      window.scrollTo(0, 0);
+    };
+  </script>
 
 </body>
 </html>
