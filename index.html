@@ -24,9 +24,7 @@
         A brain-based Photo Reading system for students, researchers, and professionals.
       </p>
 
-      <a href="#buy" class="btn-primary">
-        Get the eBook
-      </a>
+      <a href="#buy" class="btn-primary">Get the eBook</a>
     </div>
 
     <div class="hero-image">
@@ -39,9 +37,9 @@
   <section class="who">
     <h2>Who Is This For?</h2>
     <ul>
-      <li><i data-feather="users"></i> Students & Researchers</li>
-      <li><i data-feather="target"></i> Competitive Exam Aspirants</li>
-      <li><i data-feather="clock"></i> Professionals with limited time</li>
+      <li>Students & Researchers</li>
+      <li>Competitive Exam Aspirants</li>
+      <li>Professionals with limited time</li>
     </ul>
   </section>
 
@@ -49,10 +47,9 @@
   <section class="author">
     <h2>About the Author</h2>
     <p>
-      <strong>Sanjeev Singh</strong> is a PhD scholar working in
-      <strong>missionary history</strong>.
-      He has devoted over <strong>10 years</strong> to the study and development
-      of Photo Reading and advanced learning methods.
+      <strong>Sanjeev Singh</strong> is a PhD scholar working in missionary history.
+      He has devoted over <strong>10 years</strong> to the study and development of
+      Photo Reading and advanced learning methods.
     </p>
   </section>
 
@@ -61,24 +58,18 @@
     <h2>Get Instant Access</h2>
 
     <div class="price-box">
-      <p class="price">
-        ₹399 <span>/ $9</span>
-      </p>
+      <p class="price">₹399 <span>/ $9</span></p>
 
       <ul>
-        <li><i data-feather="zap"></i> Complete Photo Reading System</li>
-        <li><i data-feather="book-open"></i> Read Books, PDFs & Notes Faster</li>
-        <li><i data-feather="infinity"></i> Lifetime Digital Access</li>
-        <li><i data-feather="smartphone"></i> Works on Any Device</li>
+        <li>Complete Photo Reading System</li>
+        <li>Read Books, PDFs & Notes Faster</li>
+        <li>Lifetime Digital Access</li>
+        <li>Works on Any Device</li>
       </ul>
 
-      <button class="btn-primary" id="buyNow">
-        Buy Now
-      </button>
+      <button class="btn-primary" id="buyNow">Buy Now</button>
 
-      <p class="note">
-        🔒 Secure payment • 📥 Instant download • 🌍 Worldwide access
-      </p>
+      <p class="note">🔒 Secure payment • 📥 Instant download • 🌍 Worldwide access</p>
     </div>
   </section>
 
@@ -92,30 +83,17 @@
         currency: "INR",
         name: "Read for Speed",
         description: "Photo Reading eBook",
-
         handler: function () {
-          alert("Payment successful! Your eBook will download now.");
           window.location.href =
             "https://sanjeev2206.github.io/ebook-site/read-for-speed-ebook.pdf";
         },
-
-        theme: {
-          color: "#e52e71"
-        }
+        theme: { color: "#ff8a00" }
       };
-
-      var rzp = new Razorpay(options);
-      rzp.open();
+      new Razorpay(options).open();
     };
   </script>
 
-  <!-- Feather Icons -->
-  <script src="https://unpkg.com/feather-icons"></script>
-  <script>
-    feather.replace();
-  </script>
-
-  <!-- FORCE PAGE TO OPEN AT TOP -->
+  <!-- Force page to open at top -->
   <script>
     window.onload = function () {
       window.scrollTo(0, 0);
