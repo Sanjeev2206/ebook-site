@@ -8,8 +8,8 @@
 /* Body */
 body {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #0f2027); background-size: 400% 400%;
-  animation: none;
+  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #0f2027);
+  background-size: 400% 400%;
   color: #ffffff;
   line-height: 1.6;
 }
@@ -23,6 +23,10 @@ section {
 }
 
 /* Hero */
+.hero {
+  min-height: 100vh;
+}
+
 .hero h1 {
   font-size: clamp(2.6rem, 5vw, 3.6rem);
   font-weight: 800;
@@ -64,10 +68,23 @@ section {
 .who ul {
   list-style: none;
   font-size: 1.1rem;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: left;
 }
 
 .who li {
   margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.who li svg {
+  width: 18px;
+  height: 18px;
+  color: #ff8a00;
+  flex-shrink: 0;
 }
 
 /* Author */
@@ -92,16 +109,6 @@ section {
   opacity: 0.9;
 }
 
-/* Mobile Responsive */
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .subtitle {
-    font-size: 1.1rem;
-  }
-}
 /* Pricing */
 .pricing h2 {
   font-size: 2.4rem;
@@ -135,6 +142,16 @@ section {
 .price-box li {
   margin: 12px 0;
   font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.price-box li svg {
+  width: 18px;
+  height: 18px;
+  color: #ff8a00;
+  flex-shrink: 0;
 }
 
 .note {
@@ -142,51 +159,14 @@ section {
   font-size: 0.9rem;
   opacity: 0.8;
 }
-}
-.price-box ul li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
 
-.price-box ul li svg {
-  width: 18px;
-  height: 18px;
-  color: #ff8a00;
-  flex-shrink: 0;
-}
-.who ul li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
 
-.who ul li svg {
-  width: 18px;
-  height: 18px;
-  color: #ff8a00;
-  flex-shrink: 0;
-}
-/* Center text everywhere */
-section {
-  text-align: center;
-}
-
-/* Center lists properly */
-section ul {
-  display: inline-block;
-  text-align: left; /* keeps icon + text alignment clean */
-}
-
-/* Center Who section icons + text block */
-.who ul {
-  margin: 0 auto;
-}
-/* Prevent first-load layout jump */
-
-}
-
-/* Lock hero height */
-.hero {
-  min-height: 100vh;
+  .subtitle {
+    font-size: 1.1rem;
+  }
 }
