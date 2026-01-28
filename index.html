@@ -27,7 +27,7 @@
 <body style="overflow:hidden">
 
   <section class="hero">
-    <h1 data-aos="fade-up">Read 10× Faster. Remember More. Stress Less.</h1>
+    <h1>Read 10× Faster. Remember More. Stress Less.</h1>
     <p class="subtitle">
       A brain-based Photo Reading system for students, researchers, and professionals.
     </p>
@@ -117,6 +117,11 @@
     once: true,
     easing: 'ease-out-cubic'
   });
+</script>
+<script>
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
 </script>
 
 </body>
