@@ -327,3 +327,33 @@ section {
   opacity: 0.75;
   max-width: 720px;
 }
+/* =========================
+   ACCESSIBILITY POLISH
+========================= */
+
+/* Visible keyboard focus (WCAG) */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #ff9f1c;
+  outline-offset: 4px;
+}
+
+/* Improve contrast for small text */
+.subtitle,
+.footer-text,
+.footer-note,
+.micro-copy {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Improve summary focus & click clarity */
+.faq-item summary {
+  line-height: 1.4;
+}
+
+/* Ensure clickable elements are obvious */
+button,
+summary {
+  cursor: pointer;
+}
