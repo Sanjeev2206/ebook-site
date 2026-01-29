@@ -205,3 +205,55 @@ section {
     padding: 70px 20px;
   }
 }
+/* =========================
+   FOOTER (ELITE)
+========================= */
+.site-footer {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 60px 20px;
+  margin-top: 120px;
+}
+
+.footer-inner {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.footer-brand {
+  font-size: 0.95rem;
+  font-weight: 600;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+.footer-text {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-bottom: 22px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  margin-bottom: 18px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.footer-note {
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
