@@ -392,3 +392,32 @@ summary {
   opacity: 0.65;
   text-align: center;
 }
+/* =========================
+   WHAT YOU GET (CENTER FIX)
+========================= */
+.what-you-get {
+  text-align: center;
+}
+
+.what-details {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.what-details summary {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+  margin: 0 auto 24px;
+}
+
+.what-details summary::after {
+  content: " +";
+  opacity: 0.6;
+}
+
+.what-details[open] summary::after {
+  content: " –";
+}
