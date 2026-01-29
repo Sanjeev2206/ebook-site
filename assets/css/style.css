@@ -364,3 +364,24 @@ summary {
   opacity: 0.6;
   text-align: center;
 }
+/* =========================
+   PRICING ALIGNMENT FIX
+========================= */
+
+/* Center everything inside price box consistently */
+.price-box {
+  text-align: center;
+}
+
+/* Refund note alignment fix */
+.refund-note {
+  max-width: 320px;
+  margin: 14px auto 0;
+  text-align: center;
+}
+
+/* Trust line spacing balance */
+.price-box .trust-line {
+  margin-top: 18px;
+  justify-content: center;
+}
