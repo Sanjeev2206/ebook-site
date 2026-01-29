@@ -257,3 +257,38 @@ section {
   font-size: 0.75rem;
   opacity: 0.6;
 }
+/* =========================
+   FAQ (ELITE)
+========================= */
+.faq {
+  max-width: 820px;
+  margin: auto;
+  padding: 90px 20px;
+}
+
+.faq h2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 26px 0;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-item h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  opacity: 0.95;
+}
+
+.faq-item p {
+  font-size: 0.95rem;
+  opacity: 0.75;
+  max-width: 720px;
+}
