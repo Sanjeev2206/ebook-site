@@ -357,3 +357,10 @@ button,
 summary {
   cursor: pointer;
 }
+/* Refund clarity */
+.refund-note {
+  margin-top: 14px;
+  font-size: 0.75rem;
+  opacity: 0.6;
+  text-align: center;
+}
