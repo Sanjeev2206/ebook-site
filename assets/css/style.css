@@ -385,3 +385,10 @@ summary {
   margin-top: 18px;
   justify-content: center;
 }
+/* Payment legitimacy note */
+.payment-note {
+  margin-top: 10px;
+  font-size: 0.75rem;
+  opacity: 0.65;
+  text-align: center;
+}
