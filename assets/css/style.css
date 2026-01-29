@@ -7,8 +7,8 @@
 
 /* BODY */
 body {
-  font-family: 'Inter', system-ui, sans-serif;
-  background: #0f2027;
+  font-family: 'Inter', sans-serif;
+  background: #0b1c24;
   color: #ffffff;
   line-height: 1.6;
 }
@@ -24,10 +24,12 @@ body {
 }
 
 .hero-content h1 {
-  font-size: clamp(2.5rem, 5vw, 3.6rem);
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 20px;
+ font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 5vw, 3.8rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin-bottom: 22px;
 }
 
 .hero-content h1 span {
@@ -48,13 +50,14 @@ body {
 
 /* BUTTON */
 .btn-primary {
-  background: linear-gradient(90deg, #ff8a00, #e52e71);
-  color: #fff;
-  padding: 16px 38px;
-  border-radius: 40px;
+ background: #ff9f1c;
+  color: #0b1c24;
+  padding: 16px 42px;
+  border-radius: 999px;
   text-decoration: none;
   display: inline-block;
   font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* IMAGE */
@@ -62,7 +65,8 @@ body {
   width: 100%;
   max-width: 420px;
   border-radius: 18px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+  filter: contrast(1.05) saturate(0.9);
 }
 
 /* SECTIONS */
