@@ -146,3 +146,35 @@ section {
     padding: 60px 20px;
   }
 }
+.trust-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.trust-line.small {
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  background: #ff9f1c;
+  border-radius: 50%;
+}
+
+.elite-list {
+  list-style: none;
+  max-width: 700px;
+  margin: 30px auto 0;
+}
+
+.elite-list li {
+  margin: 14px 0;
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
