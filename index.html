@@ -21,9 +21,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-
   <!-- Elite UX -->
   <style>
     html {
@@ -34,9 +31,10 @@
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       color: #1f2933;
       font-size: 1rem;
-      background: #f8f9fb; /* ✅ elite off-white */
+      background: #f8f9fb;
     }
 
+    /* NAV */
     .top-nav {
       position: fixed;
       top: 0;
@@ -53,15 +51,10 @@
     }
 
     .top-nav a {
-      font-family: Inter, sans-serif;
       font-size: 0.9rem;
       font-weight: 500;
       text-decoration: none;
       color: #222;
-    }
-
-    .top-nav a:hover {
-      text-decoration: underline;
     }
 
     .top-nav a.active {
@@ -81,10 +74,6 @@
       padding-top: 8rem;
     }
 
-    section h2 {
-      margin-bottom: 2rem;
-    }
-
     section p,
     section ul {
       max-width: 900px;
@@ -95,11 +84,9 @@
     .who,
     .author,
     .what-you-get,
-    .pricing,
-    .faq {
+    .pricing {
       max-width: 1100px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto;
     }
 
     h1, h2 {
@@ -109,41 +96,54 @@
 
     h1 {
       font-size: 3rem;
-      line-height: 1.15;
       margin-bottom: 1.5rem;
     }
 
     h2 {
       font-size: 2rem;
-    }
-
-    p {
-      margin-bottom: 1.25rem;
+      margin-bottom: 2rem;
     }
 
     .btn-primary {
-      display: inline-block;
       padding: 0.9rem 1.8rem;
       border-radius: 999px;
       font-weight: 600;
-      letter-spacing: 0.02em;
-      transition: all 0.2s ease;
+      background: #ffa726;
+      border: none;
+      cursor: pointer;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
+    /* 🔥 DARK ELITE PRICING SECTION */
+    .pricing {
+      background: radial-gradient(
+        circle at top,
+        #24343b 0%,
+        #0b1a20 60%,
+        #071318 100%
+      );
+      color: #e6eef2;
+      border-radius: 28px;
+      margin: 6rem auto;
+      padding: 5rem 2rem;
+      text-align: center;
     }
 
-    ul.elite-list li {
-      margin-bottom: 0.75rem;
+    .pricing h2 {
+      color: #ffffff;
+    }
+
+    .pricing .price {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
     }
   </style>
 </head>
 
 <body>
 
-<!-- TOP NAVIGATION -->
-<nav class="top-nav" aria-label="Primary navigation">
+<nav class="top-nav">
   <a href="#hero">Home</a>
   <a href="#who">Who</a>
   <a href="#author">Author</a>
@@ -153,88 +153,67 @@
 
 <main>
 
-  <!-- HERO -->
-  <section id="hero" class="hero">
+  <section id="hero">
     <div class="hero-content">
       <h1>Read <span>10× Faster</span><br>Without Losing Comprehension.</h1>
-
-      <p class="subtitle">
-        A neuroscience-inspired Photo Reading system for serious learners,
-        researchers, and professionals.
-      </p>
-
+      <p>A neuroscience-inspired Photo Reading system for serious learners.</p>
       <a href="#buy" class="btn-primary">Access the System</a>
-      <p class="micro-copy">One-time purchase. Instant access.</p>
     </div>
   </section>
 
-  <!-- WHO -->
   <section id="who" class="who">
     <h2>Who This Is For</h2>
-    <ul class="elite-list two-column">
-      <li>Students and academic researchers</li>
+    <ul>
+      <li>Students & researchers</li>
       <li>Competitive exam aspirants</li>
-      <li>Professionals handling heavy reading</li>
+      <li>Professionals</li>
       <li>Independent learners</li>
     </ul>
   </section>
 
-  <!-- AUTHOR -->
   <section id="author" class="author">
     <h2>About the Author</h2>
-    <p>
-      <strong>Sanjeev Singh</strong> is a PhD scholar in History at a public Indian university,
-      specializing in missionary history and social change.
-    </p>
+    <p><strong>Sanjeev Singh</strong> is a PhD scholar in History at a public Indian university.</p>
   </section>
 
-  <!-- WHAT YOU GET -->
   <section id="book" class="what-you-get">
-    <details open>
-      <summary>What You Get</summary>
-      <ul class="elite-list">
-        <li>Structured Photo Reading framework</li>
-        <li>Faster comprehension techniques</li>
-        <li>Academic & professional focus</li>
-        <li>Lifetime digital access</li>
-      </ul>
-    </details>
+    <h2>What You Get</h2>
+    <ul>
+      <li>Structured Photo Reading framework</li>
+      <li>Faster comprehension techniques</li>
+      <li>Lifetime digital access</li>
+    </ul>
   </section>
 
-  <!-- PRICING -->
+  <!-- DARK BUY SECTION -->
   <section id="buy" class="pricing">
     <h2>Get Instant Access</h2>
-    <p class="price">₹399 <span>/ $9</span></p>
+    <p class="price">₹399 / $9</p>
     <button class="btn-primary">Buy Now</button>
   </section>
 
 </main>
 
-<footer class="site-footer">
-  <p>© 2026 Read for Speed</p>
+<footer>
+  <p style="text-align:center;">© 2026 Read for Speed</p>
 </footer>
 
 <script>
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".top-nav a");
 
-  function activateNav() {
+  window.addEventListener("scroll", () => {
     let scrollY = window.pageYOffset;
-
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute("id");
-
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        navLinks.forEach(link => link.classList.remove("active"));
-        const activeLink = document.querySelector('.top-nav a[href="#' + sectionId + '"]');
-        if (activeLink) activeLink.classList.add("active");
+      const top = section.offsetTop - 120;
+      const height = section.offsetHeight;
+      const id = section.getAttribute("id");
+      if (scrollY >= top && scrollY < top + height) {
+        navLinks.forEach(l => l.classList.remove("active"));
+        document.querySelector('.top-nav a[href="#' + id + '"]').classList.add("active");
       }
     });
-  }
-
-  window.addEventListener("scroll", activateNav);
+  });
 </script>
 
 </body>
