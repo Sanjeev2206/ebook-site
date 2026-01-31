@@ -445,3 +445,17 @@ summary {
 .payment-secure {
   font-size: 13px;
 }
+.payment-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin: 14px 0 18px;
+}
+
+.payment-icons img {
+  height: 22px;
+  width: auto;
+  opacity: 0.85;
+  filter: grayscale(100%);
+}
