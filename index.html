@@ -25,14 +25,16 @@
   <link rel="stylesheet" href="assets/css/style.css">
 
   <!-- Elite UX -->
-    .top-nav a.active {
-    text-decoration: underline;
-    text-underline-offset: 6px;
-  }
-
   <style>
     html {
       scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1f2933;
+      font-size: 1rem;
+      background: #f8f9fb; /* ✅ elite off-white */
     }
 
     .top-nav {
@@ -62,78 +64,79 @@
       text-decoration: underline;
     }
 
+    .top-nav a.active {
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+
     main {
       padding-top: 90px;
     }
-      section {
-    padding: 6rem 1.5rem;
-  }
 
-  section:first-of-type {
-    padding-top: 8rem;
-  }
+    section {
+      padding: 6rem 1.5rem;
+    }
 
-  section h2 {
-    margin-bottom: 2rem;
-  }
+    section:first-of-type {
+      padding-top: 8rem;
+    }
 
-  section p,
-  section ul {
-    max-width: 900px;
-    line-height: 1.7;
-  }
-  .hero-content,
-  .who,
-  .author,
-  .what-you-get,
-  .pricing,
-  .faq {
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  body {
-    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #1f2933;
-    font-size: 1rem;
-    background: #ffffff;
-  }
+    section h2 {
+      margin-bottom: 2rem;
+    }
 
-  h1, h2 {
-    font-family: "Playfair Display", serif;
-    letter-spacing: -0.02em;
-  }
+    section p,
+    section ul {
+      max-width: 900px;
+      line-height: 1.7;
+    }
 
-  h1 {
-    font-size: 3rem;
-    line-height: 1.15;
-    margin-bottom: 1.5rem;
-  }
+    .hero-content,
+    .who,
+    .author,
+    .what-you-get,
+    .pricing,
+    .faq {
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-  h2 {
-    font-size: 2rem;
-  }
-  p {
-    margin-bottom: 1.25rem;
-  }
+    h1, h2 {
+      font-family: "Playfair Display", serif;
+      letter-spacing: -0.02em;
+    }
 
-  .btn-primary {
-    display: inline-block;
-    padding: 0.9rem 1.8rem;
-    border-radius: 999px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    transition: all 0.2s ease;
-  }
+    h1 {
+      font-size: 3rem;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
 
-  .btn-primary:hover {
-    transform: translateY(-1px);
-  }
+    h2 {
+      font-size: 2rem;
+    }
 
-  ul.elite-list li {
-    margin-bottom: 0.75rem;
-  }
+    p {
+      margin-bottom: 1.25rem;
+    }
 
+    .btn-primary {
+      display: inline-block;
+      padding: 0.9rem 1.8rem;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+    }
+
+    ul.elite-list li {
+      margin-bottom: 0.75rem;
+    }
   </style>
 </head>
 
@@ -151,33 +154,17 @@
 <main>
 
   <!-- HERO -->
-  <section id="hero" class="hero" aria-labelledby="hero-heading">
+  <section id="hero" class="hero">
     <div class="hero-content">
-      <h1 id="hero-heading">
-        Read <span>10× Faster</span><br>
-        Without Losing Comprehension.
-      </h1>
+      <h1>Read <span>10× Faster</span><br>Without Losing Comprehension.</h1>
 
       <p class="subtitle">
         A neuroscience-inspired Photo Reading system for serious learners,
         researchers, and professionals.
       </p>
 
-      <a href="#buy" class="btn-primary">
-        Access the System
-      </a>
-
+      <a href="#buy" class="btn-primary">Access the System</a>
       <p class="micro-copy">One-time purchase. Instant access.</p>
-
-      <div class="trust-line">
-        <span>Secure checkout</span><span class="dot"></span>
-        <span>Instant download</span><span class="dot"></span>
-        <span>Global access</span>
-      </div>
-    </div>
-
-    <div class="hero-image">
-      <img src="assets/images/hero-reading.png" alt="Focused professional reading">
     </div>
   </section>
 
@@ -185,10 +172,10 @@
   <section id="who" class="who">
     <h2>Who This Is For</h2>
     <ul class="elite-list two-column">
-      <li>Students and academic researchers with heavy reading demands</li>
-      <li>Competitive exam aspirants working under strict time pressure</li>
-      <li>Professionals who must process information quickly and accurately</li>
-      <li>Independent learners handling large volumes of written material</li>
+      <li>Students and academic researchers</li>
+      <li>Competitive exam aspirants</li>
+      <li>Professionals handling heavy reading</li>
+      <li>Independent learners</li>
     </ul>
   </section>
 
@@ -197,8 +184,7 @@
     <h2>About the Author</h2>
     <p>
       <strong>Sanjeev Singh</strong> is a PhD scholar in History at a public Indian university,
-      specializing in missionary history and social change. He has researched learning
-      behavior and cognitive systems for over a decade.
+      specializing in missionary history and social change.
     </p>
   </section>
 
@@ -207,10 +193,9 @@
     <details open>
       <summary>What You Get</summary>
       <ul class="elite-list">
-        <li>A structured Photo Reading framework grounded in cognitive research</li>
-        <li>Step-by-step methods for faster comprehension</li>
-        <li>Designed for academic, exam, and professional reading</li>
-        <li>Practical guidance focused on real-world demands</li>
+        <li>Structured Photo Reading framework</li>
+        <li>Faster comprehension techniques</li>
+        <li>Academic & professional focus</li>
         <li>Lifetime digital access</li>
       </ul>
     </details>
@@ -219,19 +204,8 @@
   <!-- PRICING -->
   <section id="buy" class="pricing">
     <h2>Get Instant Access</h2>
-    <div class="price-box">
-      <p class="price">₹399 <span>/ $9</span></p>
-
-      <ul class="elite-list">
-        <li>Complete Photo Reading framework</li>
-        <li>Lifetime digital access</li>
-        <li>Works across all devices</li>
-      </ul>
-
-      <button class="btn-primary">Buy Now</button>
-
-      <p class="payment-note">Payments processed securely via Razorpay.</p>
-    </div>
+    <p class="price">₹399 <span>/ $9</span></p>
+    <button class="btn-primary">Buy Now</button>
   </section>
 
 </main>
@@ -239,6 +213,7 @@
 <footer class="site-footer">
   <p>© 2026 Read for Speed</p>
 </footer>
+
 <script>
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".top-nav a");
@@ -253,14 +228,8 @@
 
       if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
         navLinks.forEach(link => link.classList.remove("active"));
-
-        const activeLink = document.querySelector(
-          '.top-nav a[href="#' + sectionId + '"]'
-        );
-
-        if (activeLink) {
-          activeLink.classList.add("active");
-        }
+        const activeLink = document.querySelector('.top-nav a[href="#' + sectionId + '"]');
+        if (activeLink) activeLink.classList.add("active");
       }
     });
   }
