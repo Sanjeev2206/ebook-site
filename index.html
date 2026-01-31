@@ -51,9 +51,9 @@
 
     main { padding-top: 90px; }
 
-    /* LAYOUT */
     section {
       padding: 5rem 1.5rem;
+      text-align: center;
     }
 
     .container {
@@ -63,91 +63,73 @@
 
     h1, h2 {
       font-family: "Playfair Display", serif;
-      letter-spacing: -0.02em;
     }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-    }
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2rem; }
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
-section h2 {
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: 1.75rem;
-}
-
-    p {
+    p, ul {
       max-width: 700px;
+      margin: 0 auto 1.25rem;
       line-height: 1.7;
-      margin-bottom: 1.25rem;
     }
 
     ul {
-      max-width: 700px;
-      line-height: 1.7;
+      list-style-position: inside;
+      padding: 0;
     }
-
-    /* HERO */
-    .hero {
-      background: linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
-    }
-
-    .hero .btn-primary {
-      margin-top: 1.5rem;
-    }
-.hero .container {
-  text-align: center;
-  padding-top: 2rem;
-}
 
     /* BUTTON */
     .btn-primary {
       display: inline-block;
-      padding: 0.85rem 1.8rem;
+      padding: 0.9rem 2rem;
       border-radius: 999px;
       background: #ffa726;
       color: #000;
       font-weight: 600;
       border: none;
       cursor: pointer;
-    }
-.hero .btn-primary {
-  margin-top: 1.75rem;
-  font-size: 1.05rem;
-}
-
-    /* SEPARATOR */
-    .soft-divider {
-      height: 1px;
-      background: linear-gradient(to right, transparent, #ddd, transparent);
-      margin: 3rem 0;
+      margin-top: 1.5rem;
     }
 
-    /* DARK PRICING */
+    /* PRICING */
     .pricing {
       background: radial-gradient(circle at top, #24343b, #071318);
       color: #e6eef2;
       border-radius: 28px;
-      padding: 5rem 2rem;
-      text-align: center;
+      padding: 4.5rem 2rem;
       margin: 6rem auto;
       max-width: 900px;
-    }
-
-    .pricing h2,
-    .pricing .price {
-      color: #ffffff;
     }
 
     .pricing .price {
       font-size: 3rem;
       font-weight: 700;
       margin: 1.5rem 0;
+      color: #fff;
+    }
+
+    .payment-note,
+    .payment-secure {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      margin: 6px 0;
+    }
+
+    /* ✅ PAYMENT ICONS — FIXED */
+    .payment-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .payment-icons img {
+      height: 22px;
+      width: auto;
+      opacity: 0.85;
+      filter: grayscale(100%);
     }
 
     footer {
@@ -156,31 +138,6 @@ section h2 {
       color: #6b7280;
       font-size: 0.9rem;
     }
-    /* --- ELITE SECTION GROUPING FIX --- */
-
-section {
-  text-align: center;
-}
-
-section ul {
-  list-style-position: inside;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0;
-}
-
-section ul li {
-  text-align: left;
-  max-width: 520px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-section p {
-  margin-left: auto;
-  margin-right: auto;
-}
-
   </style>
 </head>
 
@@ -196,66 +153,51 @@ section p {
 
 <main>
 
-<section id="hero" class="hero">
-  <div class="hero-content" style="text-align: center; max-width: 900px; margin: 0 auto;">
-    <h1>Read 10× Faster<br>Without Losing Comprehension.</h1>
-    <p>A neuroscience-inspired Photo Reading system for serious learners.</p>
-    <a href="#buy" class="btn-primary">Access the System</a>
-  </div>
+<section id="hero">
+  <h1>Read 10× Faster<br>Without Losing Comprehension.</h1>
+  <p>A neuroscience-inspired Photo Reading system for serious learners.</p>
+  <a href="#buy" class="btn-primary">Access the System</a>
 </section>
 
 <section id="who">
-  <div class="container">
-    <h2>Who This Is For</h2>
-    <ul>
-      <li>Students & academic researchers</li>
-      <li>Competitive exam aspirants</li>
-      <li>Professionals handling heavy reading loads</li>
-      <li>Independent learners</li>
-    </ul>
-  </div>
+  <h2>Who This Is For</h2>
+  <ul>
+    <li>Students & academic researchers</li>
+    <li>Competitive exam aspirants</li>
+    <li>Professionals handling heavy reading loads</li>
+    <li>Independent learners</li>
+  </ul>
 </section>
 
-<div class="soft-divider"></div>
-
 <section id="author">
-  <div class="container">
-    <h2>About the Author</h2>
-    <p>
-      <strong>Sanjeev Singh</strong> is a PhD scholar in History at a public Indian university,
-      specializing in missionary history and social change.
-    </p>
-  </div>
+  <h2>About the Author</h2>
+  <p><strong>Sanjeev Singh</strong> is a PhD scholar in History, specializing in missionary history and social change.</p>
 </section>
 
 <section id="book">
-  <div class="container">
-    <h2>What You Get</h2>
-    <ul>
-      <li>Structured Photo Reading framework</li>
-      <li>Faster comprehension techniques</li>
-      <li>Lifetime digital access</li>
-    </ul>
-  </div>
+  <h2>What You Get</h2>
+  <ul>
+    <li>Structured Photo Reading framework</li>
+    <li>Faster comprehension techniques</li>
+    <li>Lifetime digital access</li>
+  </ul>
 </section>
 
 <section id="buy">
   <div class="pricing">
     <h2>Get Instant Access</h2>
     <div class="price">₹399 / $9</div>
-    
-    <p class="payment-note">
-  One-time payment • Instant digital access
-</p>
-    <p class="payment-secure">
-  Secure payment • Encrypted checkout
-</p>
+
+    <p class="payment-note">One-time payment • Instant digital access</p>
+    <p class="payment-secure">Secure payment • Encrypted checkout</p>
+
     <div class="payment-icons">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Google_Pay_Logo.svg" alt="Google Pay">
-</div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Visa_Logo.png/320px-Visa_Logo.png" alt="Visa">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.png/320px-Mastercard-logo.png" alt="Mastercard">
+      <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Google_Pay_Logo.png/320px-Google_Pay_Logo.png" alt="Google Pay">
+    </div>
+
     <button class="btn-primary">Buy Now</button>
   </div>
 </section>
@@ -265,24 +207,6 @@ section p {
 <footer>
   © 2026 Read for Speed
 </footer>
-
-<script>
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll(".top-nav a");
-
-  window.addEventListener("scroll", () => {
-    let y = window.pageYOffset;
-    sections.forEach(sec => {
-      const top = sec.offsetTop - 120;
-      const height = sec.offsetHeight;
-      const id = sec.getAttribute("id");
-      if (y >= top && y < top + height) {
-        navLinks.forEach(l => l.classList.remove("active"));
-        document.querySelector('.top-nav a[href="#' + id + '"]').classList.add("active");
-      }
-    });
-  });
-</script>
 
 </body>
 </html>
