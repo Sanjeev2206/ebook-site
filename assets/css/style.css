@@ -449,13 +449,16 @@ summary {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 14px;
-  margin: 14px 0 18px;
+  gap: 12px;
+  margin: 16px 0;
 }
 
 .payment-icons img {
-  height: 22px;
-  width: auto;
+  max-height: 22px !important;
+  height: 22px !important;
+  width: auto !important;
+  max-width: 60px !important;
   opacity: 0.85;
   filter: grayscale(100%);
+  object-fit: contain;
 }
