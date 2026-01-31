@@ -5,49 +5,36 @@
   <title>Read for Speed – Photo Reading System</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Primary SEO -->
-  <meta name="description" content="Read for Speed is a neuroscience-inspired Photo Reading system that helps students, researchers, and professionals read faster without losing comprehension.">
-  <meta name="keywords" content="photo reading, speed reading alternative, study faster, academic reading, learning systems">
+  <meta name="description" content="A neuroscience-inspired Photo Reading system for serious learners.">
   <meta name="author" content="Sanjeev Singh">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Read for Speed – Photo Reading System">
-  <meta property="og:description" content="A serious cognitive reading system for students, researchers, and professionals.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/images/hero-reading.png">
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
-  <!-- Elite UX -->
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      color: #1f2933;
-      font-size: 1rem;
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
       background: #f8f9fb;
+      color: #1f2933;
     }
 
     /* NAV */
     .top-nav {
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
-      z-index: 1000;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
       display: flex;
       justify-content: center;
       gap: 2rem;
       padding: 1rem 0;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(8px);
       border-bottom: 1px solid rgba(0,0,0,0.06);
+      z-index: 1000;
     }
 
     .top-nav a {
@@ -62,29 +49,14 @@
       text-underline-offset: 6px;
     }
 
-    main {
-      padding-top: 90px;
-    }
+    main { padding-top: 90px; }
 
+    /* LAYOUT */
     section {
-      padding: 6rem 1.5rem;
+      padding: 5rem 1.5rem;
     }
 
-    section:first-of-type {
-      padding-top: 8rem;
-    }
-
-    section p,
-    section ul {
-      max-width: 900px;
-      line-height: 1.7;
-    }
-
-    .hero-content,
-    .who,
-    .author,
-    .what-you-get,
-    .pricing {
+    .container {
       max-width: 1100px;
       margin: 0 auto;
     }
@@ -101,42 +73,75 @@
 
     h2 {
       font-size: 2rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
+    p {
+      max-width: 700px;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    ul {
+      max-width: 700px;
+      line-height: 1.7;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(180deg, #ffffff 0%, #f8f9fb 100%);
+    }
+
+    .hero .btn-primary {
+      margin-top: 1.5rem;
+    }
+
+    /* BUTTON */
     .btn-primary {
-      padding: 0.9rem 1.8rem;
+      display: inline-block;
+      padding: 0.85rem 1.8rem;
       border-radius: 999px;
-      font-weight: 600;
       background: #ffa726;
+      color: #000;
+      font-weight: 600;
       border: none;
       cursor: pointer;
     }
 
-    /* 🔥 DARK ELITE PRICING SECTION */
-    .pricing {
-      background: radial-gradient(
-        circle at top,
-        #24343b 0%,
-        #0b1a20 60%,
-        #071318 100%
-      );
-      color: #e6eef2;
-      border-radius: 28px;
-      margin: 6rem auto;
-      padding: 5rem 2rem;
-      text-align: center;
+    /* SEPARATOR */
+    .soft-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #ddd, transparent);
+      margin: 3rem 0;
     }
 
-    .pricing h2 {
+    /* DARK PRICING */
+    .pricing {
+      background: radial-gradient(circle at top, #24343b, #071318);
+      color: #e6eef2;
+      border-radius: 28px;
+      padding: 5rem 2rem;
+      text-align: center;
+      margin: 6rem auto;
+      max-width: 900px;
+    }
+
+    .pricing h2,
+    .pricing .price {
       color: #ffffff;
     }
 
     .pricing .price {
       font-size: 3rem;
       font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #6b7280;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -153,49 +158,61 @@
 
 <main>
 
-  <section id="hero">
-    <div class="hero-content">
-      <h1>Read <span>10× Faster</span><br>Without Losing Comprehension.</h1>
-      <p>A neuroscience-inspired Photo Reading system for serious learners.</p>
-      <a href="#buy" class="btn-primary">Access the System</a>
-    </div>
-  </section>
+<section id="hero" class="hero">
+  <div class="container">
+    <h1>Read 10× Faster<br>Without Losing Comprehension.</h1>
+    <p>A neuroscience-inspired Photo Reading system for serious learners.</p>
+    <a href="#buy" class="btn-primary">Access the System</a>
+  </div>
+</section>
 
-  <section id="who" class="who">
+<section id="who">
+  <div class="container">
     <h2>Who This Is For</h2>
     <ul>
-      <li>Students & researchers</li>
+      <li>Students & academic researchers</li>
       <li>Competitive exam aspirants</li>
-      <li>Professionals</li>
+      <li>Professionals handling heavy reading loads</li>
       <li>Independent learners</li>
     </ul>
-  </section>
+  </div>
+</section>
 
-  <section id="author" class="author">
+<div class="soft-divider"></div>
+
+<section id="author">
+  <div class="container">
     <h2>About the Author</h2>
-    <p><strong>Sanjeev Singh</strong> is a PhD scholar in History at a public Indian university.</p>
-  </section>
+    <p>
+      <strong>Sanjeev Singh</strong> is a PhD scholar in History at a public Indian university,
+      specializing in missionary history and social change.
+    </p>
+  </div>
+</section>
 
-  <section id="book" class="what-you-get">
+<section id="book">
+  <div class="container">
     <h2>What You Get</h2>
     <ul>
       <li>Structured Photo Reading framework</li>
       <li>Faster comprehension techniques</li>
       <li>Lifetime digital access</li>
     </ul>
-  </section>
+  </div>
+</section>
 
-  <!-- DARK BUY SECTION -->
-  <section id="buy" class="pricing">
+<section id="buy">
+  <div class="pricing">
     <h2>Get Instant Access</h2>
-    <p class="price">₹399 / $9</p>
+    <div class="price">₹399 / $9</div>
     <button class="btn-primary">Buy Now</button>
-  </section>
+  </div>
+</section>
 
 </main>
 
 <footer>
-  <p style="text-align:center;">© 2026 Read for Speed</p>
+  © 2026 Read for Speed
 </footer>
 
 <script>
@@ -203,12 +220,12 @@
   const navLinks = document.querySelectorAll(".top-nav a");
 
   window.addEventListener("scroll", () => {
-    let scrollY = window.pageYOffset;
-    sections.forEach(section => {
-      const top = section.offsetTop - 120;
-      const height = section.offsetHeight;
-      const id = section.getAttribute("id");
-      if (scrollY >= top && scrollY < top + height) {
+    let y = window.pageYOffset;
+    sections.forEach(sec => {
+      const top = sec.offsetTop - 120;
+      const height = sec.offsetHeight;
+      const id = sec.getAttribute("id");
+      if (y >= top && y < top + height) {
         navLinks.forEach(l => l.classList.remove("active"));
         document.querySelector('.top-nav a[href="#' + id + '"]').classList.add("active");
       }
