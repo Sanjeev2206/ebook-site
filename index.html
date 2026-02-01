@@ -93,21 +93,28 @@
     }
 
     /* PRICING */
-    .pricing {
-      background: radial-gradient(circle at top, #24343b, #071318);
-      color: #e6eef2;
-      border-radius: 28px;
-      padding: 4.5rem 2rem;
-      margin: 6rem auto;
-      max-width: 900px;
-    }
+.pricing {
+  background: radial-gradient(circle at top, #24343b, #071318);
+  color: #e6eef2;
+  border-radius: 22px;
 
+  max-width: 520px;          /* 👈 smaller */
+  margin: 3.5rem auto;      /* 👈 less vertical space */
+  padding: 2.2rem 1.8rem;   /* 👈 tighter inside */
+
+  text-align: center;
+}
     .pricing .price {
-      font-size: 3rem;
-      font-weight: 700;
-      margin: 1.5rem 0;
-      color: #fff;
-    }
+  font-size: 2.2rem;     /* smaller, premium */
+  font-weight: 700;
+  margin: 1rem 0;
+  color: #fff;
+}
+.price-sub {
+  font-size: 0.75em;
+  opacity: 0.7;
+  font-weight: 500;
+}
 
     .payment-note,
     .payment-secure {
@@ -138,6 +145,40 @@
       color: #6b7280;
       font-size: 0.9rem;
     }
+    footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* MOBILE PRICING FIX */
+@media (max-width: 600px) {
+  .pricing {
+    margin: 2.5rem 1rem;
+    padding: 1.8rem 1.4rem;
+    border-radius: 18px;
+  }
+
+  .pricing h2 {
+    font-size: 1.4rem;
+  }
+
+  .pricing .price {
+    font-size: 1.9rem;
+  }
+
+  .pricing p {
+    font-size: 0.85rem;
+  }
+
+  .pricing .btn-primary {
+    width: 100%;
+    padding: 0.75rem 0;
+  }
+}
+</style>
+
   </style>
 </head>
 
@@ -187,7 +228,7 @@
   <div class="pricing">
     <h2>Get Instant Access</h2>
 
-    <div class="price">₹199 / $12</div>
+    <div class="price">₹199 <span class="price-sub">· $12</span></div>
 
     <p class="payment-note">
       One-time payment • Instant digital access
