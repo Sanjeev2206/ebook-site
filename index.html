@@ -235,6 +235,59 @@
   border-radius: 999px;
   border: 1px solid rgba(0,0,0,0.08);
 }
+/* FAQ SECTION */
+.faq-section {
+  max-width: 800px;
+  margin: 4rem auto 3rem;
+  padding: 0 1.5rem;
+  text-align: left;
+}
+
+.faq-title {
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.1rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+}
+
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  font-size: 1.4rem;
+}
+
+.faq-item.active .faq-question::after {
+  content: "–";
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer p {
+  margin: 0 0 1rem;
+  line-height: 1.6;
+  color: #374151;
+}
 
 </style>
 
@@ -303,6 +356,45 @@
     If you face any access or payment issues, email us for support.
   </p>
 </div>
+  <section id="faq" class="faq-section">
+  <h2 class="faq-title">Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">Is this ebook suitable for competitive exams?</button>
+    <div class="faq-answer">
+      <p>Yes. The system is designed for UPSC, NET, SSC, Judiciary, and university-level exams where speed and comprehension both matter.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Is this speed reading or photo reading?</button>
+    <div class="faq-answer">
+      <p>This is a neuroscience-inspired Photo Reading system, not traditional speed reading.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">How soon will I see results?</button>
+    <div class="faq-answer">
+      <p>Most readers experience noticeable improvement within 7–14 days with consistent practice.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Is this a course or a PDF?</button>
+    <div class="faq-answer">
+      <p>This is a downloadable PDF ebook with lifetime access.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Is there any refund?</button>
+    <div class="faq-answer">
+      <p>This is a digital product with instant access, so refunds are not offered.</p>
+    </div>
+  </div>
+</section>
+
   <section class="share-section">
   <p class="share-label">Share this with someone who needs it</p>
 
@@ -324,6 +416,21 @@
     <span>Digital Product</span>
   </div>
 </footer>
+<script>
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.parentElement;
+      item.classList.toggle('active');
+
+      const answer = item.querySelector('.faq-answer');
+      if (item.classList.contains('active')) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      } else {
+        answer.style.maxHeight = null;
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
