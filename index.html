@@ -391,10 +391,13 @@ body {
     Built for students facing massive syllabus, competitive exams, and time pressure.
   </p>
 
-<a href="https://rzp.io/rzp/vYiwVnSf" class="btn-primary">
+<a href="https://rzp.io/rzp/vYiwVnSf" class="btn-primary" target="_blank" rel="noopener noreferrer">
     Buy Now – Get Instant Access
   </a>
-</section>
+  <p style="font-size:12px; opacity:0.6; margin-top:6px;">
+  If payment doesn't open, tap menu (⋮) and open in Chrome.
+</p>
+  </section>
 <section id="problem">
   <h2>Why Most Students Struggle with Reading</h2>
 
@@ -464,9 +467,12 @@ body {
     Limited launch price — increasing soon
   </div>
 </div>
-<a href="https://rzp.io/rzp/vYiwVnSf" class="btn-primary">
+<a href="https://rzp.io/rzp/vYiwVnSf" class="btn-primary" target="_blank" rel="noopener noreferrer">
   Get Instant Access
 </a>
+    <p style="font-size:12px; opacity:0.6; margin-top:6px;">
+  If payment doesn't open, tap menu (⋮) and open in Chrome.
+</p>
 <p style="font-size: 0.75rem; opacity: 0.6; margin-top: 6px;">
   Instant access • No subscription • Secure checkout
 </p>
@@ -562,7 +568,24 @@ body {
   });
 </script>
 <div class="sticky-buy">
-  <a href="https://rzp.io/rzp/vYiwVnSf">Get Instant Access – ₹110</a>
+  <a href="https://rzp.io/rzp/vYiwVnSf" target="_blank" rel="noopener noreferrer" onclick="openPayment(event)">
+    Get Instant Access – ₹110
+  </a>
 </div>
+  <script>
+function openPayment(e) {
+  e.preventDefault();
+
+  var url = "https://rzp.io/rzp/vYiwVnSf";
+
+  // Try normal open
+  var win = window.open(url, '_blank');
+
+  // If blocked or in-app browser
+  if (!win) {
+    window.location.href = url;
+  }
+}
+</script>
 </body>
 </html>
