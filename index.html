@@ -11,7 +11,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+/* STICKY BUY BUTTON (MOBILE) */
+.sticky-buy {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #071318;
+  padding: 10px;
+  text-align: center;
+  z-index: 9999;
+}
 
+.sticky-buy a {
+  display: inline-block;
+  width: 90%;
+  max-width: 420px;
+  padding: 12px;
+  background: #ffa726;
+  color: #000;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+/* HIDE ON DESKTOP */
+@media (min-width: 768px) {
+  .sticky-buy {
+    display: none;
+  }
+}
   <style>
     html { scroll-behavior: smooth; }
 
@@ -531,6 +560,8 @@
     });
   });
 </script>
-
+<div class="sticky-buy">
+  <a href="https://rzp.io/rzp/4mMykUj">Get Instant Access – ₹110</a>
+</div>
 </body>
 </html>
