@@ -341,7 +341,7 @@
   left: 0;
   width: 100%;
   background: #071318;
-  padding: 10px;
+  padding: 10px 0;
   z-index: 9999;
   box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
 
@@ -352,9 +352,9 @@
 
 .sticky-buy a {
   display: block;
-  width: 90%;
+  width: calc(100% - 20px); /* 🔥 KEY FIX */
   max-width: 420px;
-  padding: 12px;
+  padding: 14px 0;          /* vertical only */
   background: #ffa726;
   color: #000;
   font-weight: 600;
@@ -362,7 +362,6 @@
   text-decoration: none;
   text-align: center;
 }
-
 
 /* prevent content hiding */
 body {
