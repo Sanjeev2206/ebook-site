@@ -178,7 +178,22 @@
 .footer-sep {
   opacity: 0.5;
 }
+ #hero {
+  position: relative;
+  padding: 3rem 1.2rem;
 
+  background: linear-gradient(
+      rgba(7, 19, 24, 0.75),
+      rgba(7, 19, 24, 0.75)
+    ),
+    url("assets/images/hero-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: #fff;
+}
 /* MOBILE PRICING FIX */
 @media (max-width: 600px) {
 
@@ -210,22 +225,7 @@
     font-size: 0.9rem;
   }
 
- #hero {
-  position: relative;
-  padding: 3rem 1.2rem;
 
-  background: linear-gradient(
-      rgba(7, 19, 24, 0.75),
-      rgba(7, 19, 24, 0.75)
-    ),
-    url("hero-bg.jpg");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  color: #fff;
-}
   
 
   #problem {
@@ -415,11 +415,11 @@ li {
 <main>
 
 <section id="hero">
-  <h1 style="margin-bottom:10px;">
+  <h1 style="margin-bottom:10px; color:#fff;">
   Stop Wasting Hours Reading — Learn to Process Information 3–10× Faster
 </h1>
 
-  <p style="opacity:0.8;">
+  <p style="opacity:0.9; color:rgba(255,255,255,0.85);">
   Built for students facing massive syllabus, competitive exams, and time pressure.
 </p>
 
