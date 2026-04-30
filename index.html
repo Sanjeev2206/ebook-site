@@ -123,15 +123,19 @@
 
     /* PRICING */
 .pricing {
-  background: radial-gradient(circle at top, #24343b, #071318);
+  background: linear-gradient(135deg, #0f2a30, #071318);
   color: #e6eef2;
-  border-radius: 22px;
 
-  max-width: 520px;          /* 👈 smaller */
-  margin: 2rem auto;      /* 👈 less vertical space */
-  padding: 2.2rem 1.8rem;   /* 👈 tighter inside */
+  border-radius: 20px;
+  max-width: 520px;
+  margin: 60px auto;
+  padding: 40px 30px;
 
   text-align: center;
+
+  box-shadow: 
+    0 20px 60px rgba(0,0,0,0.4),
+    inset 0 0 40px rgba(255,255,255,0.03);
 }
     .pricing .price {
   font-size: 2.2rem;     /* smaller, premium */
@@ -453,9 +457,8 @@ li {
     
   <p style="font-size:12px; opacity:0.6; margin-top:6px;">
   Instant access • One-time payment • No subscription
-</p>
-  <p style="font-size:11px; opacity:0.55;">
-Limited launch price — increasing soon
+<p style="font-size:11px; opacity:0.7; font-weight:500;">
+⚠️ Price increasing soon — early users get the lowest access
 </p>
   </section>
 <section id="problem">
@@ -534,6 +537,9 @@ It recognizes patterns.
 </a>
     <p style="font-size:12px; opacity:0.7; margin-top:6px;">
 Instant access • One-time payment • No subscription
+</p>
+    <p style="font-size:12px; opacity:0.6; margin-top:6px;">
+Trusted by students preparing for UPSC, NET, SSC & university exams
 </p>
     </div>
 </section>
