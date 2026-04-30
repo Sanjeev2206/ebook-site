@@ -178,14 +178,19 @@
 .footer-sep {
   opacity: 0.5;
 }
- #hero {
+#hero {
   position: relative;
   padding: 3rem 1.2rem;
-  min-height: 65vh;
+  min-height: 85vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   background: linear-gradient(
-      rgba(7, 19, 24, 0.75),
-      rgba(7, 19, 24, 0.75)
+      rgba(7, 19, 24, 0.78),
+      rgba(7, 19, 24, 0.78)
     ),
     url("assets/images/hero-bg.jpg");
 
@@ -194,6 +199,7 @@
   background-repeat: no-repeat;
 
   color: #fff;
+  text-align: center;
 }
 /* MOBILE PRICING FIX */
 @media (max-width: 600px) {
