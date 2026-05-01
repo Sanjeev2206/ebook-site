@@ -133,6 +133,21 @@ html, body {
   transform: translateY(-2px);
   box-shadow: 0 14px 35px rgba(255,167,38,0.6);
 }
+    @keyframes pulseGlow {
+  0% {
+    box-shadow: 0 10px 30px rgba(255,167,38,0.4);
+  }
+  50% {
+    box-shadow: 0 16px 40px rgba(255,167,38,0.7);
+  }
+  100% {
+    box-shadow: 0 10px 30px rgba(255,167,38,0.4);
+  }
+}
+
+.btn-primary {
+  animation: pulseGlow 2.5s infinite;
+}
 
     /* PRICING */
 .pricing {
@@ -416,15 +431,17 @@ html, body {
   font-size: 16px;
   font-weight: 600;
 
-  background: #ffa726;
+  background: linear-gradient(135deg, #ffb347, #ff9800);
   color: #000;
   text-decoration: none;
   text-align: center;
 
   width: auto;
   max-width: none;
-}
 
+  box-shadow: 0 10px 25px rgba(255,167,38,0.4);
+  animation: pulseGlow 2.5s infinite;
+}
 /* prevent content hiding */
 body {
   padding-bottom: 70px;
