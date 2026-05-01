@@ -815,9 +815,15 @@ function openPayment(e) {
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
+const hero = document.getElementById("hero");
 
+canvas.width = hero.offsetWidth;
+canvas.height = hero.offsetHeight;
+    window.addEventListener("resize", () => {
+  canvas.width = hero.offsetWidth;
+  canvas.height = hero.offsetHeight;
+});
+    
 const letters = "01PHOTOREADING";
 const fontSize = 14;
 const columns = canvas.width / fontSize;
