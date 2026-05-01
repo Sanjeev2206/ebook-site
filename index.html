@@ -231,8 +231,8 @@ html, body {
 
 background: linear-gradient(
   to right,
-  rgba(0, 0, 0, 0.75),
-  rgba(0, 0, 0, 0.4)
+ rgba(0, 0, 0, 0.9),
+rgba(0, 0, 0, 0.75)
 ),
 url("assets/images/brain.jpeg");
 
@@ -260,9 +260,9 @@ url("assets/images/brain.jpeg");
   overflow: hidden;
 }
 
-#hero * {
+#hero > *:not(#matrix) {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 /* MOBILE PRICING FIX */
 @media (max-width: 600px) {
@@ -852,7 +852,7 @@ function draw() {
   }
 }
 
-setInterval(draw, 50);
+setInterval(draw, 90);
 </script>
 </body>
 </html>
