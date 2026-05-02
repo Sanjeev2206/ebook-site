@@ -560,49 +560,7 @@ li {
   #f8fafc;
 }
 
-.problem-container {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  align-items: center;
-  gap: 60px;
 
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.problem-text {
-  text-align: left;
-}
-
-.problem-text h2 {
-  font-size: 2.4rem;
-  margin-bottom: 10px;
-}
-
-.problem-sub {
-  opacity: 0.7;
-  margin-bottom: 25px;
-}
-
-.problem-points {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.point {
-  background: #f1f5f9;
-  padding: 12px 16px;
-  border-radius: 10px;
-  font-size: 0.95rem;
-}
-
-.problem-image img {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 16px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-}
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
@@ -691,6 +649,17 @@ li {
   font-size: 0.95rem;
   opacity: 0.8;
 }
+    .image-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+}
   </style>
 </head>
 
@@ -764,6 +733,8 @@ li {
 
   </div>
 
+</section>
+  
 <section class="bento-section">
 
   <div class="bento-grid">
