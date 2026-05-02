@@ -595,31 +595,6 @@ li {
 
 }
     
-.card.big {
-  grid-column: span 1;
-  grid-row: span 1;
-  width: 100%;
-}
-
-.card {
-  padding: 20px;
-  font-size: 0.95rem;
-}
-    .bento-grid {
-  grid-template-columns: 1fr;
-  grid-auto-rows: auto;
-  gap: 16px;
-}
-
-.card.big {
-  grid-column: span 1;
-  grid-row: span 1;
-}
-
-.card {
-  padding: 20px;
-  font-size: 0.95rem;
-}
 
 /* ✅ INSERT BENTO CSS RIGHT HERE */
 
@@ -634,7 +609,7 @@ li {
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 160px;
+  grid-auto-rows: auto;   /* ← CHANGE THIS */
   gap: 20px;
 }
 
@@ -642,8 +617,16 @@ li {
 .card.big {
   grid-column: span 1;
   grid-row: span 2;
-  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: flex-start;
+
+  text-align: left;
+  white-space: normal;
+  word-break: normal;
+  
 }
 
 /* ALL CARDS */
@@ -657,7 +640,7 @@ li {
   align-items: center;
   justify-content: center;
   text-align: center;
-
+  height: 100%;
   box-shadow: 0 10px 25px rgba(0,0,0,0.06);
   transition: 0.25s ease;
 }
@@ -692,6 +675,26 @@ li {
   height: 100%;
   object-fit: cover;
   border-radius: 18px;
+}
+    /* ===== FINAL MOBILE FIX (ADD AT END ONLY) ===== */
+@media (max-width: 768px) {
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 16px;
+  }
+
+  .card {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .card.big {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
 }
       </style>
 </head>
