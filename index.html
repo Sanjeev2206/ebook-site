@@ -607,17 +607,17 @@ li {
 
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: 160px;
   gap: 20px;
 }
 
 /* BIG CARD */
 .card.big {
-  grid-column: span 2;
+  grid-column: span 1;
   grid-row: span 2;
-  align-items: flex-start;
   text-align: left;
+  align-items: flex-start;
 }
 
 /* ALL CARDS */
@@ -714,21 +714,21 @@ li {
 
     <!-- BIG CARD -->
     <div class="card big">
-      <h2>You’re Not the Only One</h2>
+      <h2>Who This Is For</h2>
       <p>
-        Millions struggle with reading speed, focus, and retention.
-        It’s not about effort — it’s about using the right method.
+        Designed for serious learners handling large volumes of information
+        under time pressure.
       </p>
     </div>
 
-    <!-- SMALL CARDS -->
-    <div class="card">📖 Read → ❌ Forget</div>
-    <div class="card">🧠 No Focus</div>
-    <div class="card">⏳ More Time, Less Progress</div>
+    <!-- SMALL CARD 1 -->
+    <div class="card">
+      🎓 Students & Competitive Exam Aspirants
+    </div>
 
-    <!-- IMAGE CARD -->
-    <div class="card image-card">
-      <img src="assets/images/problem-visual.png" alt="Reading Problems">
+    <!-- SMALL CARD 2 -->
+    <div class="card">
+      💼 Professionals & Deep Learners
     </div>
 
   </div>
@@ -757,29 +757,7 @@ li {
   </div>
 
 </section>
-<section id="who" style="
-  max-width:800px;
-  margin:60px auto;
-  padding:40px 30px;
-  text-align:left;
-  border-radius:16px;
 
-  background: #f9fafb;
-  color: #1f2933;
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-">
-
-  <h2 style="text-align:center;">Who This Is For</h2>
-
-  <ul>
-    <li>Students & academic researchers</li>
-    <li>Competitive exam aspirants</li>
-    <li>Professionals handling heavy reading loads</li>
-    <li>Independent learners</li>
-  </ul>
-
-</section>
 <section id="author" style="
   max-width:800px;
   margin:60px auto;
