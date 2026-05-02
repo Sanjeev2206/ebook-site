@@ -66,10 +66,10 @@ html, body {
     main { padding-top: 70px; }
 
    section {
-  width: 100%;
+   width: calc(100% - 40px);
   max-width: 1200px;
   margin: 0 auto;
- padding: 80px 20px;
+padding: 60px 20px;
   text-align: center;
 }
 #author,
@@ -210,7 +210,7 @@ html, body {
 
   border-radius: 20px;
   max-width: 520px;
-  margin: 60px auto;
+ margin: 40px auto;
   padding: 40px 30px;
 
   text-align: center;
@@ -279,7 +279,9 @@ html, body {
   min-height: 100vh;
   
   border-radius: 20px;
-  margin: 20px;
+ margin: 20px auto;
+  margin-bottom: 40px;
+max-width: 1200px;
   overflow: hidden;
   
   display: flex;
@@ -600,7 +602,7 @@ li {
 
 /* ===== BENTO GRID ===== */
 .bento-section {
-  padding: 80px 20px;
+  padding: 50px 20px;
   max-width: 1100px;
   margin: 0 auto;
   gap: 16px;
@@ -702,6 +704,9 @@ li {
     grid-auto-rows: auto;
     gap: 16px;
   }
+  section + section {
+  margin-top: 10px;
+}
 
   .card {
     width: 100%;
