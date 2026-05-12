@@ -202,7 +202,31 @@ html, body {
   animation: pulseGlow 2.5s infinite;
 }
 
-    /* PRICING */
+   /* BUY SECTION SIDE LAYOUT */
+.pricing-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+
+  max-width: 900px;
+}
+
+/* BOOK COVER */
+.book-cover img {
+  width: 230px;
+  border-radius: 12px;
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.45);
+}
+
+/* TEXT SIDE */
+.pricing-content {
+  flex: 1;
+}
+
+/* PRICING */
 .pricing {
   background: linear-gradient(135deg, #071318, #0b1c22, #0f2a30); 
   border: 1px solid rgba(255,255,255,0.08);
@@ -887,7 +911,12 @@ li {
 
  
   <!-- PRICING BOX -->
-  <div class="pricing">
+  <div class="pricing pricing-layout">
+    <div class="book-cover">
+  <img src="assets/images/ebook-cover.png" alt="Ebook Cover">
+</div>
+
+<div class="pricing-content">
     <p style="font-size:11px; letter-spacing:1px; opacity:0.6; margin-bottom:10px;">
   LIMITED ACCESS
 </p>
@@ -920,6 +949,7 @@ Used by serious students preparing for UPSC, NET, SSC & university exams
 Built on cognitive learning principles • Designed for high-volume reading
 </p>
 
+    </div>
     
   </div>
 </section>
