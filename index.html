@@ -83,11 +83,7 @@ html, body {
   padding-bottom: 2rem;
 }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
+    
     h1, h2 {
       font-family: "Playfair Display", serif;
     }
@@ -253,29 +249,7 @@ padding: 35px 35px;
 
 }
 
-    .payment-note,
-    .payment-secure {
-      font-size: 0.85rem;
-      opacity: 0.75;
-      margin: 6px 0;
-    }
-
-    /* ✅ PAYMENT ICONS — FIXED */
-    .payment-icons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 14px;
-      margin: 18px 0;
-    }
-
-    .payment-icons img {
-      height: 22px;
-      width: auto;
-      opacity: 0.85;
-      filter: grayscale(100%);
-    }
-
+    
     .site-footer {
   padding: 2.5rem 1rem;
   text-align: center;
@@ -336,10 +310,6 @@ url("assets/images/brain.jpeg");
   opacity: 0.12;
 }
 
-#hero {
-  position: relative;
-  overflow: hidden;
-}
 
 #hero > *:not(#matrix) {
   position: relative;
@@ -563,13 +533,6 @@ li {
 }
    
   }
-  @media (max-width: 768px) {
-
-  .problem-container {
-    ...
-  }
-
-}
     
 
 /* ✅ INSERT BENTO CSS RIGHT HERE */
@@ -1005,22 +968,7 @@ Built on cognitive learning principles • Designed for high-volume reading
     });
   });
 </script>
-  <script>
-function openPayment(e) {
-  e.preventDefault();
-
-  var url = "https://rzp.io/rzp/vYiwVnSf";
-
-  // Try normal open
-  var win = window.open(url, '_blank');
-
-  // If blocked or in-app browser
-  if (!win) {
-    window.location.href = url;
-  }
-}
-</script>
-  <script>
+    <script>
 const canvas = document.getElementById("matrix");
 const ctx = canvas.getContext("2d");
 
