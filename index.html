@@ -678,12 +678,18 @@ li {
   text-align: center;
 }
 
-.book-cover img {
-  width: 220px;
-}
-
 .pricing-content {
   width: 100%;
+}
+  .book-cover img {
+  width: 300px;
+
+  display: block;
+
+  filter:
+    drop-shadow(0 30px 40px rgba(0,0,0,0.45));
+
+  mix-blend-mode: screen;
 }
 }
       </style>
@@ -858,7 +864,8 @@ li {
   <!-- PRICING BOX -->
   <div class="pricing pricing-layout">
     <div class="book-cover">
-  <img src="assets/images/premium-book.png" alt="Premium Ebook" style="width:300px;">
+  <div class="book-cover">   
+    <img src="assets/images/premium-book.png" alt="Premium Ebook"> </div>
 </div>
 
 <div class="pricing-content">
