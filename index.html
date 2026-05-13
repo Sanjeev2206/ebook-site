@@ -654,7 +654,11 @@ li {
     transform: translateY(0px);
   }
 }
-    .book-cover img {
+    .book-cover {
+  position: relative;
+}
+
+.book-cover img {
   width: 250px;
 
   display: block;
@@ -663,6 +667,21 @@ li {
     drop-shadow(0 30px 40px rgba(0,0,0,0.45));
 
   mix-blend-mode: screen;
+}
+
+/* PREMIUM BADGE */
+.premium-badge {
+  position: absolute;
+
+  top: -18px;
+  right: -20px;
+
+  width: 95px !important;
+
+  z-index: 5;
+
+  filter:
+    drop-shadow(0 10px 20px rgba(0,0,0,0.35));
 }
     /* ===== FINAL MOBILE FIX (ADD AT END ONLY) ===== */
 @media (max-width: 768px) {
@@ -865,7 +884,14 @@ li {
   <!-- PRICING BOX -->
   <div class="pricing pricing-layout">
     <div class="book-cover">
-  <img src="assets/images/premium-book.png" alt="Premium Ebook">
+
+  <img class="premium-badge"
+       src="assets/images/premium-badge.png"
+       alt="Premium Badge">
+
+  <img src="assets/images/premium-book.png"
+       alt="Premium Ebook">
+
 </div>
 
 <div class="pricing-content">
