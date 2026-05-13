@@ -724,15 +724,16 @@ box-shadow:
   transition: transform 0.4s ease;
 }
 .student-card {
-  flex-direction: column;
-  align-items: flex-start;
+
+  justify-content: space-between;
+
+  align-items: stretch;
+
   text-align: left;
 
-  justify-content: center;
+  padding: 42px;
 
-  padding: 40px;
-
- min-height: 240px;
+  min-height: 240px;
 }
 .professional-card {
   flex-direction: column;
@@ -751,6 +752,66 @@ box-shadow:
   line-height: 1.2;
 
   max-width: 320px;
+}
+    .student-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 26px;
+}
+
+.student-icon {
+
+  width: 120px;
+  height: 120px;
+
+  flex-shrink: 0;
+
+  font-size: 3rem;
+
+  background: linear-gradient(
+    135deg,
+    rgba(240,255,245,0.95),
+    rgba(220,255,235,0.88)
+  );
+
+  border: 1px solid rgba(255,255,255,0.85);
+
+  box-shadow:
+    0 20px 40px rgba(16,185,129,0.12),
+    inset 0 1px 1px rgba(255,255,255,0.9);
+}
+
+.card-description {
+
+  margin-top: 18px;
+
+  font-size: 1rem;
+
+  font-weight: 500;
+
+  line-height: 1.7;
+
+  opacity: 0.72;
+
+  max-width: 340px;
+}
+
+.card-line {
+
+  width: 100%;
+
+  height: 3px;
+
+  border-radius: 999px;
+
+  margin-top: 28px;
+
+  background:
+    linear-gradient(
+      to right,
+      #22c55e 15%,
+      rgba(0,0,0,0.08) 15%
+    );
 }
 /* FLOATING ANIMATION */
 @keyframes floatDiagram {
@@ -895,11 +956,27 @@ box-shadow:
     <!-- SMALL CARD 1 -->
    <div class="card student-card">
 
-  <div class="feature-icon">🎓</div>
+  <div class="student-top">
 
-  <div class="student-text">
-    Students & Competitive Exam Aspirants
+    <div class="feature-icon student-icon">
+      🎓
+    </div>
+
+    <div>
+
+      <div class="student-text">
+        Students & Competitive Exam Aspirants
+      </div>
+
+      <p class="card-description">
+        Crack exams faster with advanced reading strategies that help you retain more in less time.
+      </p>
+
+    </div>
+
   </div>
+
+  <div class="card-line"></div>
 
 </div>
 
