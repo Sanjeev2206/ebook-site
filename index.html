@@ -633,6 +633,26 @@ li {
   width: 100%;
   display: block;
   border-radius: 18px;
+
+  animation: floatDiagram 6s ease-in-out infinite;
+
+  transition: transform 0.4s ease;
+}
+
+/* FLOATING ANIMATION */
+@keyframes floatDiagram {
+
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
     /* ===== FINAL MOBILE FIX (ADD AT END ONLY) ===== */
 @media (max-width: 768px) {
