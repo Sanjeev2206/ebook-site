@@ -214,68 +214,7 @@ html, body {
 }
 
 
-/* BOOK COVER */
-.book-cover {
-  perspective: 1600px;
-  position: relative;
-  display: inline-block;
-}
-
-.book-cover img {
-  width: 360px;
-
-  border-radius: 10px;
-
-  transform:
-    rotateY(-28deg)
-    rotateX(6deg)
-    rotateZ(-4deg);
-
-  transform-style: preserve-3d;
-
-  box-shadow:
-    -35px 35px 45px rgba(0,0,0,0.35),
-    -12px 12px 18px rgba(0,0,0,0.25),
-    0 25px 40px rgba(0,0,0,0.35);
-
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-
-  position: relative;
-}
-    .book-cover::before {
-  content: "";
-
-  position: absolute;
-  top: 8px;
-  left: -14px;
-
-  width: 14px;
-  height: 96%;
-
-  background: linear-gradient(
-    to bottom,
-    #d10000,
-    #ff2b2b,
-    #8a0000
-  );
-
-  border-radius: 4px 0 0 4px;
-
-  transform:
-    rotateY(60deg);
-
-  filter: brightness(0.9);
-
-  box-shadow:
-    inset -2px 0 4px rgba(255,255,255,0.25),
-    3px 0 8px rgba(0,0,0,0.35);
-
-  z-index: 1;
-}
-    }
-
+   
 /* TEXT SIDE */
 .pricing-content {
   flex: 0.7;
