@@ -576,9 +576,28 @@ li {
 
 /* ===== BENTO GRID ===== */
 .bento-section {
+
   padding: 12px 20px;
+
   max-width: 1100px;
+
   margin: 0 auto;
+
+  position: relative;
+
+  background:
+
+    radial-gradient(
+      circle at top left,
+      rgba(99,102,241,0.08),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at bottom right,
+      rgba(16,185,129,0.08),
+      transparent 30%
+    );
 }
 
 .bento-grid {
@@ -606,11 +625,15 @@ li {
 
 /* ALL CARDS */
 .card {
-  background: #ffffff;
+ background: rgba(255,255,255,0.72);
+backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.4);
   border-radius: 18px;
-  padding: 26px;
+  padding: 34px;
   color: #1f2933;
- 
+ font-size: 1.08rem;
+font-weight: 600;
+line-height: 1.5;
   border: 1px solid rgba(0,0,0,0.05);
   
   display: flex;
@@ -619,11 +642,13 @@ li {
   text-align: center;
   width: 100%;
   height: 100%;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  box-shadow:
+  0 10px 30px rgba(15,23,42,0.08),
+  inset 0 1px 1px rgba(255,255,255,0.35);
   transition: 0.25s ease;
 }
 .card.highlight {
-  background: linear-gradient(135deg, #FABB05, #F59E0B);
+  background: linear-gradient(135deg, #f5b100, #d88a00);
   color: #1f2933;
 }
     .card.green {
@@ -648,6 +673,11 @@ li {
   box-shadow:
     0 20px 40px rgba(0,0,0,0.08),
     0 10px 20px rgba(0,0,0,0.05);
+  border-color: rgba(255,255,255,0.55);
+
+box-shadow:
+  0 25px 50px rgba(0,0,0,0.12),
+  0 0 40px rgba(255,255,255,0.15);
 }
 
 /* BIG CARD TEXT */
@@ -817,9 +847,10 @@ li {
 </div>
 
     <!-- SMALL CARD 1 -->
-    <div class="card">
-      🎓 Students & Competitive Exam Aspirants
-    </div>
+    <div class="feature-icon">🎓</div>
+<div>
+Students & Competitive Exam Aspirants
+</div>
 
     <!-- SMALL CARD 2 -->
     <div class="card highlight">
