@@ -723,7 +723,25 @@ box-shadow:
 
   transition: transform 0.4s ease;
 }
+.student-card {
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 
+  justify-content: center;
+
+  padding: 40px;
+
+  min-height: 280px;
+}
+
+.student-text {
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1.2;
+
+  max-width: 320px;
+}
 /* FLOATING ANIMATION */
 @keyframes floatDiagram {
 
@@ -865,11 +883,11 @@ box-shadow:
 </div>
 
     <!-- SMALL CARD 1 -->
-    <div class="card">
+   <div class="card student-card">
 
   <div class="feature-icon">🎓</div>
 
-  <div>
+  <div class="student-text">
     Students & Competitive Exam Aspirants
   </div>
 
