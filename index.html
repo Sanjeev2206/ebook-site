@@ -924,8 +924,19 @@ height: 90px;
   transition: all 0.25s ease;
 }
 
-.pay-item i {
-  font-size: 2rem;
+.pay-item img {
+  height: 22px;
+  width: auto;
+
+  display: block;
+
+  filter: brightness(1.05);
+
+  transition: 0.25s ease;
+}
+
+.pay-item:hover img {
+  transform: scale(1.05);
 }
 
 .pay-item:hover {
