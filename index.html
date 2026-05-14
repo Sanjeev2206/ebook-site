@@ -886,59 +886,72 @@ height: 90px;
 }
  
 }
-    /* PAYMENT ICONS */
+    /* PREMIUM PAYMENT ICONS */
 .payment-icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
 
-  margin-top: 14px;
-
-  font-size: 1.8rem;
-
-  color: rgba(255,255,255,0.92);
+  margin-top: 16px;
 
   flex-wrap: wrap;
 }
 
-.payment-icons i {
-  transition: 0.25s ease;
-}
+.pay-item {
+  height: 42px;
+  min-width: 62px;
 
-.payment-icons i:hover {
-  transform: scale(1.12);
-}
+  padding: 0 14px;
 
-.phonepe-icon {
-  font-size: 1.3rem;
-  font-weight: 700;
-
-  background: #5f259f;
-
-  color: white;
-
-  width: 32px;
-  height: 32px;
-
-  border-radius: 50%;
+  border-radius: 12px;
 
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.razorpay-text {
+  background: rgba(255,255,255,0.08);
+
+  border: 1px solid rgba(255,255,255,0.12);
+
+  color: white;
+
   font-size: 0.95rem;
   font-weight: 600;
 
-  padding: 6px 10px;
+  backdrop-filter: blur(8px);
 
-  border-radius: 999px;
+  transition: all 0.25s ease;
+}
 
-  background: rgba(255,255,255,0.1);
+.pay-item i {
+  font-size: 2rem;
+}
 
-  border: 1px solid rgba(255,255,255,0.15);
+.pay-item:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.14);
+}
+
+/* BRAND COLORS */
+.visa i {
+  color: #1A1F71;
+}
+
+.mastercard i {
+  color: #EB001B;
+}
+
+.gpay {
+  color: #ffffff;
+}
+
+.phonepe {
+  color: #b57cff;
+}
+
+.razorpay {
+  color: #7aa2ff;
 }
       </style>
 </head>
@@ -1190,12 +1203,28 @@ height: 90px;
 <a href="https://rzp.io/rzp/vYiwVnSf" class="btn-primary" target="_blank" style="margin-top:20px;">
     Unlock the System – ₹110
 </a>
-  <div class="payment-icons">
-  <i class="fa-brands fa-cc-visa"></i>
-  <i class="fa-brands fa-cc-mastercard"></i>
-  <i class="fa-brands fa-google-pay"></i>
-  <span class="phonepe-icon">₹</span>
-  <span class="razorpay-text">Razorpay</span>
+ <div class="payment-icons">
+
+  <div class="pay-item visa">
+    <i class="fa-brands fa-cc-visa"></i>
+  </div>
+
+  <div class="pay-item mastercard">
+    <i class="fa-brands fa-cc-mastercard"></i>
+  </div>
+
+  <div class="pay-item gpay">
+    GPay
+  </div>
+
+  <div class="pay-item phonepe">
+    PhonePe
+  </div>
+
+  <div class="pay-item razorpay">
+    Razorpay
+  </div>
+
 </div>
     <p style="font-size:12px; opacity:0.7; margin-top:6px;">
 Instant access • One-time payment • No subscription
