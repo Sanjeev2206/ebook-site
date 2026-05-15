@@ -607,7 +607,40 @@ li {
   gap: 20px;
   align-items: stretch;
 }
+.right-bento {
 
+  display: grid;
+
+  grid-template-rows: 1.4fr 0.6fr 0.6fr;
+
+  gap: 20px;
+
+  height: 100%;
+}
+
+/* TOP BIG CARD */
+.top-card {
+
+  min-height: 0;
+}
+
+/* SMALL CARDS */
+.small-card {
+
+  min-height: 0;
+}
+
+/* BLANK CARDS */
+.blank-card {
+
+  background: rgba(255,255,255,0.72);
+
+  border: 1px solid rgba(255,255,255,0.4);
+
+  border-radius: 18px;
+
+  min-height: 100%;
+}
 /* BIG CARD */
 .card.big {
   grid-column: span 1;
@@ -725,7 +758,9 @@ box-shadow:
 }
     .who-main-card {
 
-  min-height: 520px;
+  height: 100%;
+
+  min-height: 620px;
 
   overflow: hidden;
 
@@ -1050,44 +1085,27 @@ height: 90px;
 
 </div>
 
-    <!-- SMALL CARD 1 -->
-   <div class="card student-card">
+  <!-- RIGHT SIDE CONTAINER -->
+<div class="right-bento">
 
-  <div class="student-top">
-
-    <div class="feature-icon student-icon">
-      🎓
-    </div>
-
-    <div>
-
-      <div class="student-text">
-        Students & Competitive Exam Aspirants
-      </div>
-
-      <p class="card-description">
-        Crack exams faster with advanced reading strategies that help you retain more in less time.
-      </p>
-<div class="card-line"></div>
-    </div>
-
+  <!-- TOP BIG CARD -->
+  <div class="card blank-card top-card">
   </div>
 
+  <!-- SMALL CARD 1 -->
+  <div class="card blank-card small-card">
+  </div>
+
+  <!-- SMALL CARD 2 -->
+  <div class="card blank-card small-card">
+  </div>
 
 </div>
+  
       
     
-    <!-- SMALL CARD 2 -->
-   <!-- SMALL CARD 2 -->
-<div class="card highlight professional-card image-card">
-
-  <img
-    loading="lazy"
-    src="assets/images/professional-deep-learners.png"
-    alt="Professionals and Deep Learners"
-  >
-
-</div>
+ 
+  
 
   </div>
 
