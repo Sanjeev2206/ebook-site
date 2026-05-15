@@ -738,15 +738,29 @@ box-shadow:
   min-height: 240px;
 }
 .professional-card {
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
 
-  justify-content: center;
+  padding: 0;
 
-  padding: 40px;
+  overflow: hidden;
 
   min-height: 240px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.professional-card img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
 }
 .student-text {
   font-size: 1.7rem;
@@ -1041,13 +1055,14 @@ height: 90px;
       
     
     <!-- SMALL CARD 2 -->
-   <div class="card highlight professional-card">
+   <!-- SMALL CARD 2 -->
+<div class="card highlight professional-card image-card">
 
-  <div class="feature-icon">💼</div>
-
-  <div class="student-text">
-    Professionals & Deep Learners
-  </div>
+  <img
+    loading="lazy"
+    src="assets/images/professional-deep-learners.png"
+    alt="Professionals and Deep Learners"
+  >
 
 </div>
 
