@@ -721,9 +721,26 @@ box-shadow:
   width: 100%;
   display: block;
   border-radius: 18px;
- 
+   transition: transform 0.4s ease;
+}
+    .who-main-card {
 
-  transition: transform 0.4s ease;
+  min-height: 520px;
+
+  overflow: hidden;
+
+  padding: 0;
+}
+
+.who-main-card img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
 }
 .student-card {
 
@@ -1023,8 +1040,14 @@ height: 90px;
   <div class="bento-grid">
 
     <!-- BIG CARD -->
-   <div class="card big image-card">
-  <img loading="lazy" src="assets/images/who-is-this-for.png" alt="Who This Is For">
+   <div class="card big image-card who-main-card">
+
+  <img
+    loading="lazy"
+    src="assets/images/who-main-card.png"
+    alt="Read Smarter Think Faster"
+  >
+
 </div>
 
     <!-- SMALL CARD 1 -->
