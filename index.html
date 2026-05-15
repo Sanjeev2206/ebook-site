@@ -622,6 +622,21 @@ li {
 .top-card {
 
   min-height: 0;
+
+  padding: 0;
+
+  overflow: hidden;
+}
+
+.top-card img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
 }
 
 /* SMALL CARDS */
@@ -1088,9 +1103,16 @@ height: 90px;
   <!-- RIGHT SIDE CONTAINER -->
 <div class="right-bento">
 
-  <!-- TOP BIG CARD -->
-  <div class="card blank-card top-card">
-  </div>
+ <!-- TOP BIG CARD -->
+<div class="card top-card image-card">
+
+  <img
+    loading="lazy"
+    src="assets/images/school-college-card.png"
+    alt="School and College Students"
+  >
+
+</div>
 
   <!-- SMALL CARD 1 -->
   <div class="card blank-card small-card">
