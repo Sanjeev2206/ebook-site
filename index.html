@@ -634,15 +634,18 @@ li {
 
 .top-card img {
 
-  width: 85%;
+  width: 100%;
 
-  height: 85%;
+  height: 100%;
 
   object-fit: contain;
 
   display: block;
 
   margin: auto;
+
+  max-width: 100%;
+  max-height: 100%;
 }
 
 /* SMALL CARDS */
@@ -698,6 +701,9 @@ li {
   border: 1px solid rgba(255,255,255,0.4);
   border-radius: 18px;
   padding: 0;
+
+  overflow: hidden;
+position: relative;
   color: #1f2933;
  font-size: 1.08rem;
 font-weight: 600;
@@ -778,16 +784,26 @@ box-shadow:
   font-size: 0.95rem;
   opacity: 0.8;
 }
-   .image-card {
+  .image-card {
   padding: 0;
+
   overflow: hidden;
+
   background: transparent;
+
   border-radius: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
 }
 
 .image-card img {
   width: 100%;
   height: 100%;
+
   object-fit: contain;
 
   display: block;
@@ -795,6 +811,9 @@ box-shadow:
   border-radius: 18px;
 
   transition: transform 0.4s ease;
+
+  max-width: 100%;
+  max-height: 100%;
 }
     .photo-definition-card {
   height: 100%;
@@ -805,8 +824,13 @@ box-shadow:
 .photo-definition-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+
+  object-fit: contain;
+
   display: block;
+
+  max-width: 100%;
+  max-height: 100%;
 }
     .who-main-card {
 
@@ -825,9 +849,12 @@ box-shadow:
 
   height: 100%;
 
-  object-fit: cover;
+  object-fit: contain;
 
   display: block;
+
+  max-width: 100%;
+  max-height: 100%;
 }
 .student-card {
 
@@ -862,9 +889,12 @@ box-shadow:
 
   height: 100%;
 
-  object-fit: cover;
+  object-fit: contain;
 
   display: block;
+
+  max-width: 100%;
+  max-height: 100%;
 }
 .student-text {
   font-size: 1.7rem;
