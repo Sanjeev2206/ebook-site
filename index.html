@@ -319,54 +319,141 @@ padding: 35px 35px;
 .footer-sep {
   opacity: 0.5;
 }
-#hero {
-  position: relative;
-  padding: 3rem 1.2rem;
-  min-height: 100vh;
-  
-  border-radius: 20px;
-  margin: 20px auto;
-  margin-bottom: 12px;
+
+
+#hero.hero-section {
+  width: calc(100% - 40px);
   max-width: 1320px;
+  min-height: calc(100vh - 100px);
+
+  margin: 20px auto 12px;
+  padding: 56px 48px;
+
+  border-radius: 20px;
+
+  background:
+    radial-gradient(circle at 85% 20%, rgba(16,185,129,0.12), transparent 28%),
+    linear-gradient(135deg, #fffaf0, #f7fbf8 55%, #eef7f1);
+
+  color: #17201c;
   overflow: hidden;
-  
+
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
+
+  text-align: left;
+
+  box-shadow:
+    0 24px 70px rgba(15, 23, 42, 0.10),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+.hero-inner {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  align-items: center;
+  gap: 48px;
+}
+
+.hero-copy {
+  max-width: 620px;
+}
+
+.hero-badge {
+  display: inline-flex;
   align-items: center;
 
-background: linear-gradient(
-  to right,
-  rgba(0, 20, 10, 0.75),
-  rgba(0, 40, 20, 0.6)
-),
-url("assets/images/brain.jpeg");
+  margin-bottom: 18px;
+  padding: 8px 14px;
 
+  border-radius: 999px;
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  
-  background-attachment: scroll;
-  box-shadow: inset 0 0 80px rgba(0,0,0,0.3);
-  color: #fff;
-  text-align: center;
-}
-    #matrix {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  opacity: 0.16;
+  background: #103d2a;
+  color: #f9fff8;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
 }
 
+.hero-title {
+  margin: 0 0 18px;
 
-#hero > *:not(#matrix) {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5rem, 5vw, 4.6rem);
+  line-height: 1.02;
+  font-weight: 600;
+
+  color: #17201c;
+  text-shadow: none;
+}
+
+.hero-title span {
+  display: block;
+
+  margin-top: 10px;
+
+  font-family: Inter, system-ui, sans-serif;
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  line-height: 1.25;
+  font-weight: 600;
+
+  color: #315145;
+}
+
+.hero-subtitle {
+  max-width: 540px;
+  margin: 0 0 24px;
+
+  color: #52645c;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
+.hero-cta {
+  margin: 0;
+}
+
+.hero-trust {
+  margin: 12px 0 0;
+
+  color: #66756e;
+  font-size: 0.85rem;
+}
+
+.hero-visual {
   position: relative;
-  z-index: 2;
+
+  min-height: 420px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.hero-book {
+  width: min(360px, 82%);
+  height: auto;
+
+  filter: drop-shadow(0 34px 42px rgba(15, 23, 42, 0.25));
+}
+
+.hero-premium-badge {
+  position: absolute;
+  top: 24px;
+  right: 14%;
+
+  width: 92px;
+  z-index: 2;
+
+  filter: drop-shadow(0 12px 22px rgba(15, 23, 42, 0.22));
+}
+
+    
+
 /* MOBILE PRICING FIX */
 @media (max-width: 600px) {
 #hero {
@@ -1084,6 +1171,80 @@ height: 90px;
   transform: translateY(-2px);
   background: rgba(255,255,255,0.14);
 }
+@media (max-width: 900px) {
+  #hero.hero-section {
+    min-height: auto;
+    padding: 42px 24px;
+    text-align: center;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .hero-copy {
+    margin: 0 auto;
+  }
+
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-cta {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-visual {
+    order: -1;
+    min-height: auto;
+  }
+
+  .hero-book {
+    width: min(280px, 78%);
+  }
+
+  .hero-premium-badge {
+    top: 0;
+    right: 22%;
+    width: 76px;
+  }
+}
+
+@media (max-width: 520px) {
+  main {
+    padding-top: 60px;
+  }
+
+  #hero.hero-section {
+    width: calc(100% - 24px);
+    margin-top: 12px;
+    padding: 34px 18px;
+    border-radius: 16px;
+  }
+
+  .hero-title {
+    font-size: 2.45rem;
+  }
+
+  .hero-title span {
+    font-size: 1.1rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hero-badge {
+    font-size: 0.72rem;
+  }
+
+  .hero-book {
+    width: min(240px, 82%);
+  }
+}
 
       </style>
 </head>
@@ -1100,48 +1261,48 @@ height: 90px;
 
 <main>
 
-<section id="hero">
-  <canvas id="matrix"></canvas>
-  
- <h1 class="hero-title">
- Read 10x Faster<br>
-  <span style="font-size:0.65em; font-weight:400;">
-    Without Losing Comprehension
-  </span>
-</h1>
+<section id="hero" class="hero-section">
+  <div class="hero-inner">
 
-<p style="
-  opacity:0.85;
-  color:rgba(255,255,255,0.85);
-  max-width:600px;
-  margin:10px auto 20px;
-  font-size:1.05rem;
-">
-  For students handling massive syllabus, limited time, and constant pressure
-</p>
-<div class="hero-discount">
+    <div class="hero-copy">
+      <div class="hero-badge">78% OFF • Early Access Price</div>
 
-  <div class="discount-badge">
-    78% OFF
+      <h1 class="hero-title">
+        Read 10x Faster
+        <span>Without Losing Comprehension</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        For students handling massive syllabus, limited time, and constant pressure.
+      </p>
+
+      <a href="https://rzp.io/rzp/vYiwVnSf"
+         class="btn-primary hero-cta"
+         target="_blank"
+         rel="noopener noreferrer">
+        Get Instant Access - ₹110
+      </a>
+
+      <p class="hero-trust">
+        Instant access • One-time payment • PDF ebook
+      </p>
+    </div>
+
+    <div class="hero-visual">
+      <img loading="lazy"
+           class="premium-badge hero-premium-badge"
+           src="assets/images/premium-badge.png"
+           alt="Premium Badge">
+
+      <img loading="lazy"
+           class="hero-book"
+           src="assets/images/premium-book.png"
+           alt="Photo Reading System Ebook">
+    </div>
+
   </div>
-
-  <div class="hero-old-price">
-    ₹499
-  </div>
-
-</div>
-<a href="https://rzp.io/rzp/vYiwVnSf" class="btn-primary" style="margin-top:20px;" target="_blank" rel="noopener noreferrer">
-     Get Instant Access – ₹110
-  </a>
-    
-  <p style="font-size:12px; opacity:0.6; margin-top:6px;">
-  Instant access • One-time payment • No subscription
-    </p>
-<p style="font-size:11px; opacity:0.7; font-weight:500;">
-⚠️ Price increasing soon — early users get the lowest access
-</p>
- 
 </section>
+
 
  <section id="buy">
   <!-- PRICING BOX -->
@@ -1310,48 +1471,6 @@ Instant access • One-time payment • No subscription
     });
   });
 </script>
-    <script>
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
-
-const hero = document.getElementById("hero");
-
-canvas.width = hero.offsetWidth;
-canvas.height = hero.offsetHeight;
-    window.addEventListener("resize", () => {
-  canvas.width = hero.offsetWidth;
-  canvas.height = hero.offsetHeight;
-});
     
-const letters = "01 PHOTOREADING  E B K ";
-const fontSize = 24;
-const columns = canvas.width / fontSize;
-
-const drops = [];
-for (let x = 0; x < columns; x++) {
-  drops[x] = 1;
-}
-
-function draw() {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.12)";
-ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.fillStyle = "rgba(0, 255, 140, 1)";
-  ctx.font = "bold " + fontSize + "px monospace";
-
-  for (let i = 0; i < drops.length; i++) {
-    const text = letters[Math.floor(Math.random() * letters.length)];
-    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-      drops[i] = 0;
-    }
-
-    drops[i]++;
-  }
-}
-
-setInterval(draw, 95);
-</script>
 </body>
 </html>
