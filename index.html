@@ -1426,6 +1426,90 @@ height: 90px;
     font-size: 2rem;
   }
 }
+/* 3D Book Preview Carousel */
+.book-preview-section {
+  width: calc(100% - 40px);
+  max-width: 1320px;
+  margin: 10px auto 28px;
+  padding: 36px 20px 44px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.book-preview-section h2 {
+  margin: 0 0 10px;
+  color: #17201c;
+}
+
+.book-preview-section p {
+  max-width: 620px;
+  margin: 0 auto 28px;
+  color: #52645c;
+}
+
+.book-carousel-stage {
+  height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.book-carousel-track {
+  position: relative;
+  width: 210px;
+  height: 300px;
+  transform-style: preserve-3d;
+  animation: bookSpin 24s linear infinite;
+}
+
+.book-carousel-track:hover {
+  animation-play-state: paused;
+}
+
+.book-preview-page {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 0 22px 42px rgba(15, 23, 42, 0.22);
+  backface-visibility: hidden;
+  transform: rotateY(calc(var(--i) * 60deg)) translateZ(285px);
+}
+
+@keyframes bookSpin {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+@media (max-width: 700px) {
+  .book-preview-section {
+    width: calc(100% - 24px);
+    padding: 28px 10px 36px;
+  }
+
+  .book-carousel-stage {
+    height: 360px;
+  }
+
+  .book-carousel-track {
+    width: 160px;
+    height: 230px;
+  }
+
+  .book-preview-page {
+    transform: rotateY(calc(var(--i) * 60deg)) translateZ(220px);
+  }
+}
 
       </style>
 </head>
@@ -1528,6 +1612,21 @@ height: 90px;
   </div>
 </section>
 
+<section id="book-preview" class="book-preview-section">
+  <h2>Preview Inside the Ebook</h2>
+  <p>Flip through selected pages from the Photo Reading System before you unlock the full guide.</p>
+
+  <div class="book-carousel-stage">
+    <div class="book-carousel-track">
+      <img class="book-preview-page" style="--i: 0;" src="assets/images/preview-1.jpg" alt="Ebook preview page 1">
+      <img class="book-preview-page" style="--i: 1;" src="assets/images/preview-2.jpg" alt="Ebook preview page 2">
+      <img class="book-preview-page" style="--i: 2;" src="assets/images/preview-3.jpg" alt="Ebook preview page 3">
+      <img class="book-preview-page" style="--i: 3;" src="assets/images/preview-4.jpg" alt="Ebook preview page 4">
+      <img class="book-preview-page" style="--i: 4;" src="assets/images/preview-5.jpg" alt="Ebook preview page 5">
+      <img class="book-preview-page" style="--i: 5;" src="assets/images/preview-6.jpg" alt="Ebook preview page 6">
+    </div>
+  </div>
+</section>
 
  <section id="buy">
   <!-- PRICING BOX -->
