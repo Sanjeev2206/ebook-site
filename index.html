@@ -1285,6 +1285,147 @@ height: 90px;
     width: min(240px, 82%);
   }
 }
+/* Magazine Bento Section */
+.magazine-bento-section {
+  width: calc(100% - 40px);
+  max-width: 1320px;
+  margin: 12px auto 24px;
+  padding: 0;
+  text-align: left;
+}
+
+.magazine-bento-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr 1.05fr;
+  grid-template-rows: 170px 170px 170px;
+  grid-template-areas:
+    "lead lead focus action"
+    "lead lead recall action"
+    "proof proof proof action";
+  gap: 16px;
+}
+
+.magazine-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 24px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+}
+
+.magazine-card h2,
+.magazine-card h3 {
+  margin: 0;
+  line-height: 1.08;
+}
+
+.magazine-card h2 {
+  max-width: 560px;
+  font-size: clamp(2rem, 4vw, 4rem);
+}
+
+.magazine-card h3 {
+  font-size: 1.35rem;
+}
+
+.magazine-card p {
+  max-width: 520px;
+  margin: 12px 0 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.magazine-kicker {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.magazine-card-lead {
+  grid-area: lead;
+  background: linear-gradient(135deg, #fff7df, #edf8ef);
+  color: #17201c;
+}
+
+.magazine-card-focus {
+  grid-area: focus;
+  background: #103d2a;
+  color: #f8fff8;
+}
+
+.magazine-card-recall {
+  grid-area: recall;
+  background: #f4c542;
+  color: #17201c;
+}
+
+.magazine-card-proof {
+  grid-area: proof;
+  background: #ffffff;
+  color: #1f2933;
+}
+
+.magazine-card-action {
+  grid-area: action;
+  background: linear-gradient(180deg, #243b35, #101d1a);
+  color: #f8fff8;
+}
+
+.magazine-card-number {
+  position: absolute;
+  right: 18px;
+  bottom: 10px;
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1;
+  opacity: 0.08;
+}
+
+@media (max-width: 900px) {
+  .magazine-bento-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "lead lead"
+      "focus recall"
+      "proof proof"
+      "action action";
+  }
+
+  .magazine-card {
+    min-height: 180px;
+  }
+}
+
+@media (max-width: 560px) {
+  .magazine-bento-section {
+    width: calc(100% - 24px);
+  }
+
+  .magazine-bento-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "lead"
+      "focus"
+      "recall"
+      "proof"
+      "action";
+  }
+
+  .magazine-card {
+    min-height: 160px;
+    padding: 20px;
+  }
+
+  .magazine-card h2 {
+    font-size: 2rem;
+  }
+}
 
       </style>
 </head>
@@ -1343,6 +1484,46 @@ height: 90px;
   </div>
 </div>
 
+
+  </div>
+</section>
+<section id="magazine-bento" class="magazine-bento-section">
+  <div class="magazine-bento-grid">
+
+    <article class="magazine-card magazine-card-lead">
+      <span class="magazine-kicker">Photo Reading System</span>
+      <h2>Read Faster Without Feeling Rushed</h2>
+      <p>A calm reading method for students who need to cover more pages with better focus.</p>
+      <span class="magazine-card-number">01</span>
+    </article>
+
+    <article class="magazine-card magazine-card-focus">
+      <span class="magazine-kicker">Focus</span>
+      <h3>Train Attention</h3>
+      <p>Reduce scattered reading and stay locked into the page.</p>
+      <span class="magazine-card-number">02</span>
+    </article>
+
+    <article class="magazine-card magazine-card-recall">
+      <span class="magazine-kicker">Memory</span>
+      <h3>Recall More</h3>
+      <p>Use active review to make reading stick.</p>
+      <span class="magazine-card-number">03</span>
+    </article>
+
+    <article class="magazine-card magazine-card-proof">
+      <span class="magazine-kicker">For Serious Learners</span>
+      <h3>Built for exams, long chapters, notes, and repeated study sessions.</h3>
+      <p>Use it with syllabus books, PDFs, coaching notes, and revision material.</p>
+      <span class="magazine-card-number">04</span>
+    </article>
+
+    <article class="magazine-card magazine-card-action">
+      <span class="magazine-kicker">Daily Practice</span>
+      <h3>Simple System</h3>
+      <p>Follow the steps consistently and build reading speed over days, not years.</p>
+      <span class="magazine-card-number">05</span>
+    </article>
 
   </div>
 </section>
