@@ -1510,6 +1510,22 @@ height: 90px;
     transform: rotateY(calc(var(--i) * 60deg)) translateZ(220px);
   }
 }
+/* Drag control for 3D carousel */
+.book-carousel-track {
+  animation: none !important;
+  cursor: grab;
+  touch-action: pan-y;
+  will-change: transform;
+}
+
+.book-carousel-track.is-dragging {
+  cursor: grabbing;
+}
+
+.book-preview-page {
+  user-select: none;
+  -webkit-user-drag: none;
+}
 
       </style>
 </head>
@@ -1784,6 +1800,92 @@ Instant access • One-time payment • No subscription
     });
   });
 </script>
-    
+    <script>
+  (() => {
+    const track = document.querySelector('.book-carousel-track');
+    if (!track) return;
+
+    track.querySelectorAll('img').forEach(img => {
+      img.setAttribute('draggable', 'false');
+    });
+
+    let angle = 0;
+    let autoSpeed = -0.12;
+    let isDragging = false;
+    let startX = 0;
+    let startAngle = 0;
+    let lastX = 0;
+    let lastTime = 0;
+    let dragVelocity = 0;
+
+    const setAngle = () => {
+      track.style.transform = `rotateY(${angle}deg)`;
+    };
+
+    const startDrag = (event) => {
+      isDragging = true;
+      startX = event.clientX;
+      startAngle = angle;
+      lastX = event.clientX;
+      lastTime = performance.now();
+      dragVelocity = 0;
+      track.classList.add('is-dragging');
+      track.setPointerCapture(event.pointerId);
+      event.preventDefault();
+    };
+
+    const moveDrag = (event) => {
+      if (!isDragging) return;
+
+      const now = performance.now();
+      const dx = event.clientX - startX;
+      const dt = Math.max(now - lastTime, 16);
+      const moved = event.clientX - lastX;
+
+      angle = startAngle + dx * 0.45;
+      dragVelocity = (moved / dt) * 2.5;
+
+      lastX = event.clientX;
+      lastTime = now;
+
+      setAngle();
+    };
+
+    const stopDrag = (event) => {
+      if (!isDragging) return;
+
+      isDragging = false;
+      track.classList.remove('is-dragging');
+
+      if (track.hasPointerCapture(event.pointerId)) {
+        track.releasePointerCapture(event.pointerId);
+      }
+    };
+
+    const animate = () => {
+      if (!isDragging) {
+        angle += autoSpeed + dragVelocity;
+        dragVelocity *= 0.94;
+
+        if (Math.abs(dragVelocity) < 0.01) {
+          dragVelocity = 0;
+        }
+
+        setAngle();
+      }
+
+      requestAnimationFrame(animate);
+    };
+
+    track.addEventListener('pointerdown', startDrag);
+    track.addEventListener('pointermove', moveDrag);
+    track.addEventListener('pointerup', stopDrag);
+    track.addEventListener('pointercancel', stopDrag);
+
+    setAngle();
+    animate();
+  })();
+</script>
+
 </body>
 </html>
