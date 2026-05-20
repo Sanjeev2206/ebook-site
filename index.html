@@ -1526,7 +1526,19 @@ height: 90px;
   user-select: none;
   -webkit-user-drag: none;
 }
+.payment-option {
+  display: none;
+}
 
+.payment-option.is-visible {
+  display: block;
+}
+
+button.btn-primary {
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
       </style>
 </head>
 
@@ -1557,12 +1569,18 @@ height: 90px;
         For students handling massive syllabus, limited time, and constant pressure.
       </p>
 
-      <a href="https://rzp.io/rzp/vYiwVnSf"
-         class="btn-primary hero-cta"
-         target="_blank"
-         rel="noopener noreferrer">
-        Get Instant Access - ₹110
-      </a>
+     <a href="https://rzp.io/rzp/vYiwVnSf"
+   class="btn-primary hero-cta payment-option pay-india"
+   target="_blank"
+   rel="noopener noreferrer">
+  Get Instant Access - ₹110
+</a>
+
+<button type="button"
+        class="btn-primary hero-cta payment-option pay-korea"
+        onclick="openPaddleCheckout()">
+  Get Instant Access - ₩3900
+</button>
 
       <p class="hero-trust">
         Instant access • One-time payment • PDF ebook
@@ -1676,9 +1694,20 @@ height: 90px;
   Price increasing soon — early users lock lowest access
 </div>
 </div>
-<a href="https://rzp.io/rzp/vYiwVnSf" class="btn-primary" target="_blank" rel="noopener noreferrer" style="margin-top:20px;">
-    Unlock the System – ₹110
+<a href="https://rzp.io/rzp/vYiwVnSf"
+   class="btn-primary payment-option pay-india"
+   target="_blank"
+   rel="noopener noreferrer"
+   style="margin-top:20px;">
+  Unlock the System – ₹110
 </a>
+
+<button type="button"
+        class="btn-primary payment-option pay-korea"
+        onclick="openPaddleCheckout()"
+        style="margin-top:20px;">
+  Unlock the System – ₩3900
+</button>
 <div class="payment-icons">
 
   <div class="pay-item">
@@ -1886,6 +1915,51 @@ Instant access • One-time payment • No subscription
     animate();
   })();
 </script>
+<script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 
+<script>
+  Paddle.Initialize({
+    token: "live_9df2142484d129f2cf1a8db745d"
+  });
+
+  function openPaddleCheckout() {
+    Paddle.Checkout.open({
+      items: [
+        {
+          priceId: "pri_01ks1f43r9bnsjyeykr9ce5k57",
+          quantity: 1
+        }
+      ],
+      customer: {
+        address: {
+          countryCode: "KR"
+        }
+      }
+    });
+  }
+
+  async function showPaymentForCountry() {
+    try {
+      const response = await fetch("https://ipapi.co/json/");
+      const data = await response.json();
+
+      if (data.country_code === "KR") {
+        document.querySelectorAll(".pay-korea").forEach(button => {
+          button.classList.add("is-visible");
+        });
+      } else {
+        document.querySelectorAll(".pay-india").forEach(button => {
+          button.classList.add("is-visible");
+        });
+      }
+    } catch (error) {
+      document.querySelectorAll(".pay-india").forEach(button => {
+        button.classList.add("is-visible");
+      });
+    }
+  }
+
+  showPaymentForCountry();
+</script>
 </body>
 </html>
