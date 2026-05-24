@@ -1426,6 +1426,163 @@ height: 90px;
     font-size: 2rem;
   }
 }
+    /* Method Bento Section */
+.method-bento-section {
+  width: calc(100% - 40px);
+  max-width: 1320px;
+  margin: 12px auto 28px;
+  padding: 0;
+  text-align: left;
+}
+
+.method-bento-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr 0.9fr;
+  grid-template-rows: 220px 220px;
+  gap: 16px;
+  grid-template-areas:
+    "main scan focus"
+    "main recall result";
+}
+
+.method-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 26px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+}
+
+.method-card h2,
+.method-card h3 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.method-card h2 {
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  max-width: 520px;
+}
+
+.method-card h3 {
+  font-size: 1.45rem;
+}
+
+.method-card p {
+  margin: 12px 0 0;
+  max-width: 460px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.method-label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.method-main {
+  grid-area: main;
+  background: linear-gradient(135deg, #17201c, #28463a);
+  color: #f8fff8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.method-scan {
+  grid-area: scan;
+  background: #ffffff;
+  color: #1f2933;
+}
+
+.method-focus {
+  grid-area: focus;
+  background: #f4c542;
+  color: #17201c;
+}
+
+.method-recall {
+  grid-area: recall;
+  background: #e9f7ef;
+  color: #17201c;
+}
+
+.method-result {
+  grid-area: result;
+  background: #103d2a;
+  color: #f8fff8;
+}
+
+.method-number {
+  position: absolute;
+  right: 18px;
+  bottom: 10px;
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1;
+  opacity: 0.09;
+}
+
+.method-mini-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.method-pill {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.14);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .method-bento-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "main main"
+      "scan focus"
+      "recall result";
+  }
+
+  .method-card {
+    min-height: 190px;
+  }
+}
+
+@media (max-width: 560px) {
+  .method-bento-section {
+    width: calc(100% - 24px);
+  }
+
+  .method-bento-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "main"
+      "scan"
+      "focus"
+      "recall"
+      "result";
+  }
+
+  .method-card {
+    min-height: 160px;
+    padding: 20px;
+  }
+
+  .method-card h2 {
+    font-size: 2rem;
+  }
+}
 /* 3D Book Preview Carousel */
 .book-preview-section {
   width: calc(100% - 40px);
@@ -1645,7 +1802,55 @@ button.btn-primary {
 
   </div>
 </section>
+<section id="method-bento" class="method-bento-section">
+  <div class="method-bento-grid">
 
+    <article class="method-card method-main">
+      <div>
+        <span class="method-label">How It Works</span>
+        <h2>A Simple Daily Reading System</h2>
+        <p>
+          Instead of forcing speed, this method trains your eyes, attention, and recall step by step.
+        </p>
+      </div>
+
+      <div class="method-mini-row">
+        <span class="method-pill">Read</span>
+        <span class="method-pill">Focus</span>
+        <span class="method-pill">Recall</span>
+      </div>
+    </article>
+
+    <article class="method-card method-scan">
+      <span class="method-label">Step One</span>
+      <h3>Preview First</h3>
+      <p>Scan headings, structure, and keywords before deep reading.</p>
+      <span class="method-number">01</span>
+    </article>
+
+    <article class="method-card method-focus">
+      <span class="method-label">Step Two</span>
+      <h3>Read in Flow</h3>
+      <p>Use guided focus to move through pages without constant rereading.</p>
+      <span class="method-number">02</span>
+    </article>
+
+    <article class="method-card method-recall">
+      <span class="method-label">Step Three</span>
+      <h3>Recall Actively</h3>
+      <p>Turn reading into memory using short review and self-testing.</p>
+      <span class="method-number">03</span>
+    </article>
+
+    <article class="method-card method-result">
+      <span class="method-label">Result</span>
+      <h3>More Pages. Better Memory.</h3>
+      <p>Useful for textbooks, PDFs, notes, and exam revision.</p>
+      <span class="method-number">04</span>
+    </article>
+
+  </div>
+</section>
 <section id="book-preview" class="book-preview-section">
   <h2>Preview Inside the Ebook</h2>
   <p>Flip through selected pages from the Photo Reading System before you unlock the full guide.</p>
