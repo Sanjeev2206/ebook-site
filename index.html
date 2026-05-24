@@ -1857,6 +1857,152 @@ button.btn-primary {
     transform: rotateY(calc(var(--i) * 60deg)) translateZ(220px);
   }
 }
+    /* Premium Buy Section */
+#buy.premium-buy-section {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 64px 20px;
+  text-align: center;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(244,197,66,0.14), transparent 28%),
+    linear-gradient(135deg, #101b18, #172923 55%, #243b35);
+
+  color: #f8fff8;
+}
+
+.buy-card {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 36px;
+
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+  align-items: center;
+
+  border-radius: 14px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.16);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+.buy-copy {
+  text-align: left;
+}
+
+.buy-kicker {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 7px 12px;
+
+  border-radius: 999px;
+  background: rgba(244,197,66,0.16);
+  color: #f4c542;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+
+.buy-copy h2 {
+  margin: 0 0 14px;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.05;
+  color: #ffffff;
+}
+
+.buy-copy p {
+  margin: 0;
+  max-width: 520px;
+  color: rgba(248,255,248,0.76);
+}
+
+.buy-panel {
+  padding: 28px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #17201c;
+  text-align: center;
+  box-shadow: 0 24px 50px rgba(0,0,0,0.28);
+}
+
+.buy-old-price {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  opacity: 0.55;
+  text-decoration: line-through;
+}
+
+.buy-price {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.buy-price-note {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #66756e;
+}
+
+.buy-benefits {
+  display: grid;
+  gap: 8px;
+  margin: 22px 0;
+  font-size: 0.9rem;
+  color: #315145;
+}
+
+.buy-benefits span {
+  padding: 9px 10px;
+  border-radius: 8px;
+  background: #f1f7f3;
+}
+
+.buy-panel .btn-primary {
+  max-width: 100%;
+  margin-top: 12px;
+}
+
+.buy-safe-note {
+  margin-top: 14px;
+  font-size: 0.78rem;
+  color: #66756e;
+}
+
+@media (max-width: 760px) {
+  #buy.premium-buy-section {
+    padding: 42px 12px;
+  }
+
+  .buy-card {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  .buy-copy {
+    text-align: center;
+  }
+
+  .buy-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .buy-panel {
+    padding: 22px;
+  }
+
+  .buy-price {
+    font-size: 2.5rem;
+  }
+}
       </style>
 </head>
 
@@ -2029,81 +2175,79 @@ button.btn-primary {
   </div>
 </section>
 
- <section id="buy">
-  <!-- PRICING BOX -->
-  <div class="pricing-content">
-   
+<section id="buy" class="premium-buy-section">
+  <div class="buy-card">
 
-<div class="pricing-content">
-    <p style="font-size:11px; letter-spacing:1px; opacity:0.6; margin-bottom:10px;">
-  LIMITED ACCESS
-</p>
-    <h2>Get Instant Access</h2>
+    <div class="buy-copy">
+      <span class="buy-kicker">Limited Early Access</span>
 
-<p style="opacity:0.85;">
-  One system. Lifetime access. Train your brain to process information faster.
-</p>
+      <h2>Unlock the Photo Reading System</h2>
 
- <div class="price">
-
-  <div class="discount-badge">
-    78% OFF
-  </div>
-<div style="font-size:0.85rem; opacity:0.55; text-decoration:line-through; margin-bottom:6px;">
-  ₹499
-</div>
-  ₹110
-
-  <div style="font-size:0.85rem; opacity:0.7; margin-top:6px;">
-    Early access price
-  </div>
-  <div class="price-sub">
-  Price increasing soon — early users lock lowest access
-</div>
-</div>
-<a href="https://rzp.io/rzp/vYiwVnSf"
-   class="btn-primary payment-option pay-india"
-   target="_blank"
-   rel="noopener noreferrer"
-   style="margin-top:20px;">
-  Unlock the System – ₹110
-</a>
-
-<button type="button"
-        class="btn-primary payment-option pay-korea"
-        onclick="openPaddleCheckout()"
-        style="margin-top:20px;">
-  Unlock the System – ₩3900
-</button>
-<div class="payment-icons">
-
-  <div class="pay-item">
-    <img src="assets/icons/visa.svg" alt="Visa">
-  </div>
-
-  <div class="pay-item">
-    <img src="assets/icons/mastercard.svg" alt="Mastercard">
-  </div>
-
-  <div class="pay-item">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" alt="Google Pay">
-  </div>
-
-  <div class="pay-item">
-    <img src="assets/icons/phonepe.svg" alt="PhonePe">
-  </div>
-
-  <div class="pay-item">
-    <img src="assets/icons/razorpay.svg" alt="Razorpay">
-  </div>
-
-</div>
-    <p style="font-size:12px; opacity:0.7; margin-top:6px;">
-Instant access • One-time payment • No subscription
-</p>
-        
+      <p>
+        A practical ebook for students in India and Korea who want to read faster,
+        stay focused, and revise with more confidence.
+      </p>
     </div>
-    
+
+    <div class="buy-panel">
+      <div class="discount-badge">78% OFF</div>
+
+      <div class="buy-old-price payment-option pay-india">₹499</div>
+      <div class="buy-old-price payment-option pay-korea">₩17900</div>
+
+      <div class="buy-price payment-option pay-india">₹110</div>
+      <div class="buy-price payment-option pay-korea">₩3900</div>
+
+      <div class="buy-price-note">
+        One-time payment. Lifetime PDF access.
+      </div>
+
+      <div class="buy-benefits">
+        <span>Instant download after payment</span>
+        <span>No subscription or hidden fees</span>
+        <span>Made for exams, PDFs, and revision</span>
+      </div>
+
+      <a href="https://rzp.io/rzp/vYiwVnSf"
+         class="btn-primary payment-option pay-india"
+         target="_blank"
+         rel="noopener noreferrer">
+        Unlock the System - ₹110
+      </a>
+
+      <button type="button"
+              class="btn-primary payment-option pay-korea"
+              onclick="openPaddleCheckout()">
+        Unlock the System - ₩3900
+      </button>
+
+      <div class="payment-icons">
+        <div class="pay-item">
+          <img src="assets/icons/visa.svg" alt="Visa">
+        </div>
+
+        <div class="pay-item">
+          <img src="assets/icons/mastercard.svg" alt="Mastercard">
+        </div>
+
+        <div class="pay-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg" alt="Google Pay">
+        </div>
+
+        <div class="pay-item">
+          <img src="assets/icons/phonepe.svg" alt="PhonePe">
+        </div>
+
+        <div class="pay-item">
+          <img src="assets/icons/razorpay.svg" alt="Razorpay">
+        </div>
+      </div>
+
+      <div class="buy-safe-note">
+        Secure checkout • Instant access • Digital product
+      </div>
+    </div>
+
   </div>
 </section>
   
@@ -2327,6 +2471,7 @@ Instant access • One-time payment • No subscription
   }
 
   showPaymentForCountry();
+  
 </script>
 </body>
 </html>
