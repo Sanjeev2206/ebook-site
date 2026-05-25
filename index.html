@@ -2342,6 +2342,23 @@ button.btn-primary {
     <script>
   (() => {
     const track = document.querySelector('.book-carousel-track');
+    const pages = Array.from(document.querySelectorAll('.book-preview-page'));
+
+function normalizeAngle(value) {
+  return ((value % 360) + 360) % 360;
+}
+
+function hideEdgeOnPages() {
+  pages.forEach((page, index) => {
+    const pageAngle = normalizeAngle(angle + index * 60);
+
+    const isEdgeOn =
+      (pageAngle > 78 && pageAngle < 102) ||
+      (pageAngle > 258 && pageAngle < 282);
+
+    page.style.opacity = isEdgeOn ? '0' : '1';
+  });
+}
     if (!track) return;
 
     track.querySelectorAll('img').forEach(img => {
@@ -2359,6 +2376,7 @@ button.btn-primary {
 
     const setAngle = () => {
       track.style.transform = `rotateY(${angle}deg)`;
+hideEdgeOnPages();
     };
 
     const startDrag = (event) => {
