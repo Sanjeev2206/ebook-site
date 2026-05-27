@@ -1698,9 +1698,9 @@ button.btn-primary {
 }
     /* Premium Book Preview Upgrade */
 .book-preview-section {
-  width: 100%;
-  max-width: none;
-  margin: 18px 0 32px;
+  width: calc(100% - 40px);
+  max-width: 1320px;
+  margin: 18px auto 32px;
   padding: 54px 20px 66px;
 
   text-align: center;
@@ -1711,8 +1711,8 @@ button.btn-primary {
 
   color: #f8fff8;
 
-  border-top: 1px solid rgba(255,255,255,0.12);
-  border-bottom: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.12);
 }
 
 .book-preview-kicker {
@@ -1835,7 +1835,10 @@ button.btn-primary {
 
 @media (max-width: 700px) {
   .book-preview-section {
+    width: calc(100% - 24px);
+    margin: 18px auto 32px;
     padding: 34px 12px 42px;
+    border-radius: 16px;
   }
 
   .book-preview-section p {
