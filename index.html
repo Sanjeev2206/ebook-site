@@ -303,30 +303,21 @@ padding: 35px 35px;
     0 0 25px rgba(255,0,0,0.2);
 }
     
-   .site-footer {
+  .site-footer {
   width: calc(100% - 40px);
   max-width: 1320px;
-  margin: 24px auto;
-  padding: 34px 28px;
+  margin: 32px auto 24px;
+  padding: 34px 8px 30px;
 
-  border-radius: 20px;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(244,197,66,0.14), transparent 26%),
-    linear-gradient(135deg, #101b18, #172923 55%, #243b35);
-
-  color: rgba(248,255,248,0.78);
-  border: 1px solid rgba(255,255,255,0.12);
-
-  box-shadow:
-    0 24px 70px rgba(15,23,42,0.16),
-    inset 0 1px 0 rgba(255,255,255,0.08);
+  color: #52645c;
+  border-top: 1px solid rgba(15,23,42,0.10);
 }
 
 .footer-inner {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 24px;
+  align-items: flex-start;
+  gap: 28px;
   flex-wrap: wrap;
 }
 
@@ -336,54 +327,50 @@ padding: 35px 35px;
 
 .footer-brand strong {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 
-  color: #f8fff8;
   font-family: "Playfair Display", serif;
   font-size: 1.35rem;
   font-weight: 600;
+  color: #17201c;
 }
 
 .footer-brand span {
-  font-size: 0.82rem;
-  color: rgba(248,255,248,0.62);
+  display: block;
+  max-width: 420px;
+
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: #66756e;
 }
 
 .footer-links {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 18px;
   flex-wrap: wrap;
 }
 
 .footer-links a {
-  padding: 8px 12px;
-
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.14);
-
-  color: rgba(248,255,248,0.82);
+  color: #52645c;
   text-decoration: none;
-  font-size: 0.82rem;
-
-  transition: 0.25s ease;
+  font-size: 0.86rem;
+  font-weight: 500;
 }
 
 .footer-links a:hover {
-  color: #f4c542;
-  border-color: rgba(244,197,66,0.45);
-  background: rgba(255,255,255,0.06);
+  color: #17201c;
 }
 
 @media (max-width: 600px) {
   .site-footer {
     width: calc(100% - 24px);
-    padding: 28px 20px;
-    text-align: center;
+    padding-top: 28px;
   }
 
   .footer-inner {
     justify-content: center;
+    text-align: center;
   }
 
   .footer-brand {
@@ -2450,7 +2437,7 @@ button.btn-primary {
   <div class="footer-inner">
     <div class="footer-brand">
       <strong>Read for Speed</strong>
-      <span>© 2026 Read for Speed. Digital learning system for serious readers.</span>
+      <span>© 2026 Read for Speed. A focused digital reading system for students and serious learners.</span>
     </div>
 
     <div class="footer-links">
