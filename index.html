@@ -1435,7 +1435,30 @@ height: 90px;
   background: linear-gradient(180deg, #243b35, #101d1a);
   color: #f8fff8;
 }
+.lead-corner-image {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
 
+  width: 120px;
+  max-width: 34%;
+  height: auto;
+
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.magazine-card-lead .magazine-kicker,
+.magazine-card-lead h2,
+.magazine-card-lead p {
+  position: relative;
+  z-index: 2;
+}
+
+.magazine-card-lead .magazine-card-number {
+  z-index: 0;
+}
 .magazine-card-number {
   position: absolute;
   right: 18px;
@@ -2204,11 +2227,19 @@ button.btn-primary {
   <div class="magazine-bento-grid">
 
     <article class="magazine-card magazine-card-lead">
-      <span class="magazine-kicker">Photo Reading System</span>
-      <h2>Read Faster Without Feeling Rushed</h2>
-      <p>A calm reading method for students who need to cover more pages with better focus.</p>
-      <span class="magazine-card-number">01</span>
-    </article>
+  <span class="magazine-kicker">Photo Reading System</span>
+  <h2>Read Faster Without Feeling Rushed</h2>
+  <p>A calm reading method for students who need to cover more pages with better focus.</p>
+
+  <img
+    class="lead-corner-image"
+    src="assets/images/corner-reading.jpg"
+    alt=""
+    aria-hidden="true"
+  >
+
+  <span class="magazine-card-number">01</span>
+</article>
 
     <article class="magazine-card magazine-card-focus">
       <span class="magazine-kicker">Focus</span>
