@@ -2156,14 +2156,14 @@ button.btn-primary {
     <div class="hero-copy">
       <div class="hero-badge">78% OFF • Early Access Price</div>
 
-      <h1 class="hero-title">
-        Read 10x Faster
-        <span>Without Losing Comprehension</span>
-      </h1>
+     <h1 class="hero-title">
+  <span id="heroTitle1">Read 10x Faster</span>
+  <span id="heroTitle2">Without Losing Comprehension</span>
+</h1>
 
-      <p class="hero-subtitle">
-        For students handling massive syllabus, limited time, and constant pressure.
-      </p>
+      <p class="hero-subtitle" id="heroSubtitle">
+  For students handling massive syllabus, limited time, and constant pressure.
+</p>
 
      <a href="https://rzp.io/rzp/vYiwVnSf"
    class="btn-primary hero-cta payment-option pay-india"
@@ -2601,6 +2601,32 @@ hideEdgeOnPages();
 
 }
 
+  const translations = {
+  en: {
+    heroTitle1: "Read 10x Faster",
+    heroTitle2: "Without Losing Comprehension",
+    heroSubtitle:
+      "For students handling massive syllabus, limited time, and constant pressure."
+  },
+
+  ko: {
+    heroTitle1: "10배 더 빠르게 읽으세요",
+    heroTitle2: "이해력을 잃지 않고",
+    heroSubtitle:
+      "방대한 학습량과 제한된 시간 속에서 공부하는 학생들을 위한 시스템입니다."
+  }
+};
+
+function setLanguage(lang) {
+  document.getElementById("heroTitle1").textContent =
+    translations[lang].heroTitle1;
+
+  document.getElementById("heroTitle2").textContent =
+    translations[lang].heroTitle2;
+
+  document.getElementById("heroSubtitle").textContent =
+    translations[lang].heroSubtitle;
+}
   async function showPaymentForCountry() {
   try {
     const params = new URLSearchParams(window.location.search);
