@@ -2141,11 +2141,11 @@ button.btn-primary {
 <body>
 
 <nav class="top-nav">
-  <a href="#hero">Home</a>
-  <a href="#who">Who</a>
-  <a href="#author">Author</a>
-  <a href="#book-preview">Preview</a>
-  <a href="#buy">Buy</a>
+  <a href="#hero" id="navHome">Home</a>
+  <a href="#who" id="navWho">Who</a>
+  <a href="#author" id="navAuthor">Author</a>
+  <a href="#book-preview" id="navPreview">Preview</a>
+  <a href="#buy" id="navBuy">Buy</a>
 </nav>
 
 <main>
@@ -2165,7 +2165,8 @@ button.btn-primary {
   For students handling massive syllabus, limited time, and constant pressure.
 </p>
 
-     <a href="https://rzp.io/rzp/vYiwVnSf"
+    <a href="https://rzp.io/rzp/vYiwVnSf"
+   id="heroBuyBtn"
    class="btn-primary hero-cta payment-option pay-india"
    target="_blank"
    rel="noopener noreferrer">
@@ -2603,6 +2604,13 @@ hideEdgeOnPages();
 
   const translations = {
   en: {
+heroBuyBtn: "Get Instant Access - ₹110",
+    navHome: "Home",
+    navWho: "Who",
+    navAuthor: "Author",
+    navPreview: "Preview",
+    navBuy: "Buy",
+
     heroTitle1: "Read 10x Faster",
     heroTitle2: "Without Losing Comprehension",
     heroSubtitle:
@@ -2610,6 +2618,14 @@ hideEdgeOnPages();
   },
 
   ko: {
+    heroBuyBtn: "즉시 이용하기 - ₩3900",
+
+    navHome: "홈",
+    navWho: "대상",
+    navAuthor: "저자",
+    navPreview: "미리보기",
+    navBuy: "구매",
+
     heroTitle1: "10배 더 빠르게 읽으세요",
     heroTitle2: "이해력을 잃지 않고",
     heroSubtitle:
@@ -2618,6 +2634,23 @@ hideEdgeOnPages();
 };
 
 function setLanguage(lang) {
+document.getElementById("heroBuyBtn").textContent =
+    translations[lang].heroBuyBtn;
+  document.getElementById("navHome").textContent =
+    translations[lang].navHome;
+
+  document.getElementById("navWho").textContent =
+    translations[lang].navWho;
+
+  document.getElementById("navAuthor").textContent =
+    translations[lang].navAuthor;
+
+  document.getElementById("navPreview").textContent =
+    translations[lang].navPreview;
+
+  document.getElementById("navBuy").textContent =
+    translations[lang].navBuy;
+
   document.getElementById("heroTitle1").textContent =
     translations[lang].heroTitle1;
 
