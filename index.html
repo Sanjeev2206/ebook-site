@@ -2643,20 +2643,32 @@ function setLanguage(lang) {
     }
 
     if (countryCode === "KR") {
-      document.querySelectorAll(".pay-korea").forEach(button => {
+
+    setLanguage("ko");
+
+    document.querySelectorAll(".pay-korea").forEach(button => {
         button.classList.add("is-visible");
-      });
-    } else {
-      document.querySelectorAll(".pay-india").forEach(button => {
+    });
+
+} else {
+
+    setLanguage("en");
+
+    document.querySelectorAll(".pay-india").forEach(button => {
         button.classList.add("is-visible");
-      });
-    }
+    });
+
+}
 
   } catch (error) {
+
+    setLanguage("en");
+
     document.querySelectorAll(".pay-india").forEach(button => {
-      button.classList.add("is-visible");
+        button.classList.add("is-visible");
     });
-  }
+
+}
 }
 
 showPaymentForCountry();
