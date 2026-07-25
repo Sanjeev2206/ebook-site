@@ -2576,21 +2576,30 @@ hideEdgeOnPages();
     token: "live_9df2142484d129f2cf1a8db745d"
   });
 
-  function openPaddleCheckout() {
-    Paddle.Checkout.open({
-      items: [
-        {
-          priceId: "pri_01ks1f43r9bnsjyeykr9ce5k57",
-          quantity: 1
-        }
-      ],
-      customer: {
-        address: {
-          countryCode: "KR"
-        }
-      }
-    });
+ function openPaddleCheckout() {
+
+  const email = prompt("Please enter your email address:");
+
+  if (!email) {
+    return;
   }
+
+  Paddle.Checkout.open({
+    items: [
+      {
+        priceId: "pri_01ks1f43r9bnsjyeykr9ce5k57",
+        quantity: 1
+      }
+    ],
+    customer: {
+      email: email,
+      address: {
+        countryCode: "KR"
+      }
+    }
+  });
+
+}
 
   async function showPaymentForCountry() {
     try {
