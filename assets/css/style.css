@@ -200,3 +200,16 @@ section {
   margin-top: 12px;
   text-align: center;
 }
+/* Korean Official English Edition Stamp */
+.book-reflection-wrap {
+  position: relative;
+}
+
+.korean-stamp {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  top: 10%;
+  right: 0;
+  z-index: 10;
+}
