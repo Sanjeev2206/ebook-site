@@ -207,9 +207,10 @@ section {
 
 .korean-stamp {
   position: absolute;
-  width: 100px;
+  width: 65px;
   height: auto;
-  top: 10%;
-  right: 0;
+  top: 5%;
+  left: 5%;
+  right: auto;
   z-index: 10;
 }
