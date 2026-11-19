@@ -53,19 +53,94 @@ button {
     <div class="card">
       <h2>5th Grader</h2>
       <p>School Reading Level</p>
-      <button>Challenge Now</button>
+      <button onclick="startChallenge('5th Grader')">Challenge Now</button>
     </div>
     <div class="card">
       <h2>College Student</h2>
       <p>Graduate Reading Level</p>
-      <button>Challenge Now</button>
+      <button onclick="startChallenge('College Student')">Challenge Now</button>
     </div>
     <div class="card">
       <h2>Professor</h2>
       <p>Advanced Reading Level</p>
-      <button>Challenge Now</button>
+      <button onclick="startChallenge('Professor')">Challenge Now</button>
     </div>
   </div>
 </div>
+  <div id="testScreen" style="display:none; max-width:900px; margin:50px auto; padding:25px; text-align:center;">
+
+  <h1 id="challengeTitle">Reading Challenge</h1>
+
+  <p>Read the following passage carefully.</p>
+
+  <div style="background:white; padding:25px; border-radius:15px; margin:20px 0;">
+    <h2>AI Reader's Passage</h2>
+    <p id="aiPassage">
+      Space exploration has helped humanity understand the universe.
+      Scientists study distant planets, stars and galaxies to discover
+      more about the world beyond Earth.
+    </p>
+    <button onclick="readPassage()">Listen to AI Reader</button>
+  </div>
+
+  <div style="background:white; padding:25px; border-radius:15px; margin:20px 0;">
+    <h2>Your Reading Passage</h2>
+    <p id="userPassage">
+      Space exploration allows scientists to investigate distant worlds.
+      Through modern technology, researchers learn about planets,
+      stars and galaxies and expand human knowledge.
+    </p>
+    <button onclick="startReading()">Start Reading</button>
+    <button onclick="finishReading()">Finish Reading</button>
+  </div>
+
+  <h2 id="timer">00:00</h2>
+
+</div>
+  <script>
+let startTime;
+let timerInterval;
+let selectedLevel = "";
+
+function startChallenge(level) {
+  selectedLevel = level;
+  document.querySelector(".container").style.display = "none";
+  document.getElementById("testScreen").style.display = "block";
+  document.getElementById("challengeTitle").textContent =
+    level + " Reading Challenge";
+}
+
+function readPassage() {
+  const text = document.getElementById("aiPassage").innerText;
+  const speech = new SpeechSynthesisUtterance(text);
+  speechSynthesis.cancel();
+  speechSynthesis.speak(speech);
+}
+
+function startReading() {
+  startTime = Date.now();
+  clearInterval(timerInterval);
+
+  timerInterval = setInterval(() => {
+    let seconds = Math.floor((Date.now() - startTime) / 1000);
+    let minutes = Math.floor(seconds / 60);
+    seconds = seconds % 60;
+
+    document.getElementById("timer").textContent =
+      String(minutes).padStart(2, "0") + ":" +
+      String(seconds).padStart(2, "0");
+  }, 1000);
+}
+
+function finishReading() {
+  if (!startTime) {
+    alert("Please start reading first.");
+    return;
+  }
+
+  clearInterval(timerInterval);
+  alert("Reading test completed!");
+}
+</script>
 </body>
 </html>
