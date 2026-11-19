@@ -118,54 +118,39 @@ function startChallenge(level) {
 
 function startBotReading() {
   const passage = document.getElementById("aiPassage");
-  const text = passage.innerText;
-
-  // Display each word separately
-  const words = text.match(/\S+/g) || [];
-  passage.innerHTML = words.map((word, index) =>
-    `<span data-word="${index}">${word}</span>`
-  ).join(" ");
-
-  const speech = new SpeechSynthesisUtterance(text);
+  const text = passage.innerText.trim();
+  const words = text.split(/\s+/);
 
   speechSynthesis.cancel();
-
-  document.querySelectorAll("#aiPassage span").forEach(word => {
-    word.style.color = "#777";
-  });
-
-  speech.onboundary = function(event) {
-    if (event.name !== "word") return;
-
-    const spokenText = text.substring(0, event.charIndex);
-    const wordIndex = spokenText.trim().split(/\s+/).length - 1;
-
-    document.querySelectorAll("#aiPassage span").forEach((word, index) => {
-      word.style.color = index <= wordIndex ? "#111" : "#777";
-      word.style.fontWeight = index <= wordIndex ? "bold" : "normal";
-    });
-  };
-
-  speech.onend = function() {
-    clearInterval(timerInterval);
-  };
-
-  startTime = Date.now();
   clearInterval(timerInterval);
 
-  timerInterval = setInterval(() => {
-    let seconds = Math.floor((Date.now() - startTime) / 1000);
-    let minutes = Math.floor(seconds / 60);
-    seconds = seconds % 60;
+  passage.innerHTML = words.map(word =>
+    `<span style="color:#999; font-weight:normal;">${word}</span>`
+  ).join(" ");
 
-    document.getElementById("timer").textContent =
-      String(minutes).padStart(2, "0") + ":" +
-      String(seconds).padStart(2, "0");
-  }, 1000);
+  const wordElements = passage.querySelectorAll("span");
+  let currentWord = 0;
 
+  startTime = Date.now();
+
+  function highlightNextWord() {
+    if (currentWord >= words.length) {
+      clearInterval(timerInterval);
+      return;
+    }
+
+    wordElements[currentWord].style.color = "#111";
+    wordElements[currentWord].style.fontWeight = "bold";
+    currentWord++;
+  }
+
+  highlightNextWord();
+  timerInterval = setInterval(highlightNextWord, 600);
+
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.rate = 0.9;
   speechSynthesis.speak(speech);
 }
-
 function finishReading() {
   speechSynthesis.cancel();
   clearInterval(timerInterval);
