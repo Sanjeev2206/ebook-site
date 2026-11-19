@@ -68,7 +68,9 @@ button {
   </div>
 </div>
   <div id="testScreen" style="display:none; max-width:1100px; margin:40px auto; padding:20px; text-align:center;">
-
+<button onclick="backToChallenges()" style="display:block; margin-bottom:20px;">
+  ← Back to Challenges
+</button>
   <h1 id="challengeTitle">Reading Challenge</h1>
 
   <p>Read your passage while the competitor reads alongside you.</p>
@@ -163,6 +165,14 @@ function startBotReading() {
 
   updateChallenge();
   timerInterval = setInterval(updateChallenge, 50);
+}
+    function backToChallenges() {
+  clearInterval(timerInterval);
+
+  document.getElementById("testScreen").style.display = "none";
+  document.querySelector(".container").style.display = "block";
+
+  document.getElementById("timer").textContent = "00:00";
 }
 function finishReading() {
   speechSynthesis.cancel();
