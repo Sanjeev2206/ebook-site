@@ -141,10 +141,10 @@ button {
 let startTime;
 let timerInterval;
 let selectedLevel = "";
-
+let originalAIPassage = "";
 function startChallenge(level) {
   selectedLevel = level;
-
+originalAIPassage = document.getElementById("aiPassage").innerText;
   document.querySelector(".container").style.display = "none";
   document.getElementById("testScreen").style.display = "block";
 
@@ -156,7 +156,10 @@ function startChallenge(level) {
 
 function startBotReading() {
   const passage = document.getElementById("aiPassage");
-  const text = passage.innerText.trim();
+
+passage.innerText = originalAIPassage;
+
+const text = passage.innerText.trim();
   const words = text.split(/\s+/);
 
   clearInterval(timerInterval);
@@ -198,9 +201,7 @@ const wordInterval = 60000 / wordsPerMinute;
       }
     });
 
-    if (wordsToHighlight >= words.length) {
-      clearInterval(timerInterval);
-    }
+    
   }
 
   updateChallenge();
