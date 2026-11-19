@@ -1,1 +1,164 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Your Language | Read for Speed</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #edf4ff, #e2edfa);
+      color: #172b4d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 850px;
+      text-align: center;
+      background: rgba(255,255,255,0.88);
+      padding: 55px 30px;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(31, 65, 114, 0.12);
+    }
+
+    .brand {
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #4776b8;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin: 0 0 14px;
+    }
+
+    .subtitle {
+      color: #64748b;
+      font-size: 17px;
+      margin-bottom: 38px;
+    }
+
+    .language-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .language-card {
+      display: block;
+      text-decoration: none;
+      color: #172b4d;
+      background: white;
+      border: 1px solid #dce7f5;
+      border-radius: 18px;
+      padding: 30px 12px;
+      transition: 0.25s ease;
+    }
+
+    .language-card:hover {
+      transform: translateY(-6px);
+      border-color: #5791df;
+      box-shadow: 0 12px 28px rgba(50, 100, 170, 0.13);
+    }
+
+    .language-symbol {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .language-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    .language-label {
+      font-size: 13px;
+      color: #8291a8;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 35px;
+      color: #4776b8;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 40px 18px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .language-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .language-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="brand">READ FOR SPEED</div>
+
+    <h1>Choose Your Language</h1>
+
+    <p class="subtitle">
+      Select your preferred language to begin the Reading Speed Challenge.
+    </p>
+
+    <div class="language-grid">
+
+      <a class="language-card" href="challenge.html?lang=en">
+        <div class="language-symbol">🇬🇧</div>
+        <div class="language-name">English</div>
+        <div class="language-label">Continue in English</div>
+      </a>
+
+      <a class="language-card" href="challenge.html?lang=hi">
+        <div class="language-symbol">🇮🇳</div>
+        <div class="language-name">हिन्दी</div>
+        <div class="language-label">हिन्दी में आगे बढ़ें</div>
+      </a>
+
+      <a class="language-card" href="challenge.html?lang=ko">
+        <div class="language-symbol">🇰🇷</div>
+        <div class="language-name">한국어</div>
+        <div class="language-label">한국어로 계속하기</div>
+      </a>
+
+    </div>
+
+    <a class="back-link" href="index.html">
+      ← Back to Home
+    </a>
+
+  </div>
+
+</body>
+</html>
+
