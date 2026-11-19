@@ -135,13 +135,47 @@ button {
   </div>
 
   <h2 id="timer">00:00</h2>
+<div id="resultScreen" style="
+  display:none;
+  margin:30px auto;
+  padding:30px;
+  background:white;
+  border-radius:18px;
+  max-width:750px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.08);
+">
+  <h1>Reading Challenge Results</h1>
 
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+
+    <div>
+      <h2>Your Reading Speed</h2>
+      <h1 id="userSpeed">0 WPM</h1>
+    </div>
+
+    <div>
+      <h2>Competitor Speed</h2>
+      <h1 id="competitorSpeed">0 WPM</h1>
+    </div>
+
+  </div>
+
+  <h2 id="winnerMessage"></h2>
+
+  <p id="timeTaken"></p>
+
+  <button onclick="backToChallenges()">
+    Try Another Challenge
+  </button>
+</div>
 </div>
   <script>
 
 let timerInterval;
 let selectedLevel = "";
 let originalAIPassage = "";
+let challengeStartTime = null;
+let userWordCount = 0;
 function startChallenge(level) {
   selectedLevel = level;
   originalAIPassage = document.getElementById("aiPassage").innerText;
@@ -161,7 +195,13 @@ passage.innerText = originalAIPassage;
 
 const text = passage.innerText.trim();
   const words = text.split(/\s+/);
+challengeStartTime = Date.now();
 
+const userPassageText = document.getElementById("userPassage").innerText.trim();
+
+userWordCount = userPassageText.split(/\s+/).length;
+
+document.getElementById("resultScreen").style.display = "none";
   clearInterval(timerInterval);
 
   passage.innerHTML = words.map(word =>
@@ -210,15 +250,63 @@ const wordInterval = 60000 / wordsPerMinute;
     function backToChallenges() {
   clearInterval(timerInterval);
 
+  challengeStartTime = null;
+
   document.getElementById("testScreen").style.display = "none";
   document.querySelector(".container").style.display = "block";
 
   document.getElementById("timer").textContent = "00:00";
+
+  document.getElementById("resultScreen").style.display = "none";
+
+  document.getElementById("aiPassage").innerText = originalAIPassage;
 }
 function finishReading() {
   speechSynthesis.cancel();
   clearInterval(timerInterval);
-  alert("Reading challenge completed!");
+
+  if (challengeStartTime === null) {
+    alert("Please start the challenge first!");
+    return;
+  }
+
+  const elapsedTime = (Date.now() - challengeStartTime) / 1000;
+  const elapsedMinutes = elapsedTime / 60;
+
+  const userSpeed = Math.round(userWordCount / elapsedMinutes);
+
+  const competitorSpeed =
+    selectedLevel === "Professor" ? 600 :
+    selectedLevel === "College Student" ? 250 : 100;
+
+  document.getElementById("userSpeed").textContent =
+    userSpeed + " WPM";
+
+  document.getElementById("competitorSpeed").textContent =
+    competitorSpeed + " WPM";
+
+  let winnerMessage = "";
+
+  if (userSpeed > competitorSpeed) {
+    winnerMessage = "Congratulations! You read faster!";
+  } else if (userSpeed < competitorSpeed) {
+    winnerMessage = "Your competitor read faster!";
+  } else {
+    winnerMessage = "It's a tie!";
+  }
+
+  document.getElementById("winnerMessage").textContent =
+    winnerMessage;
+
+  document.getElementById("timeTaken").textContent =
+    "Your reading time: " + elapsedTime.toFixed(1) + " seconds";
+
+  document.getElementById("resultScreen").style.display = "block";
+
+  document.getElementById("resultScreen").scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
 }
 </script>
 </body>
