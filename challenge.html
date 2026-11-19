@@ -138,13 +138,13 @@ button {
 
 </div>
   <script>
-let startTime;
+
 let timerInterval;
 let selectedLevel = "";
 let originalAIPassage = "";
 function startChallenge(level) {
   selectedLevel = level;
-originalAIPassage = document.getElementById("aiPassage").innerText;
+  originalAIPassage = document.getElementById("aiPassage").innerText;
   document.querySelector(".container").style.display = "none";
   document.getElementById("testScreen").style.display = "block";
 
