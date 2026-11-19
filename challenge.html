@@ -121,7 +121,6 @@ function startBotReading() {
   const text = passage.innerText.trim();
   const words = text.split(/\s+/);
 
-  speechSynthesis.cancel();
   clearInterval(timerInterval);
 
   passage.innerHTML = words.map(word =>
@@ -129,33 +128,42 @@ function startBotReading() {
   ).join(" ");
 
   const wordElements = passage.querySelectorAll("span");
-  let currentWord = 0;
 
-  startTime = Date.now();
-timerInterval = setInterval(() => {
-  const elapsed = Math.floor((Date.now() - startTime) / 1000);
-  const minutes = Math.floor(elapsed / 60);
-  const seconds = elapsed % 60;
+  const startTime = Date.now();
+  const wordInterval = 600;
 
-  document.getElementById("timer").textContent =
-    String(minutes).padStart(2, "0") + ":" +
-    String(seconds).padStart(2, "0");
-}, 1000);
-  function highlightNextWord() {
-    if (currentWord >= words.length) {
+  document.getElementById("timer").textContent = "00:00";
+
+  function updateChallenge() {
+    const elapsed = Date.now() - startTime;
+
+    // Update clock
+    const totalSeconds = Math.floor(elapsed / 1000);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+
+    document.getElementById("timer").textContent =
+      String(minutes).padStart(2, "0") + ":" +
+      String(seconds).padStart(2, "0");
+
+    // Highlight words at exactly 100 WPM
+    const wordsToHighlight = Math.floor(elapsed / wordInterval) + 1;
+
+    wordElements.forEach((word, index) => {
+      if (index < wordsToHighlight) {
+        word.style.color = "#111";
+        word.style.fontWeight = "bold";
+      }
+    });
+
+    if (wordsToHighlight >= words.length) {
       clearInterval(timerInterval);
-      return;
     }
-
-    wordElements[currentWord].style.color = "#111";
-    wordElements[currentWord].style.fontWeight = "bold";
-    currentWord++;
   }
 
-  highlightNextWord();
-  timerInterval = setInterval(highlightNextWord, 600);
-
-  }
+  updateChallenge();
+  timerInterval = setInterval(updateChallenge, 50);
+}
 function finishReading() {
   speechSynthesis.cancel();
   clearInterval(timerInterval);
