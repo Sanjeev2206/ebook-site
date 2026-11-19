@@ -132,7 +132,11 @@ function startBotReading() {
   const wordElements = passage.querySelectorAll("span");
 
   const startTime = Date.now();
-  const wordInterval = 600;
+  const wordsPerMinute =
+  selectedLevel === "Professor" ? 600 :
+  selectedLevel === "College Student" ? 250 : 100;
+
+const wordInterval = 60000 / wordsPerMinute;
 
   document.getElementById("timer").textContent = "00:00";
 
