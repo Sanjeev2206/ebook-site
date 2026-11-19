@@ -207,6 +207,36 @@ let selectedLevel = "";
 let originalAIPassage = "";
 let challengeStartTime = null;
 let userWordCount = 0;
+    
+const selectedLanguage =
+  new URLSearchParams(window.location.search).get("lang") || "en";
+
+const readingPassages = {
+  en: {
+    user: "Space exploration allows scientists to investigate distant worlds. Through modern technology, researchers learn about planets, stars and galaxies and expand human knowledge.",
+    competitor: "Space exploration has helped humanity understand the universe. Scientists study distant planets, stars and galaxies to discover more about the world beyond Earth."
+  },
+
+  hi: {
+    user: "अंतरिक्ष अन्वेषण वैज्ञानिकों को दूर स्थित दुनिया का अध्ययन करने में मदद करता है। आधुनिक तकनीक के माध्यम से शोधकर्ता ग्रहों, तारों और आकाशगंगाओं के बारे में जानकारी प्राप्त करते हैं और मानव ज्ञान का विस्तार करते हैं।",
+    competitor: "अंतरिक्ष अन्वेषण ने मानवता को ब्रह्मांड को समझने में मदद की है। वैज्ञानिक पृथ्वी से परे की दुनिया के बारे में अधिक जानने के लिए दूर स्थित ग्रहों, तारों और आकाशगंगाओं का अध्ययन करते हैं।"
+  },
+
+  ko: {
+    user: "우주 탐사는 과학자들이 멀리 떨어진 세계를 연구할 수 있도록 도와줍니다. 현대 기술을 통해 연구자들은 행성, 별, 은하에 대해 배우고 인류의 지식을 넓혀 갑니다.",
+    competitor: "우주 탐사는 인류가 우주를 이해하는 데 도움을 주었습니다. 과학자들은 지구 너머의 세계를 더 많이 알아보기 위해 먼 행성, 별, 은하를 연구합니다."
+  }
+};
+
+const currentPassages =
+  readingPassages[selectedLanguage] || readingPassages.en;
+
+document.getElementById("userPassage").textContent =
+  currentPassages.user;
+
+document.getElementById("aiPassage").textContent =
+  currentPassages.competitor;
+
 function startChallenge(level) {
   selectedLevel = level;
   originalAIPassage = document.getElementById("aiPassage").innerText;
