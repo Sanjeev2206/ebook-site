@@ -147,10 +147,7 @@ function startBotReading() {
   highlightNextWord();
   timerInterval = setInterval(highlightNextWord, 600);
 
-  const speech = new SpeechSynthesisUtterance(text);
-  speech.rate = 0.9;
-  speechSynthesis.speak(speech);
-}
+  }
 function finishReading() {
   speechSynthesis.cancel();
   clearInterval(timerInterval);
