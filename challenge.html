@@ -67,31 +67,33 @@ button {
     </div>
   </div>
 </div>
-  <div id="testScreen" style="display:none; max-width:900px; margin:50px auto; padding:25px; text-align:center;">
+  <div id="testScreen" style="display:none; max-width:1100px; margin:40px auto; padding:20px; text-align:center;">
 
   <h1 id="challengeTitle">Reading Challenge</h1>
 
-  <p>Read the following passage carefully.</p>
+  <p>Read your passage while the competitor reads alongside you.</p>
 
-  <div style="background:white; padding:25px; border-radius:15px; margin:20px 0;">
-    <h2>AI Reader's Passage</h2>
-    <p id="aiPassage">
-      Space exploration has helped humanity understand the universe.
-      Scientists study distant planets, stars and galaxies to discover
-      more about the world beyond Earth.
-    </p>
-    <button onclick="readPassage()">Listen to AI Reader</button>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; text-align:left;">
+
+    <div style="background:white; padding:25px; border-radius:15px;">
+      <h2 style="text-align:center;">Challenger</h2>
+      <p id="userPassage">
+        Space exploration allows scientists to investigate distant worlds. Through modern technology, researchers learn about planets, stars and galaxies and expand human knowledge.
+      </p>
+    </div>
+
+    <div style="background:white; padding:25px; border-radius:15px;">
+      <h2 id="competitorTitle" style="text-align:center;">5th Grade Child</h2>
+      <p id="aiPassage">
+        Space exploration has helped humanity understand the universe. Scientists study distant planets, stars and galaxies to discover more about the world beyond Earth.
+      </p>
+    </div>
+
   </div>
 
-  <div style="background:white; padding:25px; border-radius:15px; margin:20px 0;">
-    <h2>Your Reading Passage</h2>
-    <p id="userPassage">
-      Space exploration allows scientists to investigate distant worlds.
-      Through modern technology, researchers learn about planets,
-      stars and galaxies and expand human knowledge.
-    </p>
-    <button onclick="startReading()">Start Reading</button>
-    <button onclick="finishReading()">Finish Reading</button>
+  <div style="margin-top:25px;">
+    <button onclick="startBotReading()">Start Challenge</button>
+    <button onclick="finishReading()">Finish Challenge</button>
   </div>
 
   <h2 id="timer">00:00</h2>
@@ -104,20 +106,50 @@ let selectedLevel = "";
 
 function startChallenge(level) {
   selectedLevel = level;
+
   document.querySelector(".container").style.display = "none";
   document.getElementById("testScreen").style.display = "block";
+
   document.getElementById("challengeTitle").textContent =
     level + " Reading Challenge";
+
+  document.getElementById("competitorTitle").textContent = level;
 }
 
-function readPassage() {
-  const text = document.getElementById("aiPassage").innerText;
+function startBotReading() {
+  const passage = document.getElementById("aiPassage");
+  const text = passage.innerText;
+
+  // Display each word separately
+  const words = text.match(/\S+/g) || [];
+  passage.innerHTML = words.map((word, index) =>
+    `<span data-word="${index}">${word}</span>`
+  ).join(" ");
+
   const speech = new SpeechSynthesisUtterance(text);
-  speechSynthesis.cancel();
-  speechSynthesis.speak(speech);
-}
 
-function startReading() {
+  speechSynthesis.cancel();
+
+  document.querySelectorAll("#aiPassage span").forEach(word => {
+    word.style.color = "#777";
+  });
+
+  speech.onboundary = function(event) {
+    if (event.name !== "word") return;
+
+    const spokenText = text.substring(0, event.charIndex);
+    const wordIndex = spokenText.trim().split(/\s+/).length - 1;
+
+    document.querySelectorAll("#aiPassage span").forEach((word, index) => {
+      word.style.color = index <= wordIndex ? "#111" : "#777";
+      word.style.fontWeight = index <= wordIndex ? "bold" : "normal";
+    });
+  };
+
+  speech.onend = function() {
+    clearInterval(timerInterval);
+  };
+
   startTime = Date.now();
   clearInterval(timerInterval);
 
@@ -130,16 +162,14 @@ function startReading() {
       String(minutes).padStart(2, "0") + ":" +
       String(seconds).padStart(2, "0");
   }, 1000);
+
+  speechSynthesis.speak(speech);
 }
 
 function finishReading() {
-  if (!startTime) {
-    alert("Please start reading first.");
-    return;
-  }
-
+  speechSynthesis.cancel();
   clearInterval(timerInterval);
-  alert("Reading test completed!");
+  alert("Reading challenge completed!");
 }
 </script>
 </body>
