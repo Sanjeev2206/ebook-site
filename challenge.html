@@ -159,7 +159,38 @@ button {
     </div>
 
   </div>
+<div style="margin:30px 0; text-align:left;">
 
+  <h2 style="text-align:center;">Reading Speed Race</h2>
+
+  <p><strong>You</strong> <span id="userRaceSpeed"></span></p>
+
+  <div style="background:#e5e7eb; height:22px; border-radius:20px; overflow:hidden;">
+    <div id="userRaceBar" style="
+      width:0%;
+      height:100%;
+      background:#3285ef;
+      border-radius:20px;
+      transition:width 1.2s ease;
+    "></div>
+  </div>
+
+  <p><strong id="raceCompetitorName">Competitor</strong>
+  <span id="competitorRaceSpeed"></span></p>
+
+  <div style="background:#e5e7eb; height:22px; border-radius:20px; overflow:hidden;">
+    <div id="competitorRaceBar" style="
+      width:0%;
+      height:100%;
+      background:#159b65;
+      border-radius:20px;
+      transition:width 1.2s ease;
+    "></div>
+  </div>
+
+  <h3 id="speedDifference" style="text-align:center;"></h3>
+
+</div>
   <h2 id="winnerMessage"></h2>
 
   <p id="timeTaken"></p>
@@ -278,7 +309,28 @@ function finishReading() {
   const competitorSpeed =
     selectedLevel === "Professor" ? 600 :
     selectedLevel === "College Student" ? 250 : 100;
+const maxSpeed = Math.max(userSpeed, competitorSpeed);
 
+document.getElementById("userRaceSpeed").textContent =
+  userSpeed + " WPM";
+
+document.getElementById("competitorRaceSpeed").textContent =
+  competitorSpeed + " WPM";
+
+document.getElementById("raceCompetitorName").textContent =
+  selectedLevel;
+
+document.getElementById("userRaceBar").style.width =
+  (userSpeed / maxSpeed * 100) + "%";
+
+document.getElementById("competitorRaceBar").style.width =
+  (competitorSpeed / maxSpeed * 100) + "%";
+
+const percentage = Math.round((userSpeed / competitorSpeed) * 100);
+
+document.getElementById("speedDifference").textContent =
+  "You are reading at " + percentage +
+  "% of your competitor's speed.";
   document.getElementById("userSpeed").textContent =
     userSpeed + " WPM";
 
