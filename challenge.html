@@ -77,7 +77,7 @@ button {
 <div class="cards" style="grid-template-columns:1fr; max-width:500px; margin:40px auto;">
   <div class="card">
     <h2>YOU vs PHOTO READER</h2>
-    <p>Challenge yourself against a 600 WPM benchmark.</p>
+    <p>Challenge yourself against a 1,200 WPM benchmark.</p>
     <button onclick="startChallenge('Photo Reader')">
       TAKE THE CHALLENGE
     </button>
@@ -195,7 +195,7 @@ button {
   <script>
 
 let timerInterval;
-let selectedLevel = "";
+
 let originalAIPassage = "";
 let challengeStartTime = null;
 let userWordCount = 0;
@@ -230,7 +230,7 @@ document.getElementById("aiPassage").textContent =
   currentPassages.competitor;
 
 function startChallenge(level) {
-  selectedLevel = level;
+  
   originalAIPassage = document.getElementById("aiPassage").innerText;
   document.querySelector(".container").style.display = "none";
   document.getElementById("testScreen").style.display = "block";
@@ -238,7 +238,7 @@ function startChallenge(level) {
   document.getElementById("challengeTitle").textContent =
     "You vs Photo Reader";
 
-  document.getElementById("competitorTitle").textContent = level;
+  document.getElementById("competitorTitle").textContent = "Photo Reader";
 }
 
 function startBotReading() {
