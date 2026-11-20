@@ -104,23 +104,19 @@ button {
 
   <p>Read your passage while the competitor reads alongside you.</p>
 
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; text-align:left;">
+  <div style="max-width:900px; margin:20px auto; text-align:left;">
 
-    <div style="background:white; padding:25px; border-radius:15px;">
-      <h2 style="text-align:center;">Challenger</h2>
-      <p id="userPassage">
-        Space exploration allows scientists to investigate distant worlds. Through modern technology, researchers learn about planets, stars and galaxies and expand human knowledge.
-      </p>
-    </div>
+  <div style="background:white; padding:30px; border-radius:15px; box-shadow:0 8px 25px rgba(0,0,0,.08);">
 
-    <div style="background:white; padding:25px; border-radius:15px;">
-      <h2 id="competitorTitle" style="text-align:center;">Photo Reader</h2>
-      <p id="aiPassage">
-        Space exploration has helped humanity understand the universe. Scientists study distant planets, stars and galaxies to discover more about the world beyond Earth.
-      </p>
-    </div>
+    <h2 style="text-align:center;">Shared Reading Passage</h2>
+
+    <p id="sharedPassage" style="font-size:19px; line-height:1.9;">
+      Space exploration allows scientists to investigate distant worlds.
+    </p>
 
   </div>
+
+</div>
 
   <div style="margin-top:25px;">
     <button onclick="startBotReading()">Start Challenge</button>
@@ -224,57 +220,48 @@ const readingPassages = {
 const currentPassages =
   readingPassages[selectedLanguage] || readingPassages.en;
 
-document.getElementById("userPassage").textContent =
+document.getElementById("sharedPassage").textContent =
   currentPassages.user;
-
-document.getElementById("aiPassage").textContent =
-  currentPassages.competitor;
-
 function startChallenge(level) {
-  
-  originalAIPassage = document.getElementById("aiPassage").innerText;
+
   document.querySelector(".container").style.display = "none";
   document.getElementById("testScreen").style.display = "block";
 
   document.getElementById("challengeTitle").textContent =
     "You vs Photo Reader";
-
-  document.getElementById("competitorTitle").textContent = "Photo Reader";
 }
 
 function startBotReading() {
-  const passage = document.getElementById("aiPassage");
 
-passage.innerText = originalAIPassage;
+  const passage = document.getElementById("sharedPassage");
 
-const text = passage.innerText.trim();
-  const words = text.split(/\s+/);
-challengeStartTime = Date.now();
+  originalAIPassage = passage.innerText.trim();
 
-const userPassageText = document.getElementById("userPassage").innerText.trim();
+  const words = originalAIPassage.split(/\s+/);
 
-userWordCount = userPassageText.split(/\s+/).length;
+  challengeStartTime = Date.now();
+  userWordCount = words.length;
 
-document.getElementById("resultScreen").style.display = "none";
+  document.getElementById("resultScreen").style.display = "none";
+
   clearInterval(timerInterval);
 
   passage.innerHTML = words.map(word =>
-    `<span style="color:#999; font-weight:normal;">${word}</span>`
+    `<span style="color:#b8b8b8; font-weight:normal;">${word}</span>`
   ).join(" ");
 
   const wordElements = passage.querySelectorAll("span");
 
   const startTime = Date.now();
- const wordsPerMinute = 1200;
-
-const wordInterval = 60000 / wordsPerMinute;
+  const wordsPerMinute = 1200;
+  const wordInterval = 60000 / wordsPerMinute;
 
   document.getElementById("timer").textContent = "00:00";
 
   function updateChallenge() {
+
     const elapsed = Date.now() - startTime;
 
-    // Update clock
     const totalSeconds = Math.floor(elapsed / 1000);
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
@@ -283,8 +270,8 @@ const wordInterval = 60000 / wordsPerMinute;
       String(minutes).padStart(2, "0") + ":" +
       String(seconds).padStart(2, "0");
 
-    // Highlight words at exactly 100 WPM
-    const wordsToHighlight = Math.floor(elapsed / wordInterval) + 1;
+    const wordsToHighlight =
+      Math.floor(elapsed / wordInterval) + 1;
 
     wordElements.forEach((word, index) => {
       if (index < wordsToHighlight) {
@@ -292,14 +279,14 @@ const wordInterval = 60000 / wordsPerMinute;
         word.style.fontWeight = "bold";
       }
     });
-
-    
   }
 
   updateChallenge();
+
   timerInterval = setInterval(updateChallenge, 50);
 }
-    function backToChallenges() {
+function backToChallenges() {
+
   clearInterval(timerInterval);
 
   challengeStartTime = null;
@@ -311,7 +298,8 @@ const wordInterval = 60000 / wordsPerMinute;
 
   document.getElementById("resultScreen").style.display = "none";
 
-  document.getElementById("aiPassage").innerText = originalAIPassage;
+  document.getElementById("sharedPassage").textContent =
+    currentPassages.user;
 }
 function finishReading() {
   speechSynthesis.cancel();
