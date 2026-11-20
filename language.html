@@ -2,163 +2,341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Choose Your Language | Read for Speed</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading Speed Challenge | Read for Speed</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #edf4ff, #e2edfa);
-      color: #172b4d;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 25px;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eaf0fb;
+  color: #102344;
+}
 
-    .container {
-      width: 100%;
-      max-width: 850px;
-      text-align: center;
-      background: rgba(255,255,255,0.88);
-      padding: 55px 30px;
-      border-radius: 24px;
-      box-shadow: 0 20px 60px rgba(31, 65, 114, 0.12);
-    }
+.hero {
+  background: linear-gradient(135deg, #101d38, #172e55, #101a35);
+  color: white;
+  padding: 35px 20px 85px;
+  text-align: center;
+}
 
-    .brand {
-      font-size: 14px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      color: #4776b8;
-      margin-bottom: 18px;
-    }
+.brand {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-bottom: 25px;
+}
 
-    h1 {
-      font-size: 36px;
-      margin: 0 0 14px;
-    }
+.badge {
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #5969ed, #762be0);
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
 
-    .subtitle {
-      color: #64748b;
-      font-size: 17px;
-      margin-bottom: 38px;
-    }
+.hero h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(34px, 5vw, 58px);
+  margin: 0 0 18px;
+}
 
-    .language-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
+.hero-description {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #d5dfef;
+  max-width: 700px;
+  margin: auto;
+}
 
-    .language-card {
-      display: block;
-      text-decoration: none;
-      color: #172b4d;
-      background: white;
-      border: 1px solid #dce7f5;
-      border-radius: 18px;
-      padding: 30px 12px;
-      transition: 0.25s ease;
-    }
+.benefits {
+  display: flex;
+  justify-content: center;
+  gap: 55px;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
 
-    .language-card:hover {
-      transform: translateY(-6px);
-      border-color: #5791df;
-      box-shadow: 0 12px 28px rgba(50, 100, 170, 0.13);
-    }
+.benefit {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #e2eaff;
+}
 
-    .language-symbol {
-      font-size: 32px;
-      margin-bottom: 14px;
-    }
+.benefit span {
+  display: block;
+  font-size: 27px;
+  margin-bottom: 5px;
+}
 
-    .language-name {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 7px;
-    }
+.language-section {
+  max-width: 1250px;
+  margin: -45px auto 40px;
+  position: relative;
+  background: #ffffff;
+  border-radius: 25px;
+  padding: 35px;
+  box-shadow: 0 18px 50px rgba(20,45,90,.15);
+}
 
-    .language-label {
-      font-size: 13px;
-      color: #8291a8;
-    }
+.step-label {
+  text-align: center;
+  color: #5969dc;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
 
-    .back-link {
-      display: inline-block;
-      margin-top: 35px;
-      color: #4776b8;
-      text-decoration: none;
-      font-size: 14px;
-    }
+.language-section h2 {
+  text-align: center;
+  font-size: 32px;
+  margin: 12px 0 35px;
+}
 
-    @media (max-width: 600px) {
-      .container {
-        padding: 40px 18px;
-      }
+.language-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
 
-      h1 {
-        font-size: 28px;
-      }
+.language-card {
+  text-decoration: none;
+  color: #102344;
+  border-radius: 20px;
+  padding: 30px 20px;
+  text-align: center;
+  border: 1px solid #dce5f5;
+  transition: .25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-      .language-grid {
-        grid-template-columns: 1fr;
-      }
+.english {
+  background: linear-gradient(145deg, #edf4ff, #ffffff);
+  border-color: #6b9cff;
+}
 
-      .language-card {
-        padding: 20px;
-      }
-    }
-  </style>
+.hindi {
+  background: linear-gradient(145deg, #fff4e9, #ffffff);
+  border-color: #efa85e;
+}
+
+.korean {
+  background: linear-gradient(145deg, #f2edff, #ffffff);
+  border-color: #9c7af0;
+}
+
+.language-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 30px rgba(20,45,90,.12);
+}
+
+.flag {
+  width: 76px;
+  height: 52px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.language-card h3 {
+  font-size: 27px;
+  margin: 0 0 12px;
+}
+
+.language-card p {
+  font-size: 15px;
+  color: #52627b;
+  line-height: 1.6;
+  min-height: 48px;
+  margin: 0 0 20px;
+}
+
+.continue {
+  display: inline-block;
+  padding: 13px 22px;
+  border-radius: 30px;
+  background: #1556d8;
+  color: white;
+  font-weight: bold;
+  margin-top: auto;
+}
+
+.hindi .continue {
+  background: #df710d;
+}
+
+.korean .continue {
+  background: #5526b9;
+}
+
+.footer {
+  text-align: center;
+  padding: 25px 10px 5px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #243c65;
+}
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 25px;
+  color: #4267a8;
+  text-decoration: none;
+}
+
+@media(max-width:750px) {
+  .language-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .language-section {
+    margin: -35px 12px 25px;
+    padding: 28px 18px;
+  }
+
+  .language-section h2 {
+    font-size: 25px;
+  }
+
+  .benefits {
+    gap: 20px;
+  }
+
+  .hero {
+    padding-bottom: 65px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<section class="hero">
 
-    <div class="brand">READ FOR SPEED</div>
+  <div class="brand">♧ READ FOR SPEED</div>
 
-    <h1>Choose Your Language</h1>
+  <div class="badge">STUDENT CHALLENGE</div>
 
-    <p class="subtitle">
-      Select your preferred language to begin the Reading Speed Challenge.
-    </p>
+  <h1>How Fast Can You Read?</h1>
 
-    <div class="language-grid">
+  <p class="hero-description">
+    Challenge your reading speed. Discover your potential.
+    <br>
+    Compete with a 1,200 WPM Photo Reader.
+  </p>
 
-      <a class="language-card" href="challenge.html?lang=en">
-        <div class="language-symbol">🇬🇧</div>
-        <div class="language-name">English</div>
-        <div class="language-label">Continue in English</div>
-      </a>
+  <div class="benefits">
 
-      <a class="language-card" href="challenge.html?lang=hi">
-        <div class="language-symbol">🇮🇳</div>
-        <div class="language-name">हिन्दी</div>
-        <div class="language-label">हिन्दी में आगे बढ़ें</div>
-      </a>
-
-      <a class="language-card" href="challenge.html?lang=ko">
-        <div class="language-symbol">🇰🇷</div>
-        <div class="language-name">한국어</div>
-        <div class="language-label">한국어로 계속하기</div>
-      </a>
-
+    <div class="benefit">
+      <span>⚡</span>
+      Test Your<br>Reading Speed
     </div>
 
-    <a class="back-link" href="index.html">
-      ← Back to Home
+    <div class="benefit">
+      <span>📊</span>
+      See Your<br>Performance
+    </div>
+
+    <div class="benefit">
+      <span>🎓</span>
+      Unlock Higher<br>Learning Potential
+    </div>
+
+  </div>
+
+</section>
+
+<section class="language-section">
+
+  <div class="step-label">
+    STEP 01 — SELECT YOUR LANGUAGE
+  </div>
+
+  <h2>Choose Your Reading Language</h2>
+
+  <div class="language-grid">
+
+    <a class="language-card english"
+       href="challenge.html?lang=en">
+
+      <img class="flag"
+           src="https://flagcdn.com/w80/gb.png"
+           alt="United Kingdom flag">
+
+      <h3>English</h3>
+
+      <p>
+        Academic and international reading
+      </p>
+
+      <span class="continue">
+        Continue in English →
+      </span>
+
+    </a>
+
+    <a class="language-card hindi"
+       href="challenge.html?lang=hi">
+
+      <img class="flag"
+           src="https://flagcdn.com/w80/in.png"
+           alt="India flag">
+
+      <h3>हिन्दी</h3>
+
+      <p>
+        भारतीय विद्यार्थियों के लिए
+        <br>
+        पढ़ने की गति चुनौती
+      </p>
+
+      <span class="continue">
+        हिन्दी में आगे बढ़ें →
+      </span>
+
+    </a>
+
+    <a class="language-card korean"
+       href="challenge.html?lang=ko">
+
+      <img class="flag"
+           src="https://flagcdn.com/w80/kr.png"
+           alt="South Korea flag">
+
+      <h3>한국어</h3>
+
+      <p>
+        한국 대학생을 위한
+        <br>
+        독서 속도 챌린지
+      </p>
+
+      <span class="continue">
+        한국어로 시작하기 →
+      </span>
+
     </a>
 
   </div>
 
+  <div class="footer">
+    🎓 A reading challenge for ambitious college students
+  </div>
+
+  <a class="back-link" href="index.html">
+    ← Back to Home
+  </a>
+
+</section>
+
 </body>
 </html>
-
