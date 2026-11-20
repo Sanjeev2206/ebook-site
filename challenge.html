@@ -72,7 +72,7 @@ button {
 </a>
   <h1>Can You Read Faster Than a Photo Reader?</h1>
 
-<p>Take the reading challenge and compare your speed with a Photo Reader.</p>
+<p>Can you compete with a Photo Reader reading at 1,200 words per minute?</p>
 
 <div class="cards" style="grid-template-columns:1fr; max-width:500px; margin:40px auto;">
   <div class="card">
@@ -113,7 +113,7 @@ button {
     </div>
 
     <div style="background:white; padding:25px; border-radius:15px;">
-      <h2 id="competitorTitle" style="text-align:center;">5th Grade Child</h2>
+      <h2 id="competitorTitle" style="text-align:center;">Photo Reader</h2>
       <p id="aiPassage">
         Space exploration has helped humanity understand the universe. Scientists study distant planets, stars and galaxies to discover more about the world beyond Earth.
       </p>
@@ -146,7 +146,7 @@ button {
     </div>
 
     <div>
-      <h2>Competitor Speed</h2>
+      <h2>Photo Reader Speed</h2>
       <h1 id="competitorSpeed">0 WPM</h1>
     </div>
 
@@ -236,7 +236,7 @@ function startChallenge(level) {
   document.getElementById("testScreen").style.display = "block";
 
   document.getElementById("challengeTitle").textContent =
-    level + " Reading Challenge";
+    "You vs Photo Reader";
 
   document.getElementById("competitorTitle").textContent = level;
 }
@@ -264,9 +264,7 @@ document.getElementById("resultScreen").style.display = "none";
   const wordElements = passage.querySelectorAll("span");
 
   const startTime = Date.now();
-  const wordsPerMinute =
-  selectedLevel === "Professor" ? 600 :
-  selectedLevel === "College Student" ? 250 : 100;
+ const wordsPerMinute = 1200;
 
 const wordInterval = 60000 / wordsPerMinute;
 
@@ -328,9 +326,7 @@ function finishReading() {
 
   const userSpeed = Math.round(userWordCount / elapsedMinutes);
 
-  const competitorSpeed =
-    selectedLevel === "Professor" ? 600 :
-    selectedLevel === "College Student" ? 250 : 100;
+  const competitorSpeed = 1200;
 const maxSpeed = Math.max(userSpeed, competitorSpeed);
 
 document.getElementById("userRaceSpeed").textContent =
@@ -340,7 +336,7 @@ document.getElementById("competitorRaceSpeed").textContent =
   competitorSpeed + " WPM";
 
 document.getElementById("raceCompetitorName").textContent =
-  selectedLevel;
+  "Photo Reader";
 
 document.getElementById("userRaceBar").style.width =
   (userSpeed / maxSpeed * 100) + "%";
@@ -364,7 +360,7 @@ document.getElementById("speedDifference").textContent =
   if (userSpeed > competitorSpeed) {
     winnerMessage = "Congratulations! You read faster!";
   } else if (userSpeed < competitorSpeed) {
-    winnerMessage = "Your competitor read faster!";
+    winnerMessage = "The Photo Reader read faster!";
   } else {
     winnerMessage = "It's a tie!";
   }
