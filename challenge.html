@@ -533,8 +533,10 @@ function finishReading() {
     return;
   }
 
-  const elapsedTime = (Date.now() - challengeStartTime) / 1000;
-  const elapsedMinutes = elapsedTime / 60;
+ const elapsedTime = (Date.now() - challengeStartTime) / 1000;
+challengeStartTime = null;
+
+const elapsedMinutes = elapsedTime / 60;
 
   const userSpeed = Math.round(userWordCount / elapsedMinutes);
 
