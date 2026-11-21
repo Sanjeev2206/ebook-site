@@ -18,12 +18,34 @@ body {
   color: #102344;
 }
 
+/* COMPACT EBOOK HEADER */
 
+.hero {
+  background: linear-gradient(135deg, #071a35, #123766, #071a35);
+  color: white;
+  text-align: center;
+  padding: 30px 20px 175px;
+}
+
+.hero h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(27px, 4vw, 42px);
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 16px;
+  color: #d5dfef;
+  margin: 10px 0 0;
+}
 
 .language-section {
   max-width: 1250px;
-  margin: 25px auto 15px;
+  margin: -165px auto 15px;
   position: relative;
+  z-index: 2;
   background: #ffffff;
   border-radius: 25px;
   padding: 35px;
@@ -153,15 +175,11 @@ body {
 }
   
 
-
-
-
 .language-section {
-  margin-top: 0;
+  margin-top: -165px;
   margin-bottom: 15px;
   padding: 22px 28px;
 }
-
 .language-section h2 {
   font-size: 25px;
   margin: 8px 0 20px;
@@ -205,13 +223,36 @@ body {
 .back-link {
   margin-top: 12px;
 }
+@media(max-width:750px) {
 
+  .hero {
+    padding: 25px 15px 145px;
+  }
+
+  .hero h1 {
+    font-size: 27px;
+    letter-spacing: 1px;
+  }
+
+  .language-section {
+    margin-top: -125px;
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+}
 </style>
 </head>
 
 <body>
 
+<section class="hero">
 
+  <h1>READ FOR SPEED EBOOK</h1>
+
+  <p>Choose your reading language to begin</p>
+
+</section>
 
 <section class="language-section">
 
