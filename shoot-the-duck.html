@@ -9,11 +9,12 @@
 <style>
 * { box-sizing: border-box; }
 
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  color: #24452d;
-  background: #d9f5ff;
+  color: #101b45;
+  background: linear-gradient(135deg, #f8f8ff, #eeeeff);
 }
 
 .screen {
@@ -21,80 +22,170 @@ body {
   display: none;
   align-items: center;
   justify-content: center;
-  padding: 25px 15px;
+  padding: 35px 18px;
 }
 
 .screen.active { display: flex; }
 
-.panel {
+#welcomeScreen .panel {
   width: 100%;
-  max-width: 720px;
-  background: white;
-  padding: 35px 25px;
-  border-radius: 25px;
+  max-width: 1000px;
+  background: #ffffff;
+  padding: 45px 40px;
+  border-radius: 28px;
   text-align: center;
-  box-shadow: 0 10px 35px #367b4930;
+  box-shadow: 0 15px 50px rgba(69, 52, 160, 0.12);
+  border: 1px solid #e5e3fa;
 }
 
 .eyebrow {
-  color: #269b70;
+  color: #6842c2;
+  font-size: 13px;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
 }
 
-h1 {
-  font-size: clamp(34px, 7vw, 55px);
-  color: #238b4b;
+#welcomeScreen h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  color: #111b45;
   margin: 12px 0;
+  line-height: 1.15;
 }
 
 .subtitle {
-  font-size: 19px;
-  color: #647a65;
+  font-size: 18px;
+  color: #68718b;
+  margin-bottom: 22px;
+  line-height: 1.5;
 }
 
-.duck-picture {
-  font-size: 100px;
-  margin: 20px;
-  animation: float 2s ease-in-out infinite;
+.exercise-label {
+  display: inline-block;
+  background: linear-gradient(100deg, #7845dc, #5122ad);
+  color: white;
+  padding: 12px 35px;
+  border-radius: 40px;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 10px 0 15px;
 }
 
-@keyframes float {
-  50% { transform: translateY(-12px) rotate(5deg); }
+.exercise-label span {
+  margin-right: 8px;
+}
+
+.level-badge {
+  display: table;
+  margin: 5px auto 28px;
+  padding: 12px 28px;
+  border-radius: 35px;
+  background: #eeedff;
+  color: #382477;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
 .instructions {
-  text-align: left;
-  line-height: 1.9;
-  max-width: 460px;
-  margin: 20px auto;
-  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 15px;
+  margin: 25px auto 32px;
+  padding: 25px 15px;
+  border: 1px solid #dedcf5;
+  border-radius: 22px;
+  background: #fcfbff;
 }
 
-button {
+.instruction-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8px;
+}
+
+.step-icon {
+  font-size: 38px;
+  color: #7041ce;
+  font-weight: bold;
+}
+
+.instruction-step strong {
+  font-size: 18px;
+  color: #25165d;
+}
+
+.instruction-step span {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #626b83;
+  max-width: 220px;
+}
+
+#welcomeScreen button {
   border: 0;
-  border-radius: 40px;
-  padding: 16px 35px;
-  background: #25a653;
+  border-radius: 45px;
+  padding: 19px 55px;
+  background: linear-gradient(100deg, #8544e9, #5420b5);
   color: white;
-  font-size: 17px;
+  font-size: 19px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 5px 0 #177b38;
+  box-shadow: 0 7px 18px rgba(99, 49, 190, 0.25);
   transition: .2s;
 }
 
-button:hover { transform: translateY(-2px); }
-button:active { transform: translateY(2px); }
+#welcomeScreen button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(99, 49, 190, 0.32);
+}
+
+#welcomeScreen button:active {
+  transform: translateY(1px);
+}
 
 .features {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 18px;
-  margin-top: 28px;
+  gap: 25px;
+  margin-top: 30px;
   font-size: 14px;
+  color: #343d64;
+  font-weight: bold;
 }
+
+@media(max-width: 600px) {
+  #welcomeScreen .panel {
+    padding: 30px 17px;
+  }
+
+  .instructions {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .instruction-step {
+    padding: 10px;
+  }
+
+  .features {
+    gap: 15px;
+    flex-direction: column;
+  }
+
+  #welcomeScreen button {
+    padding: 16px 30px;
+    font-size: 17px;
+  }
+}
+
 
 #gameScreen {
   padding: 0;
