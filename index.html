@@ -51,47 +51,104 @@ linear-gradient(
       color: #1f2933;
     }
 
-    /* NAV */
-    .top-nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(8px);
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1rem 10px;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      z-index: 1000;
-    }
+    
+/* FLOATING NAVIGATION BAR */
+.top-nav {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
 
-    .top-nav a {
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-decoration: none;
-      color: #222;
-    }
+  width: min(900px, calc(100% - 32px));
+  min-height: 76px;
 
-    .top-nav a.active {
-      text-decoration: underline;
-      text-underline-offset: 6px;
-    }
-/* EXERCISE NAVIGATION BUTTON */
-.top-nav .exercise-nav-link {
-  background: linear-gradient(135deg, #34a853, #16813b);
-  color: #ffffff;
-  padding: 8px 17px;
-  border-radius: 30px;
-  font-weight: 700;
-  box-shadow: 0 4px 12px rgba(34, 150, 75, 0.25);
-  transition: 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+
+  padding: 9px 12px;
+
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255,255,255,0.9);
+  border-radius: 999px;
+
+  box-shadow: 0 12px 35px rgba(15,23,42,0.15);
+
+  z-index: 1000;
+  transition: box-shadow 0.3s ease;
 }
 
-.top-nav .exercise-nav-link:hover {
+.top-nav a {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 8px;
+  border-radius: 999px;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+
+  text-decoration: none;
+  color: #172033;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.top-nav a:hover {
+  background: rgba(99,102,241,0.10);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(34, 150, 75, 0.35);
 }
+
+.top-nav a.active {
+  background: linear-gradient(135deg,#9333ea,#5425d8);
+  color: white;
+  box-shadow: 0 5px 15px rgba(99,51,220,0.25);
+}
+
+/* BUY BUTTON */
+.top-nav a:last-child {
+  background: linear-gradient(135deg,#ff9d00,#f00076);
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 5px 15px rgba(240,0,118,0.2);
+}
+
+.top-nav a:last-child:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(240,0,118,0.3);
+}
+
+/* MOBILE NAVIGATION */
+@media (max-width: 600px) {
+  .top-nav {
+    top: 10px;
+    width: calc(100% - 16px);
+    min-height: 58px;
+    padding: 6px;
+    gap: 2px;
+  }
+
+  .top-nav a {
+    padding: 11px 2px;
+    font-size: 0.66rem;
+    letter-spacing: -0.3px;
+  }
+}
+
     main { padding-top: 70px; }
 
    section {
@@ -2207,14 +2264,15 @@ button.btn-primary {
 
 <body>
 
+
 <nav class="top-nav">
   <a href="#hero" id="navHome">Home</a>
-  <a href="language.html" id="navWho">Test</a>
-  
-  <a href="#book-preview" id="navPreview">Preview</a>
-  <a href="shoot-the-duck.html" class="exercise-nav-link">EXERCISE</a>
-  <a href="#buy" id="navBuy">Buy</a>
+  <a href="language.html" id="navWho">Free Test</a>
+  <a href="shoot-the-duck.html" class="exercise-nav-link">Eye Exercise</a>
+  <a href="#book-preview" id="navPreview">EBook</a>
+  <a href="#buy" id="navBuy">Buy Now</a>
 </nav>
+
 
 <main>
 
@@ -2697,10 +2755,9 @@ hideEdgeOnPages();
   en: {
 heroBuyBtn: "Get Instant Access - ₹110",
     navHome: "Home",
-    navWho: "Test",
-    
-    navPreview: "Preview",
-    navBuy: "Buy",
+navWho: "Free Test",
+navPreview: "EBook",
+navBuy: "Buy Now",
 
     heroTitle1: "Read 10x Faster",
     heroTitle2: "Without Losing Comprehension",
