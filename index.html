@@ -77,7 +77,21 @@ linear-gradient(
       text-decoration: underline;
       text-underline-offset: 6px;
     }
+/* EXERCISE NAVIGATION BUTTON */
+.top-nav .exercise-nav-link {
+  background: linear-gradient(135deg, #34a853, #16813b);
+  color: #ffffff;
+  padding: 8px 17px;
+  border-radius: 30px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(34, 150, 75, 0.25);
+  transition: 0.25s ease;
+}
 
+.top-nav .exercise-nav-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(34, 150, 75, 0.35);
+}
     main { padding-top: 70px; }
 
    section {
@@ -2198,6 +2212,7 @@ button.btn-primary {
   <a href="language.html" id="navWho">Test</a>
   <a href="#magazine-bento" id="navAuthor">Author</a>
   <a href="#book-preview" id="navPreview">Preview</a>
+  <a href="shoot-the-duck.html" class="exercise-nav-link">EXERCISE</a>
   <a href="#buy" id="navBuy">Buy</a>
 </nav>
 
