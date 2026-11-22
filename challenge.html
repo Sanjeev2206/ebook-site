@@ -160,7 +160,7 @@ body {
    width: 85px;
    height: 85px;
 
-   display: flex;
+   display: none;
    flex-direction: column;
    align-items: center;
    justify-content: center;
@@ -528,7 +528,7 @@ function startChallenge(level) {
 }
 
 function startBotReading() {
-
+  document.getElementById("timer").style.display = "flex";
   const passage = document.getElementById("sharedPassage");
 
   originalAIPassage = passage.innerText.trim();
