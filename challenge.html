@@ -562,9 +562,8 @@ function startBotReading() {
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
 
-    document.getElementById("timer").textContent =
-      String(minutes).padStart(2, "0") + ":" +
-      String(seconds).padStart(2, "0");
+   document.querySelector(".timer-seconds").textContent =
+  String(totalSeconds).padStart(2, "0");
 
     const wordsToHighlight =
       Math.floor(elapsed / wordInterval) + 1;
