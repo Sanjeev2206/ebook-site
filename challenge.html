@@ -552,7 +552,7 @@ function startBotReading() {
   const wordsPerMinute = 1200;
   const wordInterval = 60000 / wordsPerMinute;
 
-  document.getElementById("timer").textContent = "00:00";
+  document.querySelector(".timer-seconds").textContent = "00";
 
   function updateChallenge() {
 
@@ -589,7 +589,7 @@ function backToChallenges() {
   document.getElementById("testScreen").style.display = "block";
   document.querySelector(".container").style.display = "none";
 
-  document.getElementById("timer").textContent = "00:00";
+  document.querySelector(".timer-seconds").textContent = "00";
 
   document.getElementById("resultScreen").style.display = "none";
 
