@@ -270,7 +270,7 @@ button:active { transform: translateY(2px); }
   <div class="panel">
     <div class="eyebrow">PHOTO READING EYE EXERCISE</div>
     <h1>Shoot the Duck</h1>
-    <div class="subtitle">Friendly Level – 60 Seconds</div>
+    <div class="subtitle">Friendly Level – 12 Seconds</div>
 
     <div class="duck-picture">🦆</div>
 
@@ -288,7 +288,7 @@ button:active { transform: translateY(2px); }
     <button id="startButton">START EXERCISE</button>
 
     <div class="features">
-      <div>⏱️ 60 seconds</div>
+      <div>⏱️ 12 seconds</div>
       <div>🦆 One friendly duck</div>
       <div>⭐ 10 points per shot</div>
     </div>
@@ -298,7 +298,7 @@ button:active { transform: translateY(2px); }
 <!-- GAME SCREEN -->
 <section id="gameScreen" class="screen">
   <div class="scoreboard">
-    <div class="score-item">TIME <span id="timer">60</span></div>
+    <div class="score-item">TIME <span id="timer">12</span></div>
     <div class="score-item">DUCKS SHOT <span id="caught">0</span></div>
     <div class="score-item">SCORE <span id="score">0</span></div>
     <div class="score-item">MISSED <span id="missed">0</span></div>
@@ -353,7 +353,7 @@ const results = document.getElementById("resultScreen");
 const area = document.getElementById("playArea");
 const duck = document.getElementById("duck");
 
-let timeLeft = 60;
+let timeLeft = 12;
 let caught = 0;
 let missed = 0;
 let score = 0;
@@ -381,7 +381,7 @@ function clearGameTimers() {
 function startGame() {
   clearGameTimers();
 
-  timeLeft = 60;
+  timeLeft = 12;
   caught = 0;
   missed = 0;
   score = 0;
@@ -457,7 +457,7 @@ function showDuck() {
     missed++;
     updateScoreboard();
     scheduleNextDuck();
-  }, 3000);
+  }, 1500);
 }
 
 function scheduleNextDuck() {
@@ -466,7 +466,7 @@ function scheduleNextDuck() {
 
   nextDuckTimeout = setTimeout(() => {
     if (running) showDuck();
-  }, 650);
+  }, 300);
 }
 
 function scatterFeathers() {
