@@ -150,32 +150,60 @@ body {
 }
 /* FLOATING CIRCULAR TIMER */
 
+/* PREMIUM FLOATING TIMER */
+
 .floating-timer {
    position: fixed;
-    top: 105px;
+   top: 105px;
    right: 25px;
 
    width: 85px;
    height: 85px;
 
    display: flex;
+   flex-direction: column;
    align-items: center;
    justify-content: center;
 
    border-radius: 50%;
-   border: 3px solid #edcf91;
+   border: 2px solid #d6b46a;
 
-   background: rgba(255, 250, 240, 0.94);
-   color: #102f5c;
+   background: radial-gradient(
+      circle at 35% 30%,
+      #214b7b,
+      #102b50 65%,
+      #071a32
+   );
 
-   font-family: Georgia, serif;
-   font-size: 23px;
-   font-weight: bold;
+   color: #f8e8bd;
 
-   box-shadow: 0 5px 20px rgba(16, 47, 92, 0.20);
+   box-shadow:
+      0 5px 18px rgba(10, 30, 60, 0.28),
+      inset 0 0 8px rgba(255,255,255,0.12);
 
    z-index: 1000;
    pointer-events: none;
+}
+
+.timer-icon {
+   font-size: 13px;
+   line-height: 1;
+   margin-bottom: 2px;
+}
+
+.timer-seconds {
+   font-family: Georgia, serif;
+   font-size: 25px;
+   font-weight: bold;
+   line-height: 1.1;
+   letter-spacing: 1px;
+}
+
+.timer-laurel {
+   font-size: 19px;
+   color: #e5bd65;
+   line-height: 1;
+   transform: rotate(180deg);
 }
 
 /* MOBILE TIMER */
@@ -384,7 +412,13 @@ body {
 
   </main>
   <div class="floating-timer" id="timer">
-    00:00
+
+    <span class="timer-icon">⏱</span>
+
+    <span class="timer-seconds">00</span>
+
+    <span class="timer-laurel">❧</span>
+
 </div>
 </div>
 
