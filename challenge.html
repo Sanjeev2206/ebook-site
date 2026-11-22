@@ -148,7 +148,47 @@ body {
   font-size: 34px;
   font-weight: bold;
 }
+/* FLOATING CIRCULAR TIMER */
 
+.floating-timer {
+   position: fixed;
+   bottom: 25px;
+   right: 25px;
+
+   width: 85px;
+   height: 85px;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   border-radius: 50%;
+   border: 3px solid #edcf91;
+
+   background: rgba(255, 250, 240, 0.94);
+   color: #102f5c;
+
+   font-family: Georgia, serif;
+   font-size: 23px;
+   font-weight: bold;
+
+   box-shadow: 0 5px 20px rgba(16, 47, 92, 0.20);
+
+   z-index: 1000;
+   pointer-events: none;
+}
+
+/* MOBILE TIMER */
+
+@media(max-width: 500px) {
+   .floating-timer {
+      width: 68px;
+      height: 68px;
+      font-size: 18px;
+      bottom: 15px;
+      right: 15px;
+   }
+}
 /* PASSAGE CARD */
 
 .passage-card {
@@ -326,10 +366,7 @@ body {
         ⚑ Finish Challenge
       </button>
 
-      <div class="timer-display" id="timer">
-        00:00
-      </div>
-
+     
     </div>
 
     <!-- PASSAGE -->
@@ -346,6 +383,9 @@ body {
     </section>
 
   </main>
+  <div class="floating-timer" id="timer">
+    00:00
+</div>
 </div>
 
 <div id="resultScreen" style="
