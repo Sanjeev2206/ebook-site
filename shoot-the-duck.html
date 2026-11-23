@@ -160,7 +160,68 @@ body {
   color: #343d64;
   font-weight: bold;
 }
+/* MINIMAL PREMIUM WELCOME SCREEN */
 
+#welcomeScreen .panel {
+  max-width: 900px;
+  padding: 65px 45px;
+  border-radius: 28px;
+  box-shadow: 0 20px 60px rgba(50, 35, 120, 0.10);
+}
+
+#welcomeScreen h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(38px, 5vw, 58px);
+  color: #101b45;
+  margin: 38px 0 22px;
+  line-height: 1.15;
+}
+
+.simple-instruction {
+  max-width: 680px;
+  margin: 0 auto 38px;
+  color: #68718b;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+#welcomeScreen button {
+  padding: 18px 48px;
+  font-size: 18px;
+  border-radius: 50px;
+  margin-bottom: 22px;
+}
+
+.simple-duration {
+  display: table;
+  margin: 5px auto 0;
+  padding: 10px 22px;
+  border-radius: 30px;
+  background: #f0edff;
+  color: #5122ad;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media(max-width: 600px) {
+  #welcomeScreen .panel {
+    padding: 40px 20px;
+  }
+
+  #welcomeScreen h1 {
+    margin: 28px 0 18px;
+  }
+
+  .simple-instruction {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+
+  #welcomeScreen button {
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+}
 @media(max-width: 600px) {
   #welcomeScreen .panel {
     padding: 30px 17px;
@@ -363,49 +424,18 @@ body {
 
     <div class="eyebrow">READ FOR SPEED | PHOTO READING</div>
 
-    <h1>Peripheral Vision Exercise</h1>
+<h1>Peripheral Vision</h1>
 
-    <div class="subtitle">
-      Train your eyes to notice more of the screen at once.
-    </div>
+<p class="simple-instruction">
+  Keep your eyes fixed on the centre star while spotting and shooting
+  the ducks in your peripheral vision.
+</p>
 
-    <div class="exercise-label">
-      <span>◎</span> Shoot the Duck
-    </div>
+<button id="startButton">▶ &nbsp; Start Exercise</button>
 
-    <div class="level-badge">
-      FRIENDLY LEVEL &nbsp; | &nbsp; 12 SECONDS
-    </div>
-
-    <div class="instructions">
-
-      <div class="instruction-step">
-        <div class="step-icon">◎</div>
-        <strong>Focus</strong>
-        <span>Keep your eyes on the central star.</span>
-      </div>
-
-      <div class="instruction-step">
-        <div class="step-icon">🦆</div>
-        <strong>Notice</strong>
-        <span>Spot the duck in your peripheral vision.</span>
-      </div>
-
-      <div class="instruction-step">
-        <div class="step-icon">↗</div>
-        <strong>Respond</strong>
-        <span>Move your cursor and click the duck.</span>
-      </div>
-
-    </div>
-
-    <button id="startButton">▶ &nbsp; START EXERCISE</button>
-
-    <div class="features">
-      <div>⏱ 12 Seconds</div>
-      <div>🦆 One Friendly Duck</div>
-      <div>★ 10 Points per Shot</div>
-    </div>
+<div class="simple-duration">
+  12-second exercise
+</div>
 
   </div>
 </section>
