@@ -788,7 +788,36 @@ padding: 35px 35px;
   border-color: #ffffff;
   transform: translateY(-2px);
 }
+/* SHARE BUTTON ICON REFINEMENT */
+.share-buttons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
 
+  min-width: 112px;
+  min-height: 46px;
+  padding: 10px 16px;
+}
+
+.share-buttons a svg {
+  width: 21px;
+  height: 21px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.share-buttons a[aria-label="Share on X"] svg {
+  color: #ffffff;
+}
+
+.share-buttons a[aria-label="Share on WhatsApp"] svg {
+  color: #25D366;
+}
+
+.share-buttons a[aria-label="Share via Email"] svg {
+  color: #EA4335;
+}
 /* FAQ SECTION */
 .faq-section {
   max-width: 800px;
