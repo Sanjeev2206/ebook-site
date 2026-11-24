@@ -531,7 +531,7 @@ function startChallenge(level) {
 
 
 function startBotReading() {
-  document.getElementById("timer").style.display = "flex";
+  
 
   const passage = document.getElementById("sharedPassage");
 
@@ -560,8 +560,7 @@ function startBotReading() {
 
   const totalWords = wordElements.length;
 
-  challengeStartTime = Date.now();
-  userWordCount = totalWords;
+userWordCount = totalWords;
 
   document.getElementById("resultScreen").style.display = "none";
 
@@ -658,9 +657,14 @@ function startBotReading() {
     group.end = totalDuration;
   });
 
-  const startTime = Date.now();
+  // Start bot and timer using exactly the same timestamp
+const startTime = Date.now();
 
-  document.querySelector(".timer-seconds").textContent = "00";
+challengeStartTime = startTime;
+
+document.getElementById("timer").style.display = "flex";
+
+document.querySelector(".timer-seconds").textContent = "00";
 
   function updateChallenge() {
     const elapsed = Date.now() - startTime;
