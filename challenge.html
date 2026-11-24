@@ -529,25 +529,34 @@ function startChallenge(level) {
 
 
 
+
 function startBotReading() {
-  const passage = document.getElementById("sharedPassage");
   document.getElementById("timer").style.display = "flex";
+
+  const passage = document.getElementById("sharedPassage");
 
   originalAIPassage = passage.innerText.trim();
 
-  // Create individual word elements
-  const words = originalAIPassage.split(/\s+/);
+  // Preserve all spaces while wrapping individual words
+  const tokens = originalAIPassage.match(/\s+|\S+/g) || [];
+  let wordIndex = 0;
 
-  passage.innerHTML = words.map((word, index) => {
-    const safeWord = word
+  passage.innerHTML = tokens.map(token => {
+    if (/^\s+$/.test(token)) {
+      return token;
+    }
+
+    const safeWord = token
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;");
 
-    return `<span class="bot-word" data-index="${index}">${safeWord}</span>`;
-  }).join(" ");
+    return `<span class="bot-word" data-index="${wordIndex++}">${safeWord}</span>`;
+  }).join("");
 
-  const wordElements = [...passage.querySelectorAll(".bot-word")];
+  const wordElements = Array.from(
+    passage.querySelectorAll(".bot-word")
+  );
 
   const totalWords = wordElements.length;
 
@@ -558,73 +567,102 @@ function startBotReading() {
 
   clearInterval(timerInterval);
 
-  const wordsPerMinute = 1200;
-  const wordInterval = 60000 / wordsPerMinute;
+  // Detect the actual visual lines in the passage
+  const visualLines = [];
+
+  wordElements.forEach(word => {
+    const rect = word.getBoundingClientRect();
+
+    let line = visualLines.find(
+      item => Math.abs(item.top - rect.top) < 3
+    );
+
+    if (!line) {
+      line = {
+        top: rect.top,
+        words: []
+      };
+
+      visualLines.push(line);
+    }
+
+    line.words.push(word);
+  });
+
+  visualLines.sort((a, b) => a.top - b.top);
+
+  // Divide each line into groups of approximately 5 words.
+  // Merge a remaining group of 3 or fewer words into the previous group.
+  function createChunks(words) {
+    const chunks = [];
+    let index = 0;
+
+    while (index < words.length) {
+      const remaining = words.length - index;
+
+      if (remaining <= 3 && chunks.length > 0) {
+        chunks[chunks.length - 1].push(
+          ...words.slice(index)
+        );
+        break;
+      }
+
+      chunks.push(words.slice(index, index + 5));
+      index += 5;
+    }
+
+    return chunks;
+  }
+
+  // Pair two visual lines and read their groups simultaneously
+  const readingGroups = [];
+
+  for (let i = 0; i < visualLines.length; i += 2) {
+    const firstLine = createChunks(visualLines[i].words);
+
+    const secondLine = visualLines[i + 1]
+      ? createChunks(visualLines[i + 1].words)
+      : [];
+
+    const numberOfGroups = Math.max(
+      firstLine.length,
+      secondLine.length
+    );
+
+    for (let j = 0; j < numberOfGroups; j++) {
+      const firstWords = firstLine[j] || [];
+      const secondWords = secondLine[j] || [];
+
+      const groupWords = [
+        ...firstWords,
+        ...secondWords
+      ];
+
+      // Timing adjusts to the larger of the two simultaneous groups
+      const groupDuration =
+        Math.max(firstWords.length, secondWords.length) * 50;
+
+      readingGroups.push({
+        words: groupWords,
+        duration: groupDuration
+      });
+    }
+  }
+
+  // Build the timing schedule
+  let totalDuration = 0;
+
+  readingGroups.forEach(group => {
+    group.start = totalDuration;
+    totalDuration += group.duration;
+    group.end = totalDuration;
+  });
+
   const startTime = Date.now();
 
   document.querySelector(".timer-seconds").textContent = "00";
 
-  // Detect actual visual lines using browser coordinates
-  function getVisualLines() {
-    const lines = [];
-
-    wordElements.forEach((word, index) => {
-      const rect = word.getBoundingClientRect();
-
-      let line = lines.find(item =>
-        Math.abs(item.top - rect.top) < 3
-      );
-
-      if (!line) {
-        line = { top: rect.top, words: [] };
-        lines.push(line);
-      }
-
-      line.words.push(index);
-    });
-
-    return lines.sort((a, b) => a.top - b.top);
-  }
-
-  // Create pairs of visual lines
-  function createReadingGroups() {
-    const lines = getVisualLines();
-    const groups = [];
-
-    for (let i = 0; i < lines.length; i += 2) {
-
-      const firstLine = lines[i].words;
-      const secondLine = lines[i + 1]
-        ? lines[i + 1].words
-        : [];
-
-      const maxLength = Math.max(
-        firstLine.length,
-        secondLine.length
-      );
-
-      for (let start = 0; start < maxLength; start += 5) {
-
-        const selected = [
-          ...firstLine.slice(start, start + 5),
-          ...secondLine.slice(start, start + 5)
-        ];
-
-        if (selected.length) {
-          groups.push(selected);
-        }
-      }
-    }
-
-    return groups;
-  }
-
-  let readingGroups = createReadingGroups();
-
-  const groupInterval = wordInterval * 9;
-
   function updateChallenge() {
-
     const elapsed = Date.now() - startTime;
 
     const totalSeconds = Math.floor(elapsed / 1000);
@@ -632,38 +670,36 @@ function startBotReading() {
     document.querySelector(".timer-seconds").textContent =
       String(totalSeconds).padStart(2, "0");
 
-    const currentGroup = Math.floor(elapsed / groupInterval);
+    // Reset all words to their original light-grey reading state
+    wordElements.forEach(word => {
+      word.style.color = "#b8b8b8";
+      word.style.fontWeight = "normal";
+    });
 
-    if (currentGroup >= readingGroups.length) {
-
-      wordElements.forEach(word => {
-        word.style.color = "#b8b8b8";
-        word.style.fontWeight = "normal";
-      });
-
+    // Stop when all visual groups have been read
+    if (elapsed >= totalDuration) {
       clearInterval(timerInterval);
       return;
     }
 
-    const activeWords = readingGroups[currentGroup];
+    // Find and highlight the current group
+    const currentGroup = readingGroups.find(
+      group => elapsed >= group.start && elapsed < group.end
+    );
 
-    wordElements.forEach((word, index) => {
-
-      if (activeWords.includes(index)) {
+    if (currentGroup) {
+      currentGroup.words.forEach(word => {
         word.style.color = "#111111";
         word.style.fontWeight = "bold";
-      } else {
-        word.style.color = "#b8b8b8";
-        word.style.fontWeight = "normal";
-      }
-
-    });
+      });
+    }
   }
 
   updateChallenge();
 
-  timerInterval = setInterval(updateChallenge, 50);
+  timerInterval = setInterval(updateChallenge, 20);
 }
+
 
 
 function backToChallenges() {
