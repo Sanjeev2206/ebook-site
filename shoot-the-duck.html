@@ -53,12 +53,41 @@ body {
   line-height: 1.15;
 }
 
-.subtitle {
+
+/* OPEN ORANGE INSTRUCTION TEXT */
+
+.simple-instruction {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 38px;
+  padding-bottom: 13px;
+  color: #F05A00;
   font-size: 18px;
-  color: #68718b;
-  margin-bottom: 22px;
-  line-height: 1.5;
+  font-weight: 700;
+  line-height: 1.7;
 }
+
+/* GOLDEN UNDERLINE */
+
+.simple-instruction::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 90%;
+  height: 4px;
+  background: #FFBD17;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(255, 189, 23, 0.25);
+}
+
+@media(max-width: 600px) {
+  .simple-instruction {
+    font-size: 15px;
+    margin-bottom: 28px;
+  }
+}
+
 
 .exercise-label {
   display: inline-block;
