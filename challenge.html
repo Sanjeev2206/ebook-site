@@ -416,10 +416,21 @@ body {
   font-weight: bold;
 }
 
+
 #winnerMessage {
   text-align: center;
   font-size: 22px;
-  margin: 25px 0 8px;
+  margin: 25px auto 8px;
+  padding: 12px 20px;
+  max-width: 700px;
+  width: fit-content;
+  background: #fff5d5;
+  border-radius: 35px;
+  font-weight: bold;
+}
+
+#winnerMessage::before {
+  content: "🏆 ";
 }
 
 #timeTaken {
@@ -453,7 +464,7 @@ body {
 }
 
 .result-navigation a:not(:last-child) {
-  border-right: 1px solid #cbd8eb;
+  border-right: none;
 }
 
 .result-navigation a:hover {
@@ -472,6 +483,74 @@ body {
   flex-shrink: 0;
   stroke: currentColor;
 }
+  
+/* COLOURFUL RESULT NAVIGATION BUTTONS */
+
+.result-navigation {
+  gap: 22px;
+}
+
+.result-navigation a {
+  margin: 0 8px;
+  min-height: 72px;
+  padding: 9px 16px;
+  border: 2px solid white;
+  border-radius: 35px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  gap: 12px;
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.18);
+  transition: all 0.25s ease;
+}
+
+/* HOME - BLUE */
+
+.result-navigation a:nth-child(1) {
+  background: linear-gradient(135deg, #08c8f5, #0755ed);
+  box-shadow: 0 7px 18px rgba(0, 105, 255, 0.35);
+}
+
+/* EYE EXERCISE - PURPLE */
+
+.result-navigation a:nth-child(2) {
+  background: linear-gradient(135deg, #d000ff, #6500d9);
+  box-shadow: 0 7px 18px rgba(160, 0, 255, 0.35);
+}
+
+/* EBOOK PREVIEW - GREEN */
+
+.result-navigation a:nth-child(3) {
+  background: linear-gradient(135deg, #19ed35, #008000);
+  box-shadow: 0 7px 18px rgba(0, 180, 35, 0.35);
+}
+
+/* HIGHLIGHTED ICONS */
+
+.result-navigation svg {
+  width: 48px;
+  height: 48px;
+  padding: 10px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.18);
+  stroke: white;
+  flex-shrink: 0;
+}
+
+/* REMOVE OLD VERTICAL SEPARATORS */
+
+.result-navigation a:not(:last-child) {
+  border-right: 2px solid white;
+}
+
+/* HOVER EFFECT */
+
+.result-navigation a:hover {
+  transform: translateY(-4px);
+  filter: brightness(1.08);
+}
+
 @media (max-width: 700px) {
   #resultScreen {
     width: calc(100% - 20px);
@@ -640,12 +719,12 @@ body {
       <span id="competitorRaceSpeed"></span>
     </p>
 
-    <div class="result-bar">
-      <div id="competitorRaceBar"
-           class="result-bar-fill"
-           style="width:0%; background:#159b65;">
-      </div>
-    </div>
+   <div class="result-bar">
+  <div id="competitorRaceBar"
+       class="result-bar-fill"
+       style="width:0%; background:#ff6a00;">
+  </div>
+</div>
 
     <div id="speedDifference" style="display:none;"></div>
 
