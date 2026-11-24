@@ -326,6 +326,173 @@ body {
   }
 }
 
+/* CLEAN READING CHALLENGE RESULTS */
+
+#resultScreen {
+  width: calc(100% - 40px);
+  max-width: 1460px;
+  margin: 30px auto;
+  padding: 35px 45px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(30, 55, 90, 0.10);
+  color: #102344;
+  font-family: Georgia, serif;
+}
+
+#resultScreen > h1 {
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: clamp(28px, 3.5vw, 48px);
+  margin: 0 0 35px;
+}
+
+.result-speed-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+}
+
+.result-speed-card {
+  text-align: center;
+  padding: 20px;
+  border-radius: 22px;
+}
+
+.result-speed-card.user {
+  background: #edf5fd;
+}
+
+.result-speed-card.bot {
+  background: #edf9f1;
+}
+
+.result-speed-card h2 {
+  font-size: 25px;
+  margin: 0 0 10px;
+}
+
+.result-speed-card h3 {
+  font-size: 48px;
+  margin: 0;
+}
+
+.result-race {
+  margin-top: 30px;
+}
+
+.result-race h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 22px;
+}
+
+.result-race p {
+  font-size: 19px;
+  margin: 15px 0;
+}
+
+.result-bar {
+  height: 18px;
+  background: #e5ebf2;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.result-bar-fill {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 1.2s ease;
+}
+
+.result-percentage {
+  text-align: center;
+  background: #fff6df;
+  border-radius: 18px;
+  padding: 13px 20px;
+  margin: 25px auto 0;
+  max-width: 900px;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+#winnerMessage {
+  text-align: center;
+  font-size: 22px;
+  margin: 25px 0 8px;
+}
+
+#timeTaken {
+  text-align: center;
+  font-size: 17px;
+  margin: 8px 0 0;
+  color: #526782;
+}
+
+/* BOTTOM NAVIGATION */
+
+.result-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 1px solid #dce7f5;
+}
+
+.result-navigation a {
+  flex: 1;
+  text-align: center;
+  padding: 8px 12px;
+  color: #12366b;
+  font-family: Georgia, serif;
+  font-size: 19px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.result-navigation a:not(:last-child) {
+  border-right: 1px solid #cbd8eb;
+}
+
+.result-navigation a:hover {
+  color: #3285ef;
+}
+
+@media (max-width: 700px) {
+  #resultScreen {
+    width: calc(100% - 20px);
+    padding: 25px 16px;
+  }
+
+  .result-speed-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .result-speed-card h2 {
+    font-size: 20px;
+  }
+
+  .result-speed-card h3 {
+    font-size: 36px;
+  }
+
+  .result-race h2 {
+    font-size: 25px;
+  }
+
+  .result-percentage {
+    font-size: 16px;
+  }
+
+  .result-navigation a {
+    font-size: 13px;
+    padding: 8px 5px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -422,71 +589,79 @@ body {
 </div>
 </div>
 
-<div id="resultScreen" style="
-  display:none;
-  margin:30px auto;
-  padding:30px;
-  background:white;
-  border-radius:18px;
-  max-width:750px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.08);
-">
+
+<div id="resultScreen">
+
   <h1>Reading Challenge Results</h1>
 
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+  <div class="result-speed-grid">
 
-    <div>
+    <div class="result-speed-card user">
       <h2>Your Reading Speed</h2>
-      <h1 id="userSpeed">0 WPM</h1>
+      <h3 id="userSpeed">0 WPM</h3>
     </div>
 
-    <div>
+    <div class="result-speed-card bot">
       <h2>Photo Reader Speed</h2>
-      <h1 id="competitorSpeed">0 WPM</h1>
+      <h3 id="competitorSpeed">0 WPM</h3>
     </div>
 
   </div>
-<div style="margin:30px 0; text-align:left;">
 
-  <h2 style="text-align:center;">Reading Speed Race</h2>
+  <div class="result-race">
 
-  <p><strong>You</strong> <span id="userRaceSpeed"></span></p>
+    <h2>Reading Speed Race</h2>
 
-  <div style="background:#e5e7eb; height:22px; border-radius:20px; overflow:hidden;">
-    <div id="userRaceBar" style="
-      width:0%;
-      height:100%;
-      background:#3285ef;
-      border-radius:20px;
-      transition:width 1.2s ease;
-    "></div>
+    <p>
+      <strong>You:</strong>
+      <span id="userRaceSpeed"></span>
+    </p>
+
+    <div class="result-bar">
+      <div id="userRaceBar"
+           class="result-bar-fill"
+           style="width:0%; background:#3285ef;">
+      </div>
+    </div>
+
+    <p>
+      <strong id="raceCompetitorName">Photo Reader</strong>:
+      <span id="competitorRaceSpeed"></span>
+    </p>
+
+    <div class="result-bar">
+      <div id="competitorRaceBar"
+           class="result-bar-fill"
+           style="width:0%; background:#159b65;">
+      </div>
+    </div>
+
+    <div id="speedDifference" class="result-percentage"></div>
+
   </div>
 
-  <p><strong id="raceCompetitorName">Competitor</strong>
-  <span id="competitorRaceSpeed"></span></p>
-
-  <div style="background:#e5e7eb; height:22px; border-radius:20px; overflow:hidden;">
-    <div id="competitorRaceBar" style="
-      width:0%;
-      height:100%;
-      background:#159b65;
-      border-radius:20px;
-      transition:width 1.2s ease;
-    "></div>
-  </div>
-
-  <h3 id="speedDifference" style="text-align:center;"></h3>
-
-</div>
   <h2 id="winnerMessage"></h2>
 
   <p id="timeTaken"></p>
 
-  <button onclick="backToChallenges()">
-    Try Another Challenge
-  </button>
+  <nav class="result-navigation">
+
+    <a href="index.html#hero">
+      🏠 Home
+    </a>
+
+    <a href="shoot-the-duck.html">
+      👁 Eye Exercise
+    </a>
+
+    <a href="index.html#book-preview">
+      📖 Ebook Preview
+    </a>
+
+  </nav>
 
 </div>
+
   <script>
 
 let timerInterval;
