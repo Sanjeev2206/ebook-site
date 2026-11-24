@@ -508,104 +508,257 @@ body {
   #playArea { min-height: 420px; }
 }
   
-/* PREMIUM LIGHT RESULTS CARD */
+
+/* CLEAN PREMIUM RESULTS SCREEN */
 
 #resultScreen .panel {
   width: min(100%, 1040px);
   background: #ffffff;
-  border: 2px solid #a855f7;
+  border: 1px solid #e5ddff;
   border-radius: 26px;
-  padding: 38px 36px;
+  padding: 38px 35px;
   text-align: center;
-  box-shadow: 0 15px 40px rgba(104, 65, 190, 0.14);
+  box-shadow: 0 15px 40px rgba(104, 65, 190, 0.12);
 }
 
 #resultScreen .eyebrow {
   color: #762bd8;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 4px;
-  margin-bottom: 20px;
+  letter-spacing: 3px;
+  margin-bottom: 18px;
 }
 
 #resultScreen h1 {
   color: #14265b;
-  font-size: clamp(32px, 4vw, 52px);
-  margin: 10px 0 22px;
-  font-weight: 800;
+  font-family: Georgia, serif;
+  font-size: clamp(32px, 4vw, 48px);
+  margin: 10px 0 35px;
 }
+
+/* RESULTS LAYOUT */
+
+.results-dashboard {
+  display: grid;
+  grid-template-columns: 180px 1fr 190px;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  max-width: 790px;
+  margin: 0 auto;
+}
+
+/* TROPHY */
 
 #resultScreen .duck-picture {
-  font-size: 76px;
-  margin: 5px 0;
+  font-size: 105px;
+  margin: 0;
+  filter: drop-shadow(0 5px 5px rgba(0,0,0,0.10));
 }
 
-#resultScreen .result-number {
-  font-size: 20px;
-  font-weight: 700;
-  color: #14265b;
-  margin: 0;
+/* COMPACT SCOREBOARD */
+
+.result-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #e4ddff;
+  border-radius: 17px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(104, 65, 190, 0.07);
 }
+
+.result-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f7f5ff;
+  color: #14265b;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.result-row strong {
+  font-size: 20px;
+  color: #21145c;
+}
+
+.result-row .result-icon {
+  font-size: 21px;
+  margin-right: 7px;
+}
+
+/* CIRCULAR ACCURACY GAUGE */
+
+.accuracy-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accuracy-ring {
+  --progress: 0;
+  width: 165px;
+  height: 165px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from -90deg,
+    #7138d8 calc(var(--progress) * 1%),
+    #eeeaff 0
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(104, 65, 190, 0.08);
+}
+
+.accuracy-inner {
+  width: 139px;
+  height: 139px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.accuracy-value {
+  font-size: 37px;
+  font-weight: 800;
+  color: #14265b;
+}
+
+.accuracy-label {
+  font-size: 15px;
+  color: #6842c2;
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+/* ENCOURAGEMENT MESSAGE */
+
+#resultScreen #achievement {
+  margin: 32px 0 25px;
+  color: #68718b;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* NAVIGATION BUTTONS */
 
 #resultScreen .result-actions {
-  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 #resultScreen button {
-  padding: 16px 32px;
-  border: 2px solid #5520b5;
-  border-radius: 14px;
-  background: white;
-  color: #14265b;
-  font-size: 17px;
+  padding: 12px 23px;
+  border: 1.5px solid #8544e9;
+  border-radius: 13px;
+  background: #ffffff;
+  color: #5122ad;
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
+  transition: 0.2s ease;
 }
-
-#resultScreen .secondary {
-  background: linear-gradient(100deg, #922be8, #4935ef);
-  color: white;
-  border: none;
-  box-shadow: 0 6px 15px rgba(100, 45, 200, 0.2);
-}
-/* HOME BUTTON - BLUE */
 
 #resultScreen .home-button {
-  background: linear-gradient(135deg, #168cff, #0755d9);
+  background: linear-gradient(100deg, #8544e9, #5420b5);
   color: white;
   border: none;
-  box-shadow: 0 6px 15px rgba(0, 100, 255, 0.25);
+  box-shadow: 0 5px 13px rgba(99, 49, 190, 0.18);
 }
-
-/* EBOOK PREVIEW - GREEN */
 
 #resultScreen .preview-button {
-  background: linear-gradient(135deg, #19d957, #00852b);
-  color: white;
-  border: none;
-  box-shadow: 0 6px 15px rgba(0, 160, 50, 0.25);
+  background: #f7f3ff;
+  color: #7138d8;
+  border: 1.5px solid #cdb7ff;
 }
-
-/* BUTTON HOVER */
 
 #resultScreen .result-actions button:hover {
   transform: translateY(-3px);
-  filter: brightness(1.08);
+  box-shadow: 0 5px 13px rgba(80, 50, 150, 0.13);
 }
-@media (max-width: 600px) {
+
+/* MOBILE RESPONSIVENESS */
+
+@media(max-width: 700px) {
   #resultScreen .panel {
-    padding: 28px 16px;
+    padding: 28px 17px;
   }
 
-  #resultScreen .result-number {
+  .results-dashboard {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  #resultScreen .duck-picture {
+    font-size: 75px;
+  }
+
+  .result-stats {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+  }
+
+  .accuracy-ring {
+    width: 125px;
+    height: 125px;
+  }
+
+  .accuracy-inner {
+    width: 105px;
+    height: 105px;
+  }
+
+  .accuracy-value {
+    font-size: 29px;
+  }
+
+  .result-row {
+    font-size: 14px;
+  }
+
+  .result-row strong {
     font-size: 17px;
   }
 
+  #resultScreen #achievement {
+    font-size: 14px;
+  }
+
+  #resultScreen .result-actions {
+    gap: 9px;
+  }
+
   #resultScreen button {
-    width: 100%;
-    font-size: 15px;
+    padding: 11px 14px;
+    font-size: 13px;
   }
 }
+
+@media(max-width: 380px) {
+  .results-dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .result-stats {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
 /* Decorative duck and star on welcome screen */
 
 #welcomeScreen .panel {
@@ -758,41 +911,93 @@ body {
   </div>
 </section>
 
+
 <!-- RESULTS SCREEN -->
 <section id="resultScreen" class="screen">
   <div class="panel">
-    <div class="eyebrow">PHOTO READING EYE EXERCISE</div>
+
+    <div class="eyebrow">
+      PHOTO READING EYE EXERCISE
+    </div>
+
     <h1>Wonderful Shooting!</h1>
-    <div class="duck-picture">🏆</div>
 
-    <div class="result-number">
-      Ducks caught: <span id="finalCaught">0</span>
-    </div>
-    <div class="result-number">
-      Total score: <span id="finalScore">0</span>
-    </div>
-    <div class="result-number">
-      Missed ducks: <span id="finalMissed">0</span>
-    </div>
-    <div class="result-number">
-      Accuracy: <span id="accuracy">0%</span>
+    <div class="results-dashboard">
+
+      <!-- TROPHY -->
+      <div class="duck-picture">
+        🏆
+      </div>
+
+      <!-- COMPACT SCOREBOARD -->
+      <div class="result-stats">
+
+        <div class="result-row">
+          <span><span class="result-icon">🦆</span> Ducks caught:</span>
+          <strong id="finalCaught">0</strong>
+        </div>
+
+        <div class="result-row">
+          <span><span class="result-icon">🎯</span> Total score:</span>
+          <strong id="finalScore">0</strong>
+        </div>
+
+        <div class="result-row">
+          <span><span class="result-icon">❌</span> Missed ducks:</span>
+          <strong id="finalMissed">0</strong>
+        </div>
+
+      </div>
+
+      <!-- CIRCULAR ACCURACY -->
+      <div class="accuracy-container">
+
+        <div class="accuracy-ring" id="accuracyRing"
+             style="--progress: 0">
+
+          <div class="accuracy-inner">
+
+            <div class="accuracy-value" id="accuracy">
+              0%
+            </div>
+
+            <div class="accuracy-label">
+              Accuracy
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <p id="achievement">Great effort! Keep practising your visual awareness.</p>
+    <!-- MESSAGE -->
+    <p id="achievement">
+      Great effort! Keep practising your visual awareness.
+    </p>
 
+    <!-- NAVIGATION -->
     <div class="result-actions">
-  <button id="againButton">↻ PLAY AGAIN</button>
 
-  <button class="home-button" id="backButton">
-    🏠 HOME
-  </button>
+      <button id="againButton">
+        ↻ PLAY AGAIN
+      </button>
 
-  <button class="preview-button" id="previewButton">
-    📖 EBOOK PREVIEW
-  </button>
-</div>
+      <button class="home-button" id="backButton">
+        🏠 HOME
+      </button>
+
+      <button class="preview-button" id="previewButton">
+        📖 EBOOK PREVIEW
+      </button>
+
+    </div>
+
   </div>
 </section>
+
 
 <script>
 const welcome = document.getElementById("welcomeScreen");
@@ -974,6 +1179,9 @@ function endGame() {
   const accuracy = total ? Math.round(caught / total * 100) : 0;
 
   document.getElementById("accuracy").textContent = accuracy + "%";
+  // Update circular accuracy gauge
+document.getElementById("accuracyRing")
+  .style.setProperty("--progress", accuracy);
 
   let message = "Great effort! Keep practising your visual awareness.";
 
