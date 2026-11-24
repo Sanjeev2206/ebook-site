@@ -497,12 +497,26 @@ body {
 
 .welcome-star {
   position: absolute;
-  top: 55px;
-  right: 100px;
+  top: 48px;
+  right: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  pointer-events: none;
+}
+
+.star-symbol {
   font-size: 48px;
   color: #ffcf24;
   text-shadow: 0 0 15px #ffe89a;
-  pointer-events: none;
+}
+
+.star-word {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #6842c2;
 }
 
 .welcome-duck {
@@ -517,10 +531,13 @@ body {
 
 @media (max-width: 600px) {
   .welcome-star {
-    top: 18px;
-    right: 22px;
-    font-size: 32px;
-  }
+  top: 18px;
+  right: 22px;
+}
+
+.star-symbol {
+  font-size: 32px;
+}
 
   .welcome-duck {
     bottom: 12px;
