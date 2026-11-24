@@ -528,36 +528,26 @@ function startChallenge(level) {
 }
 
 
-function startBotReading() {
-  document.getElementById("timer").style.display = "flex";
 
+function startBotReading() {
   const passage = document.getElementById("sharedPassage");
+  document.getElementById("timer").style.display = "flex";
 
   originalAIPassage = passage.innerText.trim();
 
-  // Split passage while preserving original spaces and line wrapping
-  const tokens = originalAIPassage.match(/\S+|\s+/g) || [];
+  // Create individual word elements
+  const words = originalAIPassage.split(/\s+/);
 
-  let wordIndex = 0;
-
-  passage.innerHTML = tokens.map(token => {
-
-    // Preserve all original whitespace
-    if (/^\s+$/.test(token)) {
-      return token;
-    }
-
-    // Safely escape text
-    const safeWord = token
+  passage.innerHTML = words.map((word, index) => {
+    const safeWord = word
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;");
 
-    return `<span class="bot-word" data-index="${wordIndex++}">${safeWord}</span>`;
+    return `<span class="bot-word" data-index="${index}">${safeWord}</span>`;
+  }).join(" ");
 
-  }).join("");
-
-  const wordElements = passage.querySelectorAll(".bot-word");
+  const wordElements = [...passage.querySelectorAll(".bot-word")];
 
   const totalWords = wordElements.length;
 
@@ -568,16 +558,70 @@ function startBotReading() {
 
   clearInterval(timerInterval);
 
-  // PHOTO READER SETTINGS
   const wordsPerMinute = 1200;
-  const wordsPerGroup = 9;
-
   const wordInterval = 60000 / wordsPerMinute;
-  const groupInterval = wordInterval * wordsPerGroup;
-
   const startTime = Date.now();
 
   document.querySelector(".timer-seconds").textContent = "00";
+
+  // Detect actual visual lines using browser coordinates
+  function getVisualLines() {
+    const lines = [];
+
+    wordElements.forEach((word, index) => {
+      const rect = word.getBoundingClientRect();
+
+      let line = lines.find(item =>
+        Math.abs(item.top - rect.top) < 3
+      );
+
+      if (!line) {
+        line = { top: rect.top, words: [] };
+        lines.push(line);
+      }
+
+      line.words.push(index);
+    });
+
+    return lines.sort((a, b) => a.top - b.top);
+  }
+
+  // Create pairs of visual lines
+  function createReadingGroups() {
+    const lines = getVisualLines();
+    const groups = [];
+
+    for (let i = 0; i < lines.length; i += 2) {
+
+      const firstLine = lines[i].words;
+      const secondLine = lines[i + 1]
+        ? lines[i + 1].words
+        : [];
+
+      const maxLength = Math.max(
+        firstLine.length,
+        secondLine.length
+      );
+
+      for (let start = 0; start < maxLength; start += 5) {
+
+        const selected = [
+          ...firstLine.slice(start, start + 5),
+          ...secondLine.slice(start, start + 5)
+        ];
+
+        if (selected.length) {
+          groups.push(selected);
+        }
+      }
+    }
+
+    return groups;
+  }
+
+  let readingGroups = createReadingGroups();
+
+  const groupInterval = wordInterval * 9;
 
   function updateChallenge() {
 
@@ -588,11 +632,9 @@ function startBotReading() {
     document.querySelector(".timer-seconds").textContent =
       String(totalSeconds).padStart(2, "0");
 
-    // Identify the current group of 9 words
     const currentGroup = Math.floor(elapsed / groupInterval);
 
-    // Check whether the bot has finished reading
-    if (elapsed >= totalWords * wordInterval) {
+    if (currentGroup >= readingGroups.length) {
 
       wordElements.forEach(word => {
         word.style.color = "#b8b8b8";
@@ -603,31 +645,26 @@ function startBotReading() {
       return;
     }
 
-    // Highlight only the current reading group
+    const activeWords = readingGroups[currentGroup];
+
     wordElements.forEach((word, index) => {
 
-      const wordGroup = Math.floor(index / wordsPerGroup);
-
-      if (wordGroup === currentGroup) {
-
+      if (activeWords.includes(index)) {
         word.style.color = "#111111";
         word.style.fontWeight = "bold";
-
       } else {
-
         word.style.color = "#b8b8b8";
         word.style.fontWeight = "normal";
-
       }
 
     });
-
   }
 
   updateChallenge();
 
   timerInterval = setInterval(updateChallenge, 50);
 }
+
 
 function backToChallenges() {
 
