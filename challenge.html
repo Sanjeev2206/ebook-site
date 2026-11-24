@@ -527,30 +527,55 @@ function startChallenge(level) {
     "You vs Photo Reader";
 }
 
+
 function startBotReading() {
   document.getElementById("timer").style.display = "flex";
+
   const passage = document.getElementById("sharedPassage");
 
   originalAIPassage = passage.innerText.trim();
 
-  const words = originalAIPassage.split(/\s+/);
+  // Split passage while preserving original spaces and line wrapping
+  const tokens = originalAIPassage.match(/\S+|\s+/g) || [];
+
+  let wordIndex = 0;
+
+  passage.innerHTML = tokens.map(token => {
+
+    // Preserve all original whitespace
+    if (/^\s+$/.test(token)) {
+      return token;
+    }
+
+    // Safely escape text
+    const safeWord = token
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+
+    return `<span class="bot-word" data-index="${wordIndex++}">${safeWord}</span>`;
+
+  }).join("");
+
+  const wordElements = passage.querySelectorAll(".bot-word");
+
+  const totalWords = wordElements.length;
 
   challengeStartTime = Date.now();
-  userWordCount = words.length;
+  userWordCount = totalWords;
 
   document.getElementById("resultScreen").style.display = "none";
 
   clearInterval(timerInterval);
 
-  passage.innerHTML = words.map(word =>
-    `<span style="color:#b8b8b8; font-weight:normal;">${word}</span>`
-  ).join(" ");
+  // PHOTO READER SETTINGS
+  const wordsPerMinute = 1200;
+  const wordsPerGroup = 9;
 
-  const wordElements = passage.querySelectorAll("span");
+  const wordInterval = 60000 / wordsPerMinute;
+  const groupInterval = wordInterval * wordsPerGroup;
 
   const startTime = Date.now();
-  const wordsPerMinute = 1200;
-  const wordInterval = 60000 / wordsPerMinute;
 
   document.querySelector(".timer-seconds").textContent = "00";
 
@@ -559,27 +584,51 @@ function startBotReading() {
     const elapsed = Date.now() - startTime;
 
     const totalSeconds = Math.floor(elapsed / 1000);
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds % 60;
 
-   document.querySelector(".timer-seconds").textContent =
-  String(totalSeconds).padStart(2, "0");
+    document.querySelector(".timer-seconds").textContent =
+      String(totalSeconds).padStart(2, "0");
 
-    const wordsToHighlight =
-      Math.floor(elapsed / wordInterval) + 1;
+    // Identify the current group of 9 words
+    const currentGroup = Math.floor(elapsed / groupInterval);
 
+    // Check whether the bot has finished reading
+    if (elapsed >= totalWords * wordInterval) {
+
+      wordElements.forEach(word => {
+        word.style.color = "#b8b8b8";
+        word.style.fontWeight = "normal";
+      });
+
+      clearInterval(timerInterval);
+      return;
+    }
+
+    // Highlight only the current reading group
     wordElements.forEach((word, index) => {
-      if (index < wordsToHighlight) {
-        word.style.color = "#111";
+
+      const wordGroup = Math.floor(index / wordsPerGroup);
+
+      if (wordGroup === currentGroup) {
+
+        word.style.color = "#111111";
         word.style.fontWeight = "bold";
+
+      } else {
+
+        word.style.color = "#b8b8b8";
+        word.style.fontWeight = "normal";
+
       }
+
     });
+
   }
 
   updateChallenge();
 
   timerInterval = setInterval(updateChallenge, 50);
 }
+
 function backToChallenges() {
 
   clearInterval(timerInterval);
