@@ -676,10 +676,9 @@ function startBotReading() {
       word.style.fontWeight = "normal";
     });
 
-    // Stop when all visual groups have been read
-    if (elapsed >= totalDuration) {
-      clearInterval(timerInterval);
-      return;
+   // Bot finishes reading, but timer continues
+if (elapsed >= totalDuration) {
+  return;
     }
 
     // Find and highlight the current group
