@@ -488,7 +488,46 @@ body {
     font-size: 15px;
   }
 }
+/* Decorative duck and star on welcome screen */
 
+#welcomeScreen .panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-star {
+  position: absolute;
+  top: 55px;
+  right: 100px;
+  font-size: 48px;
+  color: #ffcf24;
+  text-shadow: 0 0 15px #ffe89a;
+  pointer-events: none;
+}
+
+.welcome-duck {
+  position: absolute;
+  bottom: 35px;
+  right: 65px;
+  font-size: 75px;
+  filter: drop-shadow(2px 5px 3px #0002);
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .welcome-star {
+    top: 18px;
+    right: 22px;
+    font-size: 32px;
+  }
+
+  .welcome-duck {
+    bottom: 12px;
+    right: 12px;
+    font-size: 48px;
+  }
+}
 </style>
 </head>
 
@@ -498,7 +537,8 @@ body {
 <!-- WELCOME SCREEN -->
 <section id="welcomeScreen" class="screen active">
   <div class="panel">
-
+<div class="welcome-star">★</div>
+<div class="welcome-duck">🦆</div>
     <div class="eyebrow">READ FOR SPEED | PHOTO READING</div>
 
 <h1>Peripheral Vision</h1>
