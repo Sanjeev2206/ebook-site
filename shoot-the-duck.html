@@ -412,6 +412,83 @@ body {
   .score-item span { font-size: 20px; }
   #playArea { min-height: 420px; }
 }
+  
+/* PREMIUM LIGHT RESULTS CARD */
+
+#resultScreen .panel {
+  width: min(100%, 1040px);
+  background: #ffffff;
+  border: 2px solid #a855f7;
+  border-radius: 26px;
+  padding: 38px 36px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(104, 65, 190, 0.14);
+}
+
+#resultScreen .eyebrow {
+  color: #762bd8;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin-bottom: 20px;
+}
+
+#resultScreen h1 {
+  color: #14265b;
+  font-size: clamp(32px, 4vw, 52px);
+  margin: 10px 0 22px;
+  font-weight: 800;
+}
+
+#resultScreen .duck-picture {
+  font-size: 76px;
+  margin: 5px 0;
+}
+
+#resultScreen .result-number {
+  font-size: 20px;
+  font-weight: 700;
+  color: #14265b;
+  margin: 0;
+}
+
+#resultScreen .result-actions {
+  margin-top: 28px;
+}
+
+#resultScreen button {
+  padding: 16px 32px;
+  border: 2px solid #5520b5;
+  border-radius: 14px;
+  background: white;
+  color: #14265b;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#resultScreen .secondary {
+  background: linear-gradient(100deg, #922be8, #4935ef);
+  color: white;
+  border: none;
+  box-shadow: 0 6px 15px rgba(100, 45, 200, 0.2);
+}
+
+@media (max-width: 600px) {
+  #resultScreen .panel {
+    padding: 28px 16px;
+  }
+
+  #resultScreen .result-number {
+    font-size: 17px;
+  }
+
+  #resultScreen button {
+    width: 100%;
+    font-size: 15px;
+  }
+}
+
 </style>
 </head>
 
