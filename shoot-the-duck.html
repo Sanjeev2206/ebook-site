@@ -473,7 +473,30 @@ body {
   border: none;
   box-shadow: 0 6px 15px rgba(100, 45, 200, 0.2);
 }
+/* HOME BUTTON - BLUE */
 
+#resultScreen .home-button {
+  background: linear-gradient(135deg, #168cff, #0755d9);
+  color: white;
+  border: none;
+  box-shadow: 0 6px 15px rgba(0, 100, 255, 0.25);
+}
+
+/* EBOOK PREVIEW - GREEN */
+
+#resultScreen .preview-button {
+  background: linear-gradient(135deg, #19d957, #00852b);
+  color: white;
+  border: none;
+  box-shadow: 0 6px 15px rgba(0, 160, 50, 0.25);
+}
+
+/* BUTTON HOVER */
+
+#resultScreen .result-actions button:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.08);
+}
 @media (max-width: 600px) {
   #resultScreen .panel {
     padding: 28px 16px;
@@ -623,9 +646,16 @@ body {
     <p id="achievement">Great effort! Keep practising your visual awareness.</p>
 
     <div class="result-actions">
-      <button id="againButton">PLAY AGAIN</button>
-      <button class="secondary" id="backButton">BACK TO PHOTO READING</button>
-    </div>
+  <button id="againButton">↻ PLAY AGAIN</button>
+
+  <button class="home-button" id="backButton">
+    🏠 HOME
+  </button>
+
+  <button class="preview-button" id="previewButton">
+    📖 EBOOK PREVIEW
+  </button>
+</div>
   </div>
 </section>
 
@@ -831,7 +861,9 @@ document.getElementById("againButton").addEventListener("click", startGame);
 document.getElementById("backButton").addEventListener("click", () => {
   window.location.href = "index.html";
 });
-
+document.getElementById("previewButton").addEventListener("click", () => {
+  window.location.href = "index.html#book-preview";
+});
 duck.addEventListener("pointerdown", shootDuck);
 
 // Prevent a game from continuing when the visitor leaves the page.
