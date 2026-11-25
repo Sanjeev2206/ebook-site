@@ -1122,8 +1122,9 @@ document.getElementById("competitorRaceSpeed").textContent =
   competitorSpeed + " WPM";
 
 document.getElementById("raceCompetitorName").textContent =
-  "Photo Reader";
-
+  selectedLanguage === "ko"
+    ? challengeTranslations.ko.photoReader
+    : "Photo Reader";
 document.getElementById("userRaceBar").style.width =
   (userSpeed / maxSpeed * 100) + "%";
 
