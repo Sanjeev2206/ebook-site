@@ -1020,6 +1020,60 @@ body {
 
 
 <script>
+  // KOREAN LANGUAGE TRANSLATION
+const pageLanguage = new URLSearchParams(window.location.search).get("lang");
+
+if (pageLanguage === "ko") {
+  document.documentElement.lang = "ko";
+
+  const koreanText = {
+    starWord: "별",
+    welcomeTitle: "주변 시야",
+    welcomeInstruction: "가운데 별에 시선을 고정한 채 주변 시야로 오리를 찾아 쏘세요.",
+    exerciseDuration: "12초 운동",
+    homeLabel: "홈",
+    previewLabel: "전자책 미리보기",
+    timeLabel: "시간",
+    ducksLabel: "명중한 오리",
+    scoreLabel: "점수",
+    missedLabel: "놓친 오리",
+    focusText: "별에 시선을 집중하세요",
+    gameMessage: "하늘을 살펴보세요. 오리를 찾으세요!",
+    resultsEyebrow: "포토 리딩 눈 운동",
+    resultsHeading: "멋진 사격이었어요!",
+    caughtLabel: "잡은 오리:",
+    totalScoreLabel: "총점:",
+    missedDucksLabel: "놓친 오리:",
+    accuracyLabel: "정확도",
+    achievement: "훌륭해요! 시각적 인식 능력을 계속 연습하세요."
+  };
+
+  Object.entries(koreanText).forEach(([id, translation]) => {
+    const element = document.getElementById(id);
+    if (element) element.textContent = translation;
+  });
+
+  document.querySelector("#welcomeScreen .eyebrow").textContent =
+    "READ FOR SPEED | 포토 리딩";
+
+  document.getElementById("startButton").innerHTML =
+    "▶ &nbsp; 운동 시작";
+
+  document.getElementById("againButton").textContent =
+    "↻ 다시 하기";
+
+  document.getElementById("backButton").textContent =
+    "🏠 홈";
+
+  document.getElementById("previewButton").textContent =
+    "📖 전자책 미리보기";
+
+  document.getElementById("duck").setAttribute(
+    "aria-label",
+    "오리 쏘기"
+  );
+  document.title = "오리 쏘기 – 포토 리딩 눈 운동";
+}
 const welcome = document.getElementById("welcomeScreen");
 const game = document.getElementById("gameScreen");
 const results = document.getElementById("resultScreen");
@@ -1203,7 +1257,20 @@ function endGame() {
 document.getElementById("accuracyRing")
   .style.setProperty("--progress", accuracy);
 
-  let message = "Great effort! Keep practising your visual awareness.";
+  let message;
+
+if (pageLanguage === "ko") {
+  if (caught >= 20) {
+    message = "놀라운 사격 실력이에요! 관찰 능력이 향상되고 있어요!";
+  } else if (caught >= 10) {
+    message = "정말 잘했어요! 많은 오리를 발견했어요!";
+  } else if (caught >= 1) {
+    message = "잘했어요! 꾸준한 연습이 실력을 향상시켜요!";
+  } else {
+    message = "훌륭한 도전이었어요! 시각적 인식 능력을 계속 연습하세요.";
+  }
+} else {
+  message = "Great effort! Keep practising your visual awareness.";
 
   if (caught >= 20) {
     message = "Amazing shooting! Your observation skills are improving!";
@@ -1212,8 +1279,9 @@ document.getElementById("accuracyRing")
   } else if (caught >= 1) {
     message = "Well done! Every practice makes a difference!";
   }
+}
 
-  document.getElementById("achievement").textContent = message;
+document.getElementById("achievement").textContent = message;
 
   showScreen(results);
 }
@@ -1222,10 +1290,15 @@ document.getElementById("startButton").addEventListener("click", startGame);
 document.getElementById("againButton").addEventListener("click", startGame);
 
 document.getElementById("backButton").addEventListener("click", () => {
-  window.location.href = "index.html";
+  window.location.href = pageLanguage === "ko"
+    ? "index.html?lang=ko"
+    : "index.html";
 });
+
 document.getElementById("previewButton").addEventListener("click", () => {
-  window.location.href = "index.html#book-preview";
+  window.location.href = pageLanguage === "ko"
+    ? "index.html?lang=ko#book-preview"
+    : "index.html#book-preview";
 });
 duck.addEventListener("pointerdown", shootDuck);
 
