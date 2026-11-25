@@ -819,9 +819,15 @@ const challengeTranslations = {
     you: "나:",
     photoReader: "포토 리더",
 
-    homeLink: "홈",
-    eyeExercise: "시력 훈련",
-    ebookPreview: "전자책 미리보기"
+   homeLink: "홈",
+eyeExercise: "시력 훈련",
+ebookPreview: "전자책 미리보기",
+
+congratulations: "축하합니다! 더 빠르게 읽으셨습니다!",
+photoReaderWon: "포토 리더가 더 빠르게 읽었습니다!",
+tie: "무승부입니다!",
+readingTime: "독서 시간: ",
+startFirst: "먼저 챌린지를 시작해 주세요!"
   }
 };
 
@@ -882,8 +888,13 @@ function startChallenge(level) {
   document.querySelector(".container").style.display = "none";
   document.getElementById("testScreen").style.display = "block";
 
-  document.getElementById("challengeTitle").textContent =
-    "You vs Photo Reader";
+  if (selectedLanguage === "ko") {
+    document.getElementById("challengeTitle").textContent =
+      challengeTranslations.ko.pageTitle;
+  } else {
+    document.getElementById("challengeTitle").textContent =
+      "You vs Photo Reader";
+  }
 }
 
 
@@ -1086,7 +1097,11 @@ function finishReading() {
   clearInterval(timerInterval);
 
   if (challengeStartTime === null) {
-    alert("Please start the challenge first!");
+    alert(
+  selectedLanguage === "ko"
+    ? challengeTranslations.ko.startFirst
+    : "Please start the challenge first!"
+);
     return;
   }
 
@@ -1128,20 +1143,34 @@ document.getElementById("speedDifference").textContent =
 
   let winnerMessage = "";
 
-  if (userSpeed > competitorSpeed) {
-    winnerMessage = "Congratulations! You read faster!";
-  } else if (userSpeed < competitorSpeed) {
-    winnerMessage = "The Photo Reader read faster!";
-  } else {
-    winnerMessage = "It's a tie!";
-  }
+if (userSpeed > competitorSpeed) {
+  winnerMessage =
+    selectedLanguage === "ko"
+      ? challengeTranslations.ko.congratulations
+      : "Congratulations! You read faster!";
+
+} else if (userSpeed < competitorSpeed) {
+  winnerMessage =
+    selectedLanguage === "ko"
+      ? challengeTranslations.ko.photoReaderWon
+      : "The Photo Reader read faster!";
+
+} else {
+  winnerMessage =
+    selectedLanguage === "ko"
+      ? challengeTranslations.ko.tie
+      : "It's a tie!";
+}
 
   document.getElementById("winnerMessage").textContent =
     winnerMessage;
 
   document.getElementById("timeTaken").textContent =
-    "Your reading time: " + elapsedTime.toFixed(1) + " seconds";
-
+  selectedLanguage === "ko"
+    ? challengeTranslations.ko.readingTime +
+      elapsedTime.toFixed(1) + "초"
+    : "Your reading time: " +
+      elapsedTime.toFixed(1) + " seconds";
   document.getElementById("resultScreen").style.display = "block";
 
   document.getElementById("resultScreen").scrollIntoView({
