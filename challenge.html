@@ -802,6 +802,79 @@ const readingPassages = {
 const currentPassages =
   readingPassages[selectedLanguage] || readingPassages.en;
 
+// KOREAN CHALLENGE INTERFACE TRANSLATIONS
+
+const challengeTranslations = {
+  ko: {
+    pageTitle: "포토 리더를 이길 수 있을까요?",
+    subtitle: "포토 리더와 독서 속도 대결을 시작하세요",
+    back: "← 뒤로",
+    home: "🏠 홈",
+    start: "▶ 도전 시작",
+    finish: "⚑ 도전 완료",
+
+    results: "독서 챌린지 결과",
+    yourSpeed: "나의 독서 속도",
+    photoSpeed: "포토 리더의 독서 속도",
+    you: "나:",
+    photoReader: "포토 리더",
+
+    homeLink: "홈",
+    eyeExercise: "시력 훈련",
+    ebookPreview: "전자책 미리보기"
+  }
+};
+
+// Apply Korean interface text only when Korean is selected
+if (selectedLanguage === "ko") {
+
+  const t = challengeTranslations.ko;
+
+  document.title = "독서 속도 챌린지";
+
+  document.getElementById("challengeTitle").textContent =
+    t.pageTitle;
+
+  document.getElementById("challengeSubtitle").textContent =
+    t.subtitle;
+
+  document.getElementById("backButton").textContent =
+    t.back;
+
+  document.getElementById("homeButton").textContent =
+    t.home;
+
+  document.getElementById("startChallengeButton").textContent =
+    t.start;
+
+  document.getElementById("finishChallengeButton").textContent =
+    t.finish;
+
+  document.getElementById("resultsTitle").textContent =
+    t.results;
+
+  document.getElementById("yourSpeedLabel").textContent =
+    t.yourSpeed;
+
+  document.getElementById("photoReaderSpeedLabel").textContent =
+    t.photoSpeed;
+
+  document.getElementById("youRaceLabel").textContent =
+    t.you;
+
+  document.getElementById("raceCompetitorName").textContent =
+    t.photoReader;
+
+  document.getElementById("resultHomeLabel").textContent =
+    t.homeLink;
+
+  document.getElementById("eyeExerciseLabel").textContent =
+    t.eyeExercise;
+
+  document.getElementById("ebookPreviewLabel").textContent =
+    t.ebookPreview;
+}
+
 document.getElementById("sharedPassage").textContent =
   currentPassages.user;
 function startChallenge(level) {
