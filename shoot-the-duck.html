@@ -835,14 +835,14 @@ body {
   <div class="panel">
 <div class="welcome-star">
   <span class="star-symbol">★</span>
-  <span class="star-word">STAR</span>
+  <span class="star-word" id="starWord">STAR</span>
 </div>
 <div class="welcome-duck">🦆</div>
     <div class="eyebrow">READ FOR SPEED | PHOTO READING</div>
 
-<h1>Peripheral Vision</h1>
+<h1 id="welcomeTitle">Peripheral Vision</h1>
 
-<p class="simple-instruction">
+<p class="simple-instruction" id="welcomeInstruction">
   Keep your eyes fixed on the centre star while spotting and shooting
   the ducks in your peripheral vision.
 </p>
@@ -850,7 +850,7 @@ body {
 
 <button id="startButton">▶ &nbsp; Start Exercise</button>
 
-<div class="simple-duration">
+<div class="simple-duration" id="exerciseDuration">
   12-second exercise
 </div>
 
@@ -864,7 +864,7 @@ body {
       <path d="M3 10.5L12 3l9 7.5v9a1.5 1.5 0 0 1-1.5 1.5H14v-6h-4v6H4.5A1.5 1.5 0 0 1 3 19.5z"/>
     </svg>
 
-    Home
+  <span id="homeLabel">Home</span>
   </a>
 
   <!-- EBOOK PREVIEW BUTTON -->
@@ -879,7 +879,7 @@ body {
       <path d="M21 5.5A2.5 2.5 0 0 0 18.5 3H12v18h6.5a2.5 2.5 0 0 1 2.5 2z"/>
     </svg>
 
-    Ebook Preview
+    <span id="previewLabel">Ebook Preview</span>
   </a>
 
 </div>
@@ -892,23 +892,43 @@ body {
 <!-- GAME SCREEN -->
 <section id="gameScreen" class="screen">
   <div class="scoreboard">
-    <div class="score-item">TIME <span id="timer">12</span></div>
-    <div class="score-item">DUCKS SHOT <span id="caught">0</span></div>
-    <div class="score-item">SCORE <span id="score">0</span></div>
-    <div class="score-item">MISSED <span id="missed">0</span></div>
+  <div class="score-item">
+    <span id="timeLabel">TIME</span>
+    <span id="timer">12</span>
   </div>
 
-  <div id="playArea" class="scope">
-    <div class="hill one"></div>
-    <div class="hill two"></div>
-
-    <div class="star">★</div>
-    <div class="focus-text">Keep your eyes on the star</div>
-
-    <div id="duck" role="button" aria-label="Shoot the duck">🦆</div>
-
-    <div class="game-message">Watch the sky. Find the duck!</div>
+  <div class="score-item">
+    <span id="ducksLabel">DUCKS SHOT</span>
+    <span id="caught">0</span>
   </div>
+
+  <div class="score-item">
+    <span id="scoreLabel">SCORE</span>
+    <span id="score">0</span>
+  </div>
+
+  <div class="score-item">
+    <span id="missedLabel">MISSED</span>
+    <span id="missed">0</span>
+  </div>
+</div>
+
+<div id="playArea" class="scope">
+  <div class="hill one"></div>
+  <div class="hill two"></div>
+
+  <div class="star">★</div>
+
+  <div class="focus-text" id="focusText">
+    Keep your eyes on the star
+  </div>
+
+  <div id="duck" role="button" aria-label="Shoot the duck">🦆</div>
+
+  <div class="game-message" id="gameMessage">
+    Watch the sky. Find the duck!
+  </div>
+</div>
 </section>
 
 
