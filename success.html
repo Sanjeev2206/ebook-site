@@ -18,7 +18,7 @@
       background: #fff; border-radius: 22px;
       box-shadow: 0 20px 60px rgba(15,23,42,.12);
     }
-    .check { font-size: 48px; margin-bottom: 12px; }
+    .check { font-size: 48px; margin-bottom: 12px; color: #16834a; }
     h1 { margin: 0 0 12px; font-size: clamp(28px, 5vw, 38px); }
     p { line-height: 1.7; color: #52645c; }
     a {
@@ -27,16 +27,17 @@
       text-decoration: none; font-weight: 700;
     }
     .note { font-size: 13px; margin-top: 22px; }
+    .home-link { background:#eef2f7; color:#1f2933; }
   </style>
 </head>
 <body>
   <main>
     <div class="check" aria-hidden="true">✓</div>
     <h1>Thank you for your purchase!</h1>
-    <p>If your payment was successful, your Read for Speed sample ebook is ready.</p>
-    <a href="ebook%20oct%202026%20%281%29.pdf" download>Download your PDF ebook</a>
-    <p class="note">Keep a copy of the PDF for your personal use. If you did not complete payment, please return to the website.</p>
-    <p><a href="/" style="background:#eef2f7;color:#1f2933">Return to website</a></p>
+    <p>If you have completed your payment successfully, your Read for Speed eBook is ready.</p>
+    <a href="read-for-speed-ebook.pdf" download="Read-for-Speed-eBook.pdf">Download your PDF eBook</a>
+    <p class="note">Please keep a copy of the PDF for your personal use. If you have not completed payment, return to the website and complete checkout first.</p>
+    <a class="home-link" href="/">Return to website</a>
   </main>
 </body>
 </html>
