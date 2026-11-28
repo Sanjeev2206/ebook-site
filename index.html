@@ -2940,6 +2940,7 @@ hideEdgeOnPages();
     animate();
   })();
 </script>
+<script src="assets/js/affiliate-tracking.js"></script>
 <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 
 <script>
@@ -2967,7 +2968,10 @@ hideEdgeOnPages();
       address: {
         countryCode: "KR"
       }
-    }
+    },
+    customData: window.getRfsAffiliateAttribution
+      ? window.getRfsAffiliateAttribution()
+      : {}
   });
 
 }
