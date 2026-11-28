@@ -1023,6 +1023,12 @@ body {
   // KOREAN LANGUAGE TRANSLATION
 const pageLanguage = new URLSearchParams(window.location.search).get("lang");
 
+// Preserve Korean when visitors move between the exercise and homepage.
+if (pageLanguage === "ko") {
+  document.querySelector(".welcome-home").href = "index.html?lang=ko";
+  document.querySelector(".welcome-preview").href = "index.html?lang=ko#book-preview";
+}
+
 if (pageLanguage === "ko") {
   document.documentElement.lang = "ko";
 
