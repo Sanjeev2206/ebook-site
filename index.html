@@ -3050,6 +3050,9 @@ function setLanguage(lang) {
 
     if (countryCode === "KR") {
 
+    // Keep Korean selected when visitors open the Eye Exercise page.
+    document.getElementById("navExercise").href = "shoot-the-duck.html?lang=ko";
+
     setLanguage("ko");
 
     document.querySelectorAll(".pay-korea").forEach(button => {
