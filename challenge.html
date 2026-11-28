@@ -737,7 +737,7 @@ body {
 
   <nav class="result-navigation">
 
-  <a href="index.html#hero">
+  <a id="resultHomeLink" href="index.html#hero">
     <svg viewBox="0 0 24 24" fill="none"
          stroke-width="2" stroke-linecap="round"
          stroke-linejoin="round">
@@ -748,7 +748,7 @@ body {
     <span id="resultHomeLabel">Home</span>
   </a>
 
-  <a href="shoot-the-duck.html">
+  <a id="resultEyeExerciseLink" href="shoot-the-duck.html">
     <svg viewBox="0 0 24 24" fill="none"
          stroke-width="2" stroke-linecap="round"
          stroke-linejoin="round">
@@ -758,7 +758,7 @@ body {
   <span id="eyeExerciseLabel">Eye Exercise</span>
   </a>
 
-  <a href="index.html#book-preview">
+  <a id="resultPreviewLink" href="index.html#book-preview">
     <svg viewBox="0 0 24 24" fill="none"
          stroke-width="2" stroke-linecap="round"
          stroke-linejoin="round">
@@ -783,6 +783,13 @@ let userWordCount = 0;
     
 const selectedLanguage =
   new URLSearchParams(window.location.search).get("lang") || "en";
+
+// Keep the selected language when moving from results to the next page.
+if (selectedLanguage === "ko") {
+  document.getElementById("resultHomeLink").href = "index.html?lang=ko#hero";
+  document.getElementById("resultEyeExerciseLink").href = "shoot-the-duck.html?lang=ko";
+  document.getElementById("resultPreviewLink").href = "index.html?lang=ko#book-preview";
+}
 
 const readingPassages = {
   en: {
